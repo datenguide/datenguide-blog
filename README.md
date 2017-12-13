@@ -1,14 +1,21 @@
-# gatsby-starter-grommet
-Gatsby starter configured to use the [Grommet design system](https://grommet.github.io/).
+# Datenguide
 
-Use this starter by running:
+This is the project that powers the [datengui.de](http://datengui.de) website. It is built using [React](https://reactjs.org/) and [Gatsby](https://www.gatsbyjs.org/).
+
+Install dependencies:
 
 ```sh
-gatsby new my-grommet-site https://github.com/alampros/gatsby-starter-grommet
+yarn run install
 ```
 
-See the [Gatsby starters docs](https://www.gatsbyjs.org/docs/gatsby-starters/) for more info on starters.
+Run development server:
 
-### Demo
+```sh
+yarn run dev
+```
 
-See the [live demo](https://alampros.github.io/gatsby-starter-grommet/)
+Build for deployment:
+
+```sh
+yarn run build
+```
