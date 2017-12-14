@@ -2,6 +2,8 @@ import React from 'react'
 import Box from 'grommet/components/Box'
 import Header from '../components/Header'
 import Footer from '../components/Footer'
+import Headline from 'grommet/components/Headline'
+import Markdown from 'grommet/components/Markdown'
 
 export default ({ data }) => {
   const page = data.markdownRemark
@@ -12,21 +14,14 @@ export default ({ data }) => {
       <Header />
 
       <Box direction="row" flex="grow" justify="center" colorIndex="light-2">
-        <Box
-          direction="row" flex="grow"
-          size={{width: {max: 'xxlarge'}}}
-          pad='medium'>
-            <h2>{ page.frontmatter.title }</h2>
-            <p>{ page.frontmatter.intro }</p>
+        <Box size={{width: {max: 'xxlarge'}}} pad='large'>
+          <Markdown content={page.frontmatter.intro} />
         </Box>
       </Box>
 
       <Box direction="row" flex="grow" justify="center">
-        <Box
-          direction="row" flex="grow"
-          size={{width: {max: 'xxlarge'}}}
-          pad='medium'>
-            <div dangerouslySetInnerHTML={{ __html: page.html }} />
+        <Box size={{width: {max: 'xxlarge'}}} pad='large'>
+          <div dangerouslySetInnerHTML={{ __html: page.html }} />
         </Box>
       </Box>
 

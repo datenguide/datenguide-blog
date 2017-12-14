@@ -13,7 +13,6 @@ export default function AppFooter (props) {
         <Box flex="grow" align="end">
           <Menu label="Label" inline={true} direction="row">
             <Anchor href="#">Contact</Anchor>
-            <Anchor href="#">About</Anchor>
           </Menu>
         </Box>
       </Box>

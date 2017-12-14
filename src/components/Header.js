@@ -3,19 +3,19 @@ import Anchor from 'grommet/components/Anchor'
 import Box from 'grommet/components/Box'
 import Header from 'grommet/components/Header'
 import Menu from 'grommet/components/Menu'
-import GrommetIcon from 'grommet/components/icons/base/BrandGrommetOutline'
+import Logo from './Logo'
 
 export default function AppHeader (props) {
   return (
-    <Header justify="center" colorIndex="neutral-4">
+    <Header justify="center">
       <Box size={{width: {max: 'xxlarge'}}} direction="row"
-        responsive={false} justify="start" align="center"
-        pad={{horizontal: 'medium'}} flex="grow">
-        <GrommetIcon colorIndex="brand" size="large" />
+        responsive={false} flex="grow" pad='large'>
+
+        <Logo />
+
         <Box flex="grow" align="end">
           <Menu label="Label" inline={true} direction="row">
-            <Anchor href="#">Contact</Anchor>
-            <Anchor href="#">About</Anchor>
+            <Anchor href="/contact">Contact</Anchor>
           </Menu>
         </Box>
       </Box>
