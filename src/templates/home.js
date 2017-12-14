@@ -4,7 +4,8 @@ import Header from '../components/Header'
 import Footer from '../components/Footer'
 
 export default ({ data }) => {
-  console.log(data)
+  const page = data.markdownRemark
+
   return (
     <div>
 
@@ -15,7 +16,8 @@ export default ({ data }) => {
           direction="row" flex="grow"
           size={{width: {max: 'xxlarge'}}}
           pad='medium'>
-          First Box
+            <h2>{ page.frontmatter.title }</h2>
+            <p>{ page.frontmatter.intro }</p>
         </Box>
       </Box>
 
@@ -24,7 +26,7 @@ export default ({ data }) => {
           direction="row" flex="grow"
           size={{width: {max: 'xxlarge'}}}
           pad='medium'>
-          Second section
+            <div dangerouslySetInnerHTML={{ __html: page.html }} />
         </Box>
       </Box>
 
@@ -35,17 +37,12 @@ export default ({ data }) => {
 }
 
 export const query = graphql`
-  query IndexQuery {
-    allMarkdownRemark {
-      totalCount
-      edges {
-        node {
-          id
-          frontmatter {
-            title
-          }
-          excerpt
-        }
+  query HomeQuery($slug: String!) {
+    markdownRemark(fields: { slug: { eq: $slug } }) {
+      html
+      frontmatter {
+        title
+        intro
       }
     }
   }
