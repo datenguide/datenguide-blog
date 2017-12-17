@@ -1,9 +1,11 @@
 import React from 'react'
 import Box from 'grommet/components/Box'
-import Header from '../components/Header'
-import Footer from '../components/Footer'
+import Split from 'grommet/components/Split'
 import Headline from 'grommet/components/Headline'
 import Markdown from 'grommet/components/Markdown'
+import Header from '../components/Header'
+import Newsletter from '../components/Newsletter'
+import Footer from '../components/Footer'
 
 export default ({ data }) => {
   const page = data.markdownRemark
@@ -13,16 +15,25 @@ export default ({ data }) => {
 
       <Header />
 
-      <Box direction="row" flex="grow" justify="center" colorIndex="light-2">
-        <Box size={{width: {max: 'xxlarge'}}} pad='large'>
+      <Box direction="row" flex="grow" justify="center" colorIndex="neutral-2-a">
+        <Box size={{width: {max: 'xxlarge'}}} pad="large">
           <Markdown content={page.frontmatter.intro} />
         </Box>
       </Box>
 
       <Box direction="row" flex="grow" justify="center">
-        <Box size={{width: {max: 'xxlarge'}}} pad='large'>
-          <div dangerouslySetInnerHTML={{ __html: page.html }} />
+        <Box size={{width: {max: 'xxlarge'}}} pad="large" align="start">
+
+          <Split>
+
+            <div dangerouslySetInnerHTML={{ __html: page.html }} />
+
+          </Split>
         </Box>
+      </Box>
+
+      <Box direction="row" flex="grow" justify="center" colorIndex="light-2">
+        <Newsletter />
       </Box>
 
       <Footer />

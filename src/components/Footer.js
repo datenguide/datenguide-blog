@@ -6,7 +6,7 @@ import Menu from 'grommet/components/Menu'
 
 export default function AppFooter (props) {
   return (
-    <Footer justify="center" colorIndex="neutral-4">
+    <Footer justify="center" colorIndex="neutral-2-a">
       <Box size={{width: {max: 'xxlarge'}}} direction="row"
         responsive={false} justify="start" align="center"
         pad={{horizontal: 'medium'}} flex="grow">
