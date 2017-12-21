@@ -1,6 +1,6 @@
 import React from 'react'
 import Form from 'grommet/components/Form'
-import Label from 'grommet/components/label'
+import Label from 'grommet/components/Label'
 import TextInput from 'grommet/components/TextInput'
 import Button from 'grommet/components/Button'
 import Box from 'grommet/components/Box'
