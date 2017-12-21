@@ -6,7 +6,7 @@ import Button from 'grommet/components/Button'
 import Box from 'grommet/components/Box'
 
 const Newsletter = () => (
-    <form action="https://datengui.us17.list-manage.com/subscribe/post?u=4b79a045e2fce403d887f9147&amp;id=19233695e7" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" no-validate>
+    <form action="https://datengui.us17.list-manage.com/subscribe/post?u=4b79a045e2fce403d887f9147&amp;id=19233695e7" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" noValidate>
 
       <Box direction="row"
         justify="start"
@@ -18,7 +18,7 @@ const Newsletter = () => (
           align="center"
           wrap={true}
           margin="small">
-          <Label for="email">Newsletter abonnieren</Label>
+          <Label htmlFor="email">Newsletter abonnieren</Label>
         </Box>
 
         <Box direction="row"
