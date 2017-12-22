@@ -10,7 +10,7 @@ export default function AppFooter (props) {
         responsive={false} justify="start" align="center"
         pad={{horizontal: 'medium'}} flex="grow">
         <Box flex="grow" align="end">
-          <GatsbyLink to="contact">Kontakt</GatsbyLink>
+          <GatsbyLink to="contact">Kontakt und Impressum</GatsbyLink>
         </Box>
       </Box>
     </Footer>
