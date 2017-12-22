@@ -1,13 +1,30 @@
 import React from "react"
+import Box from 'grommet/components/Box'
+import Header from '../components/Header'
+import Newsletter from '../components/Newsletter'
+import Funders from '../components/Funders'
+import Footer from '../components/Footer'
 
 export default ({ data }) => {
   const page = data.markdownRemark
   return (
     <div>
-      <h1>
-        {page.frontmatter.title}
-      </h1>
-      <div dangerouslySetInnerHTML={{ __html: page.html }} />
+
+      <Header />
+
+      <Box direction="row" flex="grow" justify="center" colorIndex="light-2">
+        <Box size={{width: {max: 'xxlarge'}}} flex="grow" pad='large'>
+          <h3>{page.frontmatter.title}</h3>
+          <div dangerouslySetInnerHTML={{ __html: page.html }} />
+        </Box>
+      </Box>
+
+      <Box direction="row" flex="grow" justify="center">
+        <Newsletter />
+      </Box>
+
+      <Footer />
+
     </div>
   )
 }
