@@ -1,6 +1,5 @@
 import React from 'react'
 import Box from 'grommet/components/Box'
-import Split from 'grommet/components/Split'
 import Headline from 'grommet/components/Headline'
 import Markdown from 'grommet/components/Markdown'
 import Header from '../components/Header'
