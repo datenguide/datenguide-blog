@@ -1,8 +1,7 @@
 import React from 'react'
-import Anchor from 'grommet/components/Anchor'
 import Box from 'grommet/components/Box'
 import Footer from 'grommet/components/Footer'
-import Menu from 'grommet/components/Menu'
+import GatsbyLink from 'gatsby-link'
 
 export default function AppFooter (props) {
   return (
@@ -11,9 +10,7 @@ export default function AppFooter (props) {
         responsive={false} justify="start" align="center"
         pad={{horizontal: 'medium'}} flex="grow">
         <Box flex="grow" align="end">
-          <Menu label="Label" inline={true} direction="row">
-            <Anchor href="#">Contact</Anchor>
-          </Menu>
+          <GatsbyLink to="contact">Kontakt</GatsbyLink>
         </Box>
       </Box>
     </Footer>
