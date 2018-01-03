@@ -12,6 +12,12 @@ module.exports = {
         path: `${__dirname}/src/`,
       },
     },
+    {
+      resolve: 'gatsby-source-datenguide',
+      options: {
+        queryUrl: 'http://127.0.0.1:5000/\?query\=',
+      }
+    },
     'gatsby-transformer-remark',
     {
       resolve: 'custom-sass-loader',
