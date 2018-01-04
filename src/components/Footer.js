@@ -8,7 +8,7 @@ export default function AppFooter (props) {
     <Footer justify="center" colorIndex="neutral-2-a">
       <Box size={{width: {max: 'xxlarge'}}} direction="row"
         responsive={false} justify="start" align="center"
-        pad={{horizontal: 'medium'}} flex="grow">
+        pad={{horizontal: 'medium', vertical: 'small'}} flex="grow">
         <Box flex="grow" align="end">
           <GatsbyLink to="contact">Kontakt und Impressum</GatsbyLink>
         </Box>

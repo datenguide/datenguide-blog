@@ -20,7 +20,9 @@ export default ({ data }) => {
       </Box>
 
       <Box direction="row" flex="grow" justify="center">
-        <Newsletter />
+        <Box direction="column" size={{width: {max: 'xxlarge'}}} flex="grow" pad={{horizontal: 'large', vertical: 'medium'}}>
+          <Newsletter />
+        </Box>
       </Box>
 
       <Footer />
