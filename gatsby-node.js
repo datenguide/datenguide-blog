@@ -1,6 +1,33 @@
 const path = require(`path`)
 const { createFilePath } = require(`gatsby-source-filesystem`)
 
+const staticPagesQuery = `
+{
+  allMarkdownRemark {
+    edges {
+      node {
+        frontmatter {
+          template
+        }
+        fields {
+          slug
+        }
+      }
+    }
+  }
+}`
+
+const districtsQuery = `
+{
+  allDistrict {
+    edges {
+      node {
+        slug
+      }
+    }
+  }
+}`
+
 const getTemplate = (slug) => path.resolve(`./src/templates/${slug}.js`)
 
 exports.onCreateNode = ({ node, getNode, boundActionCreators }) => {
@@ -19,23 +46,8 @@ exports.onCreateNode = ({ node, getNode, boundActionCreators }) => {
 exports.createPages = ({ graphql, boundActionCreators }) => {
   const { createPage } = boundActionCreators
 
-  return new Promise((resolve, reject) => {
-    graphql(`
-      {
-        allMarkdownRemark {
-          edges {
-            node {
-              frontmatter {
-                template
-              }
-              fields {
-                slug
-              }
-            }
-          }
-        }
-      }
-    `).then(result => {
+  const staticPagesGenerator = new Promise((resolve, reject) => {
+    graphql(staticPagesQuery).then(result => {
       const defaultTemplate = path.resolve(`./src/templates/page.js`)
 
       result.data.allMarkdownRemark.edges.map(({ node }) => {
@@ -54,4 +66,23 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
       resolve()
     })
   })
+
+  const districtsGenerator = new Promise((resolve, reject) => {
+    graphql(districtsQuery).then(result => {
+      result.data.allDistrict.edges.map(({ node }) => {
+        if (node.slug) {
+          createPage({
+            path: node.slug,
+            component: getTemplate('district'),
+            context: {
+              slug: node.slug
+            },
+          })
+        }
+      })   
+      resolve()
+    })
+  })
+
+  return Promise.all([districtsGenerator, staticPagesGenerator])
 }
