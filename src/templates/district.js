@@ -6,20 +6,58 @@ export default ({ data }) => {
   return (
     <div>
       <h1>{district.name}</h1>
+
       <ul>
-        <li>{district.munis}</li>
-        <li>{district.id}</li>
+        <li>{district.name_ext}</li>
+        <li>{district.pop.m} / {district.pop.w}</li>
       </ul>
+
+      <ul>
+        <li>{district.Schulstatistik.Gymnasien.BIL003.BILKL2.JGSTUFE11}</li>
+        <li>{district.Schulstatistik.Gymnasien.BIL003.BILKL2.JGSTUFE7}</li>
+      </ul>      
+
+      <ul>
+        <li>{district.Schulstatistik.Gymnasien.BIL003.GES.I}</li>
+        <li>{district.Schulstatistik.Gymnasien.BIL003.GES.M}</li>
+      </ul> 
+
+      <ul>
+        <li>{district.Schulstatistik.Gymnasien.BIL003.NAT.NATA}</li>
+      </ul>       
     </div>
   )
 }
 
 export const query = graphql`
   query DistrictQuery($slug: String!) {
-    district(id: { eq: $slug }) {
+    district(slug: { eq: $slug }) {
       id
-      munis
       name
+      name_ext
+      slug
+      area
+      pop {
+        m
+        w
+      }
+      Schulstatistik {
+        Gymnasien {
+          BIL003 {
+            BILKL2 {
+              JGSTUFE11
+              JGSTUFE7
+            }
+            GES {
+              I
+              M
+            }
+            NAT {
+              NATA
+            }
+          }
+        }
+      }
     }
   }
 `

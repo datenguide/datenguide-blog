@@ -22,9 +22,7 @@ const districtsQuery = `
   allDistrict {
     edges {
       node {
-        id
-        munis
-        name
+        slug
       }
     }
   }
@@ -71,17 +69,17 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
 
   const districtsGenerator = new Promise((resolve, reject) => {
     graphql(districtsQuery).then(result => {
-
       result.data.allDistrict.edges.map(({ node }) => {
-        createPage({
-          path: node.id,
-          component: getTemplate('district'),
-          context: {
-            // Data passed to context is available in page queries as GraphQL variables.
-            slug: node.id
-          },
-        })
-      })
+        if (node.slug) {
+          createPage({
+            path: node.slug,
+            component: getTemplate('district'),
+            context: {
+              slug: node.slug
+            },
+          })
+        }
+      })   
       resolve()
     })
   })
