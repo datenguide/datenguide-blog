@@ -12,7 +12,8 @@
     "build": "gatsby build",
     "clean": "git clean -xfd .cache public/",
     "serve": "yarn run clean && yarn run build && gatsby serve",
-    "deploy": "gatsby build --prefix-paths && gh-pages -d public"
+    "deploy": "gatsby build --prefix-paths && gh-pages -d public",
+    "precommit": "pretty-quick --staged"
   },
   "dependencies": {
     "autoprefixer": "^7.1.2",
@@ -30,7 +31,10 @@
     "sass-loader": "^4.1.1"
   },
   "devDependencies": {
-    "gh-pages": "^1.1.0"
+    "gh-pages": "^1.1.0",
+    "husky": "^0.14.3",
+    "prettier": "^1.10.2",
+    "pretty-quick": "^1.2.2"
   },
   "homepage": "https://datengui.de",
   "license": "MIT",

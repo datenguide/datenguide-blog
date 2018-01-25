@@ -15,7 +15,8 @@ const staticPagesQuery = `
       }
     }
   }
-}`
+}
+`
 
 const districtsQuery = `
 {
@@ -28,7 +29,7 @@ const districtsQuery = `
   }
 }`
 
-const getTemplate = (slug) => path.resolve(`./src/templates/${slug}.js`)
+const getTemplate = slug => path.resolve(`./src/templates/${slug}.js`)
 
 exports.onCreateNode = ({ node, getNode, boundActionCreators }) => {
   const { createNodeField } = boundActionCreators
@@ -38,7 +39,7 @@ exports.onCreateNode = ({ node, getNode, boundActionCreators }) => {
     createNodeField({
       node,
       name: `slug`,
-      value: slug,
+      value: slug
     })
   }
 }
@@ -60,7 +61,7 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
           context: {
             // Data passed to context is available in page queries as GraphQL variables.
             slug: node.fields.slug
-          },
+          }
         })
       })
       resolve()
@@ -76,10 +77,10 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
             component: getTemplate('district'),
             context: {
               slug: node.slug
-            },
+            }
           })
         }
-      })   
+      })
       resolve()
     })
   })

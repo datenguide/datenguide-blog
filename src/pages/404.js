@@ -15,8 +15,12 @@ export default () => (
         justify="center"
         align="center"
       >
-        <Heading tag="h1"><strong>404</strong></Heading>
-        <Paragraph>You just hit a route that doesn't exist... the sadness.</Paragraph>
+        <Heading tag="h1">
+          <strong>404</strong>
+        </Heading>
+        <Paragraph>
+          You just hit a route that doesn't exist... the sadness.
+        </Paragraph>
       </Section>
     </Article>
   </Split>

@@ -1,4 +1,4 @@
-import React from "react"
+import React from 'react'
 import Box from 'grommet/components/Box'
 import Header from '../components/Header'
 import Newsletter from '../components/Newsletter'
@@ -9,24 +9,27 @@ export default ({ data }) => {
   const page = data.markdownRemark
   return (
     <div>
-
       <Header />
 
       <Box direction="row" flex="grow" justify="center" colorIndex="light-2">
-        <Box size={{width: {max: 'xxlarge'}}} flex="grow" pad='large'>
+        <Box size={{ width: { max: 'xxlarge' } }} flex="grow" pad="large">
           <h3>{page.frontmatter.title}</h3>
           <div dangerouslySetInnerHTML={{ __html: page.html }} />
         </Box>
       </Box>
 
       <Box direction="row" flex="grow" justify="center">
-        <Box direction="column" size={{width: {max: 'xxlarge'}}} flex="grow" pad={{horizontal: 'large', vertical: 'medium'}}>
+        <Box
+          direction="column"
+          size={{ width: { max: 'xxlarge' } }}
+          flex="grow"
+          pad={{ horizontal: 'large', vertical: 'medium' }}
+        >
           <Newsletter />
         </Box>
       </Box>
 
       <Footer />
-
     </div>
   )
 }

@@ -1,20 +1,16 @@
 import React from 'react'
 
-const renderDistrict = ({ node }) => { 
+const renderDistrict = ({ node }) => {
   return (
     <li>
-      <a href={ node.slug }>{ node.name}</a>
+      <a href={node.slug}>{node.name}</a>
     </li>
   )
 }
 
-export default ({data}) => {
+export default ({ data }) => {
   const districts = data.allDistrict.edges
-  return (
-    <ul>
-      { districts.map(renderDistrict) }
-    </ul>
-  )
+  return <ul>{districts.map(renderDistrict)}</ul>
 }
 
 export const query = graphql`

@@ -12,32 +12,45 @@ export default ({ data }) => {
 
   return (
     <div>
-
       <Header />
 
-      <Box direction="row" flex="grow" justify="center" colorIndex="neutral-2-a">
-        <Box size={{width: {max: 'xxlarge'}}} pad="large">
+      <Box
+        direction="row"
+        flex="grow"
+        justify="center"
+        colorIndex="neutral-2-a"
+      >
+        <Box size={{ width: { max: 'xxlarge' } }} pad="large">
           <Markdown content={page.frontmatter.intro} />
         </Box>
       </Box>
 
       <Box direction="row" flex="grow" justify="center" colorIndex="light-2">
-        <Box direction="column" size={{width: {max: 'xxlarge'}}} flex="grow" pad='large'>
+        <Box
+          direction="column"
+          size={{ width: { max: 'xxlarge' } }}
+          flex="grow"
+          pad="large"
+        >
           <div dangerouslySetInnerHTML={{ __html: page.html }} />
-          <Box size={{width: {max: 'large'}}} >
+          <Box size={{ width: { max: 'large' } }}>
             <Funders />
           </Box>
         </Box>
       </Box>
 
       <Box direction="row" flex="grow" justify="center">
-        <Box direction="column" size={{width: {max: 'xxlarge'}}} flex="grow" pad={{horizontal: 'large', vertical: 'medium'}}>
+        <Box
+          direction="column"
+          size={{ width: { max: 'xxlarge' } }}
+          flex="grow"
+          pad={{ horizontal: 'large', vertical: 'medium' }}
+        >
           <Newsletter />
         </Box>
       </Box>
 
       <Footer />
-
     </div>
   )
 }

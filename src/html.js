@@ -7,17 +7,17 @@ export default class HTML extends React.Component {
   static propTypes = {
     body: PropTypes.string,
     headComponents: PropTypes.node,
-    postBodyComponents: PropTypes.node,
+    postBodyComponents: PropTypes.node
   }
 
   /* eslint-disable global-require, import/no-webpack-loader-syntax, react/no-danger */
   render() {
     let css
-    if(process.env.NODE_ENV === 'production') {
+    if (process.env.NODE_ENV === 'production') {
       css = (
         <style
           dangerouslySetInnerHTML={{
-            __html: require('!raw!../public/styles.css'),
+            __html: require('!raw!../public/styles.css')
           }}
         />
       )

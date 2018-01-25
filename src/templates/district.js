@@ -1,7 +1,7 @@
 import React from 'react'
 
 export default ({ data }) => {
-  const {district} = data
+  const { district } = data
 
   return (
     <div>
@@ -9,22 +9,24 @@ export default ({ data }) => {
 
       <ul>
         <li>{district.name_ext}</li>
-        <li>{district.pop.m} / {district.pop.w}</li>
+        <li>
+          {district.pop.m} / {district.pop.w}
+        </li>
       </ul>
 
       <ul>
         <li>{district.Schulstatistik.Gymnasien.BIL003.BILKL2.JGSTUFE11}</li>
         <li>{district.Schulstatistik.Gymnasien.BIL003.BILKL2.JGSTUFE7}</li>
-      </ul>      
+      </ul>
 
       <ul>
         <li>{district.Schulstatistik.Gymnasien.BIL003.GES.I}</li>
         <li>{district.Schulstatistik.Gymnasien.BIL003.GES.M}</li>
-      </ul> 
+      </ul>
 
       <ul>
         <li>{district.Schulstatistik.Gymnasien.BIL003.NAT.NATA}</li>
-      </ul>       
+      </ul>
     </div>
   )
 }

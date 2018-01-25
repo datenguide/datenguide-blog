@@ -9,14 +9,10 @@ import '../scss/main.scss'
 
 export default class IndexLayout extends React.Component {
   static propTypes = {
-    children: PropTypes.func,
+    children: PropTypes.func
   }
 
   render() {
-    return (
-      <App centered={false}>
-        {this.props.children()}
-      </App>
-    )
+    return <App centered={false}>{this.props.children()}</App>
   }
 }
