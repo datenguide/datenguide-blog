@@ -1,0 +1,12 @@
+.hero {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: $mdc-theme-primary-light;
+  min-height: 320px;
+}
+
+.hero__tagline {
+  @extend .mdc-typography--display3;
+  line-height: 1.2;
+}

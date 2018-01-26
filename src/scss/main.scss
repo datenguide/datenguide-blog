@@ -1,8 +1,17 @@
 @import 'variables';
 
 /**
- * Only imports styles for the Button component.
+ * Dependencies
  */
-
 @import 'normalize.css/normalize';
 @import 'material-components-web/material-components-web';
+
+/**
+ * Custom components
+ */
+@import 'components/hero';
+
+body {
+  line-height: 1.4;
+  font-size: 22px;
+}
