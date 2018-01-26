@@ -1,20 +1,25 @@
 import React from 'react'
-import Box from 'grommet/components/Box'
-import Header from 'grommet/components/Header'
+import {
+  Toolbar,
+  ToolbarRow,
+  ToolbarSection,
+  ToolbarTitle,
+  ToolbarMenuIcon,
+  ToolbarIcon
+} from 'rmwc/Toolbar'
+
 import Logo from './Logo'
 
 export default function AppHeader(props) {
   return (
-    <Header justify="center">
-      <Box
-        size={{ width: { max: 'xxlarge' } }}
-        direction="row"
-        responsive={false}
-        flex="grow"
-        pad="large"
-      >
-        <Logo />
-      </Box>
-    </Header>
+    <Toolbar>
+      <ToolbarRow>
+        <ToolbarSection alignStart>
+          <Logo />
+          <ToolbarTitle>Datenguide</ToolbarTitle>
+        </ToolbarSection>
+        <ToolbarSection alignEnd />
+      </ToolbarRow>
+    </Toolbar>
   )
 }
