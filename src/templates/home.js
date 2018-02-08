@@ -29,7 +29,7 @@ export default ({ data }) => {
       </Grid>
 
       <Grid>
-        <GridCell span="13">
+        <GridCell span="12">
           <Newsletter />
         </GridCell>
       </Grid>
