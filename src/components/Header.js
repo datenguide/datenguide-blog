@@ -16,7 +16,7 @@ export default function AppHeader(props) {
       <ToolbarRow>
         <ToolbarSection alignStart>
           <Logo />
-          <ToolbarTitle>Datenguide</ToolbarTitle>
+          <ToolbarTitle>datenguide</ToolbarTitle>
         </ToolbarSection>
         <ToolbarSection alignEnd />
       </ToolbarRow>
