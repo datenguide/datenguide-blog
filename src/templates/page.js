@@ -1,5 +1,6 @@
 import React from 'react'
-import Box from 'grommet/components/Box'
+import { Grid, GridCell } from 'rmwc/Grid'
+
 import Header from '../components/Header'
 import Newsletter from '../components/Newsletter'
 import Funders from '../components/Funders'
@@ -11,23 +12,26 @@ export default ({ data }) => {
     <div>
       <Header />
 
-      <Box direction="row" flex="grow" justify="center" colorIndex="light-2">
-        <Box size={{ width: { max: 'xxlarge' } }} flex="grow" pad="large">
+      <Grid>
+        <GridCell span="8">
           <h3>{page.frontmatter.title}</h3>
           <div dangerouslySetInnerHTML={{ __html: page.html }} />
-        </Box>
-      </Box>
+        </GridCell>
+      </Grid>
 
-      <Box direction="row" flex="grow" justify="center">
-        <Box
-          direction="column"
-          size={{ width: { max: 'xxlarge' } }}
-          flex="grow"
-          pad={{ horizontal: 'large', vertical: 'medium' }}
-        >
+      <Grid>
+        <GridCell span="6">
+          <Funders />
+        </GridCell>
+      </Grid>
+
+      <Grid>
+        <GridCell span="12">
           <Newsletter />
-        </Box>
-      </Box>
+        </GridCell>
+      </Grid>
+
+      <Footer />
 
       <Footer />
     </div>
