@@ -1,6 +1,3 @@
 import React from 'react'
-import logo from '../assets/images/logo.svg'
 
-const Logo = () => <img src={logo} alt="Datenguide" height="50" />
-
-export default Logo
+export default () => <h1 className="logo">datenguide</h1>

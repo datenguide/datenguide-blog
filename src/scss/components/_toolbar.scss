@@ -1,22 +1,14 @@
 .mdc-toolbar {
   background: transparent;
-
-  @each $size in map-keys($mdc-layout-grid-columns) {
-    @include mdc-layout-grid-media-query_($size) {
-      $margin: map-get($mdc-layout-grid-default-margin, $size);
-
-      @include mdc-layout-grid($size, $margin, $mdc-layout-grid-max-width);
-    }
-  }
 }
 
 .mdc-toolbar__row {
   @each $size in map-keys($mdc-layout-grid-columns) {
     @include mdc-layout-grid-media-query_($size) {
-      $margin: map-get($mdc-layout-grid-default-margin, $size);
-      $gutter: map-get($mdc-layout-grid-default-gutter, $size);
-
-      @include mdc-layout-grid-inner($size, $margin, $gutter);
+      $padding: map-get($mdc-layout-grid-default-margin, $size);
+      padding: 0 $padding;
+      max-width: $mdc-layout-grid-max-width;
     }
   }
+  margin: 0 auto;
 }
