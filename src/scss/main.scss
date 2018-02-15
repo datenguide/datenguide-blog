@@ -1,10 +1,16 @@
 @import 'variables';
 
 /**
- * Dependencies
+ * External dependencies
  */
 @import 'normalize.css/normalize';
 @import 'material-components-web/material-components-web';
+
+/**
+ * Fonts
+ */
+$font-prefix: '~@ibm/type';
+@import '@ibm/type/scss/sans/index';
 
 /**
  * Custom components
@@ -14,7 +20,8 @@
 @import 'components/toolbar';
 
 body {
+  padding-top: $header-height;
+  font-family: $font-family-default;
   line-height: 1.4;
-  font-size: 22px;
-  padding-top: 62px;
+  font-size: $font-size-default;
 }

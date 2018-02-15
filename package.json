@@ -16,6 +16,7 @@
     "precommit": "pretty-quick --staged"
   },
   "dependencies": {
+    "@ibm/type": "^0.5.4",
     "autoprefixer": "^7.1.2",
     "extract-text-webpack-plugin": "^1.0.1",
     "gatsby": "^1.1.0",

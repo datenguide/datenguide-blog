@@ -32,14 +32,10 @@ export default class HTML extends React.Component {
             name="viewport"
             content="width=device-width, initial-scale=1.0"
           />
-          <link
-            href="https://fonts.googleapis.com/css?family=Roboto:300,400,500"
-            rel="stylesheet"
-          />
           {this.props.headComponents}
           {css}
         </head>
-        <body className="mdc-typography">
+        <body>
           <div
             id="___gatsby"
             dangerouslySetInnerHTML={{ __html: this.props.body }}
