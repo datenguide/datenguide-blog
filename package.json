@@ -31,7 +31,8 @@
     "react": "^15.6.1",
     "react-dom": "^15.6.1",
     "rmwc": "^1.1.0",
-    "sass-loader": "^4.1.1"
+    "sass-loader": "^4.1.1",
+    "victory": "^0.25.6"
   },
   "devDependencies": {
     "gh-pages": "^1.1.0",

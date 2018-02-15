@@ -1,6 +1,7 @@
 import React from 'react'
 import { Grid, GridCell } from 'rmwc/Grid'
 import Header from '../components/Header'
+import { VictoryBar, VictoryChart } from 'victory'
 
 export default ({ data }) => {
   const { district } = data
@@ -12,13 +13,15 @@ export default ({ data }) => {
       <Grid>
         <GridCell span="8">
           <h1>{district.name}</h1>
-
-          <ul>
-            <li>{district.name_ext}</li>
-            <li>
-              {district.pop.m} / {district.pop.w}
-            </li>
-          </ul>
+          <p>{district.name_ext}</p>
+          <VictoryChart domainPadding={50}>
+            <VictoryBar
+              data={[
+                { x: 'male', y: district.pop.m },
+                { x: 'female', y: district.pop.w }
+              ]}
+            />
+          </VictoryChart>
         </GridCell>
       </Grid>
 
