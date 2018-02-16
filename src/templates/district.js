@@ -1,7 +1,9 @@
 import React from 'react'
 import { Grid, GridCell } from 'rmwc/Grid'
-import Header from '../components/Header'
 import { VictoryBar, VictoryChart } from 'victory'
+
+import Header from '../components/Header'
+import DistrictHeader from '../components/district/DistrictHeader.js'
 
 export default ({ data }) => {
   const { district } = data
@@ -9,6 +11,7 @@ export default ({ data }) => {
   return (
     <div className="district">
       <Header />
+      <DistrictHeader district={district} />
 
       <Grid>
         <GridCell span="8">
@@ -35,6 +38,11 @@ export const query = graphql`
       name
       name_ext
       slug
+      geo {
+        lat
+        lon
+        bbox
+      }
       BEVSTD {
         GESM
         GESW

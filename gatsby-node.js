@@ -87,3 +87,10 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
 
   return Promise.all([districtsGenerator, staticPagesGenerator])
 }
+
+exports.modifyWebpackConfig = ({ config }) => {
+  // Keep mapbox-gl outside of the bundle, as officially suggested by mapbox
+  // TODO: This requires setting a private property, which seems like a bug in Gatsby
+  config._config.externals = ['mapboxgl']
+  return config
+}

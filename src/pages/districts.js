@@ -2,7 +2,7 @@ import React from 'react'
 
 const renderDistrict = ({ node }) => {
   return (
-    <li>
+    <li key={node.id}>
       <a href={node.slug}>{node.name}</a>
     </li>
   )
@@ -18,6 +18,7 @@ export const query = graphql`
     allDistrict {
       edges {
         node {
+          id
           slug
           name
         }
