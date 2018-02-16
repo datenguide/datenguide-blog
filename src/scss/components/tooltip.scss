@@ -1,0 +1,13 @@
+.tooltip {
+  display: none;
+
+  &--visible {
+    display: block;
+    position: absolute;
+    padding: 20px;
+    height: 50px;
+    background-color: rgba(255, 255, 255, 0.7);
+    margin-left: 20px;
+    margin-top: -40px;
+  }
+}
