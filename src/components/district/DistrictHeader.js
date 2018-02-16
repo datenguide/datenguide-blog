@@ -48,9 +48,8 @@ class DistrictHeader extends React.Component {
         'source-layer': 'landkreise_sim20-97ng3s',
         type: 'fill',
         paint: {
-          'fill-color': ['match', ['get', 'id'], id, 'red', 'white'],
-          'fill-opacity': 0.3,
-          'fill-outline-color': 'red'
+          'fill-color': ['match', ['get', 'id'], id, 'black', 'white'],
+          'fill-opacity': 0.3
         }
       })
 
