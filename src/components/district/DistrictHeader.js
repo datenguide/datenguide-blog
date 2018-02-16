@@ -6,7 +6,7 @@ mapboxgl.accessToken =
   'pk.eyJ1IjoiZGF0ZW5ndWlkZSIsImEiOiJjamRmcjdmeGUwYXBrMnhwZ2V3ZnUyZGJpIn0.0S5TQa_lEc9PmWihbA4VBw'
 
 class DistrictHeader extends React.Component {
-  constructor(props: Props) {
+  constructor(props) {
     super(props)
     this.state = {
       showTooltip: false,
