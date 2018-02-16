@@ -13,18 +13,6 @@ export default ({ data }) => {
         lat: {district.geo.lat}, lon: {district.geo.lon}, bbox:{' '}
         {district.geo.bbox}
       </em>
-
-      <ul>
-        <li>{district.name_ext}</li>
-        <li>
-          {district.bevstd.gesm} / {district.bevstd.gesw}
-        </li>
-      </ul>
-
-      <ul>
-        <li>{district.Schulstatistik.Gymnasien.BIL003.BILKL2.JGSTUFE11}</li>
-        <li>{district.Schulstatistik.Gymnasien.BIL003.BILKL2.JGSTUFE7}</li>
-      </ul>
     </div>
   )
 }
@@ -41,13 +29,13 @@ export const query = graphql`
         lon
         bbox
       }
-      flc006
-      bevstd {
-        gesm
-        gesw
-        t
+      FLC006
+      BEVSTD {
+        GESM
+        GESW
+        GEST
       }
-      Schulstatistik {
+      BILSA8 {
         Gymnasien {
           BIL003 {
             BILKL2 {

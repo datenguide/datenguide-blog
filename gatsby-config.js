@@ -1,4 +1,6 @@
 const autoprefixer = require('autoprefixer')
+const path = require('path')
+const glob = require('glob')
 
 module.exports = {
   siteMetadata: {
@@ -20,8 +22,12 @@ module.exports = {
     },
     'gatsby-transformer-remark',
     {
-      resolve: 'custom-sass-loader',
+      resolve: 'gatsby-plugin-sass',
       options: {
+        includePaths: ['node_modules', 'node_modules/@material/*']
+          .map(d => path.join(__dirname, d))
+          .map(g => glob.sync(g))
+          .reduce((a, c) => a.concat(c), []),
         postCssPlugins: [
           autoprefixer({
             browsers: ['last 2 versions']

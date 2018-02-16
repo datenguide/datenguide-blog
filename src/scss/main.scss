@@ -1,7 +1,29 @@
 @import 'variables';
-@import '~grommet/scss/grommet-core/index';
-@import '~grommet/scss/hpe/_objects.button-hpe';
-@import '~grommet/scss/hpe/_objects.anchor-hpe';
 
-@import './components/district-header.scss';
-@import './components/tooltip.scss';
+/**
+ * External dependencies
+ */
+@import 'normalize.css/normalize';
+@import 'material-components-web/material-components-web';
+
+/**
+ * Fonts
+ */
+$font-prefix: '~@ibm/type';
+@import '@ibm/type/scss/sans/index';
+
+/**
+ * Custom components
+ */
+@import 'components/logo';
+@import 'components/hero';
+@import 'components/toolbar';
+@import 'components/district-header.scss';
+@import 'components/tooltip.scss';
+
+body {
+  padding-top: $header-height;
+  font-family: $font-family-default;
+  line-height: 1.4;
+  font-size: $font-size-default;
+}

@@ -1,7 +1,7 @@
 ---
 title: "Datenguide"
 template: "home"
-intro: "# Der **Datenguide** hilft dir dabei, dich im Dschungel der Statistiken zurecht zu finden."
+intro: "Der Datenguide hilft dir dabei, dich im Dschungel der Statistiken zurecht zu finden."
 ---
 
 ### Über dieses Projekt

@@ -1,8 +1,8 @@
 import React from 'react'
-import Box from 'grommet/components/Box'
-import Headline from 'grommet/components/Headline'
-import Markdown from 'grommet/components/Markdown'
+import { Grid, GridCell } from 'rmwc/Grid'
+
 import Header from '../components/Header'
+import Hero from '../components/Hero'
 import Newsletter from '../components/Newsletter'
 import Funders from '../components/Funders'
 import Footer from '../components/Footer'
@@ -14,41 +14,25 @@ export default ({ data }) => {
     <div>
       <Header />
 
-      <Box
-        direction="row"
-        flex="grow"
-        justify="center"
-        colorIndex="neutral-2-a"
-      >
-        <Box size={{ width: { max: 'xxlarge' } }} pad="large">
-          <Markdown content={page.frontmatter.intro} />
-        </Box>
-      </Box>
+      <Hero tagline={page.frontmatter.intro} />
 
-      <Box direction="row" flex="grow" justify="center" colorIndex="light-2">
-        <Box
-          direction="column"
-          size={{ width: { max: 'xxlarge' } }}
-          flex="grow"
-          pad="large"
-        >
+      <Grid>
+        <GridCell span="8">
           <div dangerouslySetInnerHTML={{ __html: page.html }} />
-          <Box size={{ width: { max: 'large' } }}>
-            <Funders />
-          </Box>
-        </Box>
-      </Box>
+        </GridCell>
+      </Grid>
 
-      <Box direction="row" flex="grow" justify="center">
-        <Box
-          direction="column"
-          size={{ width: { max: 'xxlarge' } }}
-          flex="grow"
-          pad={{ horizontal: 'large', vertical: 'medium' }}
-        >
+      <Grid>
+        <GridCell span="6">
+          <Funders />
+        </GridCell>
+      </Grid>
+
+      <Grid>
+        <GridCell span="12">
           <Newsletter />
-        </Box>
-      </Box>
+        </GridCell>
+      </Grid>
 
       <Footer />
     </div>
