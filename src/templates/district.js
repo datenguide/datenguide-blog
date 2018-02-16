@@ -1,18 +1,32 @@
 import React from 'react'
+import { Grid, GridCell } from 'rmwc/Grid'
+import { VictoryBar, VictoryChart } from 'victory'
+
+import Header from '../components/Header'
 import DistrictHeader from '../components/district/DistrictHeader.js'
 
 export default ({ data }) => {
   const { district } = data
 
   return (
-    <div>
+    <div className="district">
+      <Header />
       <DistrictHeader district={district} />
 
-      <h1>{district.name}</h1>
-      <em>
-        lat: {district.geo.lat}, lon: {district.geo.lon}, bbox:{' '}
-        {district.geo.bbox}
-      </em>
+      <Grid>
+        <GridCell span="8">
+          <h1>{district.name}</h1>
+          <p>{district.name_ext}</p>
+          <VictoryChart domainPadding={50}>
+            <VictoryBar
+              data={[
+                { x: 'male', y: district.BEVSTD.GESM },
+                { x: 'female', y: district.BEVSTD.GESW }
+              ]}
+            />
+          </VictoryChart>
+        </GridCell>
+      </Grid>
     </div>
   )
 }
@@ -29,21 +43,9 @@ export const query = graphql`
         lon
         bbox
       }
-      FLC006
       BEVSTD {
         GESM
         GESW
-        GEST
-      }
-      BILSA8 {
-        Gymnasien {
-          BIL003 {
-            BILKL2 {
-              JGSTUFE11
-              JGSTUFE7
-            }
-          }
-        }
       }
     }
   }
