@@ -33,6 +33,10 @@ export default class HTML extends React.Component {
             content="width=device-width, initial-scale=1.0"
           />
           <script src="https://api.tiles.mapbox.com/mapbox-gl-js/v0.44.1/mapbox-gl.js" />
+          <link
+            href="https://api.tiles.mapbox.com/mapbox-gl-js/v0.44.1/mapbox-gl.css"
+            rel="stylesheet"
+          />
           {this.props.headComponents}
           {css}
         </head>
