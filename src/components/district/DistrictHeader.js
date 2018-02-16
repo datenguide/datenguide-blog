@@ -1,5 +1,5 @@
 import React from 'react'
-import mapboxgl from 'mapbox-gl'
+import mapboxgl from 'mapboxgl'
 import Tooltip from './Tooltip.js'
 
 mapboxgl.accessToken =
