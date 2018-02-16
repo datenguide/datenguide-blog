@@ -24,7 +24,7 @@
     "gatsby-source-datenguide": "^1.0.1",
     "gatsby-source-filesystem": "^1.5.8",
     "gatsby-transformer-remark": "^1.7.21",
-    "material-components-web": "^0.28.0",
+    "material-components-web": "^0.30.0",
     "node-sass": "^4.5.2",
     "normalize.css": "^7.0.0",
     "prop-types": "^15.5.10",
