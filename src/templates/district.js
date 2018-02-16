@@ -17,8 +17,8 @@ export default ({ data }) => {
           <VictoryChart domainPadding={50}>
             <VictoryBar
               data={[
-                { x: 'male', y: district.pop.m },
-                { x: 'female', y: district.pop.w }
+                { x: 'male', y: district.bevstd.gesm },
+                { x: 'female', y: district.bevstd.gesw }
               ]}
             />
           </VictoryChart>
@@ -53,10 +53,10 @@ export const query = graphql`
       name
       name_ext
       slug
-      area
-      pop {
-        m
-        w
+      bevstd {
+        gesm
+        gesw
+        t
       }
       Schulstatistik {
         Gymnasien {
