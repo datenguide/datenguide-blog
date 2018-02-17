@@ -1,9 +1,6 @@
 import React from 'react'
 import Tooltip from './Tooltip.js'
 
-mapboxgl.accessToken =
-  'pk.eyJ1IjoiZGF0ZW5ndWlkZSIsImEiOiJjamRmcjdmeGUwYXBrMnhwZ2V3ZnUyZGJpIn0.0S5TQa_lEc9PmWihbA4VBw'
-
 class DistrictHeader extends React.Component {
   constructor(props) {
     super(props)
@@ -15,6 +12,9 @@ class DistrictHeader extends React.Component {
   }
 
   componentDidMount() {
+    mapboxgl.accessToken =
+      'pk.eyJ1IjoiZGF0ZW5ndWlkZSIsImEiOiJjamRmcjdmeGUwYXBrMnhwZ2V3ZnUyZGJpIn0.0S5TQa_lEc9PmWihbA4VBw'
+
     const { lon, lat, bbox } = this.props.district.geo
     const id = this.props.district.id
 
