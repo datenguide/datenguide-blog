@@ -1,8 +1,10 @@
 import React from 'react'
 import { Grid, GridCell } from 'rmwc/Grid'
 
-export default ({ data }) => {
-  const page = data.markdownRemark
+import Header from '../components/Header'
+import Footer from '../components/Footer'
+
+export default () => {
   return (
     <div>
       <Header />
@@ -13,20 +15,6 @@ export default ({ data }) => {
           <p>Page does not exist</p>
         </GridCell>
       </Grid>
-
-      <Grid>
-        <GridCell span="6">
-          <Funders />
-        </GridCell>
-      </Grid>
-
-      <Grid>
-        <GridCell span="12">
-          <Newsletter />
-        </GridCell>
-      </Grid>
-
-      <Footer />
 
       <Footer />
     </div>
