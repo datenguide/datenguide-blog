@@ -1,6 +1,5 @@
 import React from 'react'
 import { Grid, GridCell } from 'rmwc/Grid'
-import Header from '../components/Header'
 
 export default ({ tagline }) => (
   <div className="hero">
