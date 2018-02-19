@@ -6,6 +6,7 @@ $color-white: #ffffff;
 $color-black: #000000;
 $color-blue: #6ac9ee;
 $color-blue-light: #c3e5f1;
+$color-blue-dark: #01627c;
 $color-red: #f26c6f;
 $color-green: #bcd869;
 $color-yellow: #fed957;
@@ -22,8 +23,8 @@ $header-height: 62px;
 
 $mdc-layout-grid-max-width: 1140px;
 
-$mdc-theme-primary: $color-blue;
-$mdc-theme-secondary: $color-red;
+$mdc-theme-primary: $color-red;
+$mdc-theme-secondary: $color-blue-dark;
 $mdc-theme-background: $color-white;
 
 $mdc-typography-font-family: $font-family-default;
