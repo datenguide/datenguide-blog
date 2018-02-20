@@ -25,13 +25,7 @@ export default ({ data }) => {
         </GridCell>
       </Grid>
 
-      <Grid>
-        <GridCell span="12">
-          <Newsletter />
-        </GridCell>
-      </Grid>
-
-      <Footer />
+      <Newsletter />
 
       <Footer />
     </div>

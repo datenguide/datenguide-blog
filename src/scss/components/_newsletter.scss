@@ -1,0 +1,34 @@
+.newsletter {
+  background: $color-gray-light;
+  color: $color-black;
+}
+
+.newsletter__title {
+  margin-bottom: 0;
+}
+
+.newsletter__input {
+  margin-right: 20px;
+  position: relative;
+  top: -2px;
+
+  input {
+    background: $color-white;
+    height: 28px;
+  }
+}
+
+.newsletter__icon {
+  fill: $color-red;
+  position: relative;
+  top: 0.75em;
+  left: -0.15em;
+}
+
+.newsletter__terms {
+  font-size: 15px;
+
+  a {
+    color: $color-black;
+  }
+}
