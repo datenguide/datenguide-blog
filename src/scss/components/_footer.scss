@@ -1,0 +1,16 @@
+.footer__link {
+  position: relative;
+  display: block;
+  color: $color-black;
+}
+
+.footer__link--github {
+  color: $color-black;
+  padding-left: 30px;
+
+  svg {
+    position: absolute;
+    left: 0;
+    top: 0;
+  }
+}
