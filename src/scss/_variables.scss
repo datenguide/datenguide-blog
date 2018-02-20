@@ -17,6 +17,13 @@ $font-size-default: 22px;
 
 $header-height: 62px;
 
+$mq-breakpoints: (
+  mobile: 420px,
+  tablet: 740px,
+  desktop: 980px,
+  wide: 1300px
+);
+
 /**
  * Material Design Components overrides
  */

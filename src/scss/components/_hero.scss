@@ -2,20 +2,33 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background: $color-blue-light;
+  background-color: $color-blue-light;
   min-height: 420px;
-  background-image: url('../assets/images/hero_city.svg'),
-    url('../assets/images/hero_village.svg');
+  border-bottom: 2px solid #44707f;
+  background-image: url('../assets/images/hero_village.svg'),
+    url('../assets/images/hero_city.svg');
   background-repeat: no-repeat, no-repeat;
-  background-position: right bottom, -85px bottom;
   background-size: 470px auto, 470px auto;
+  background-position: -275px bottom, 275px bottom;
+
+  @include mq(tablet) {
+    background-position: -160px bottom, 110% bottom;
+  }
+
+  @include mq(wide) {
+    background-position: -85px bottom, 98% bottom;
+  }
 }
 
 .hero__tagline {
   text-align: center;
   font-weight: bold;
-  font-size: 2.2em;
   line-height: 1.2;
-  width: 80%;
+  font-size: 1.3em;
   margin: 0 auto 2em auto;
+
+  @include mq(tablet) {
+    font-size: 2.2em;
+    width: 80%;
+  }
 }
