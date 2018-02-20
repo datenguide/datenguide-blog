@@ -3,17 +3,19 @@
   align-items: center;
   justify-content: center;
   background: $color-blue-light;
-  min-height: 460px;
+  min-height: 420px;
   background-image: url('../assets/images/hero_city.svg'),
     url('../assets/images/hero_village.svg');
   background-repeat: no-repeat, no-repeat;
-  background-position: bottom right, bottom left;
+  background-position: right bottom, -85px bottom;
   background-size: 470px auto, 470px auto;
 }
 
 .hero__tagline {
   text-align: center;
   font-weight: bold;
-  font-size: 1.2em;
+  font-size: 2.2em;
   line-height: 1.2;
+  width: 80%;
+  margin: 0 auto 2em auto;
 }
