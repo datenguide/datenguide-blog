@@ -8,14 +8,11 @@ const getSuggestions = (value, districts) => {
 
   if (inputLength === 0) return []
 
-  return districts.filter(district => {
-    const segment = getSegment(district.name, inputLength)
+  return districts.filter(({ name }) => {
+    const segment = name.toLowerCase().slice(0, inputLength)
     return segment === inputValue
   })
 }
-
-const getSegment = (name, inputLength) =>
-  name && name.toLowerCase().slice(0, inputLength)
 
 // When suggestion is clicked, Autosuggest needs to populate the input
 // based on the clicked suggestion. Teach Autosuggest how to calculate the
@@ -45,7 +42,11 @@ export default class Search extends React.Component {
   // Autosuggest will call this function every time you need to update suggestions.
   // You already implemented this logic above, so just use it.
   onSuggestionsFetchRequested = ({ value }) => {
-    const districts = this.props.districts.edges.map(edge => edge.node)
+    const districts = this.props.districts.edges
+      .map(edge => edge.node)
+      .filter(district => district.name)
+      .sort((a, b) => a.name.localeCompare(b.name))
+
     this.setState({
       suggestions: getSuggestions(value, districts)
     })
