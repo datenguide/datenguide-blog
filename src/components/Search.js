@@ -1,5 +1,6 @@
 import React from 'react'
 import Autosuggest from 'react-autosuggest'
+import { navigateTo } from 'gatsby-link'
 
 // Teach Autosuggest how to calculate suggestions for any given input value.
 const getSuggestions = (value, districts) => {
@@ -21,6 +22,10 @@ const getSuggestionValue = suggestion => suggestion.name
 
 // Use your imagination to render suggestions.
 const renderSuggestion = suggestion => <div>{suggestion.name}</div>
+
+const onSuggestionSelected = (event, { suggestion, suggestionValue }) => {
+  navigateTo(`/${suggestion.slug}`)
+}
 
 export default class Search extends React.Component {
   constructor() {
@@ -71,6 +76,7 @@ export default class Search extends React.Component {
         suggestions={suggestions}
         onSuggestionsFetchRequested={this.onSuggestionsFetchRequested}
         onSuggestionsClearRequested={this.onSuggestionsClearRequested}
+        onSuggestionSelected={onSuggestionSelected}
         getSuggestionValue={getSuggestionValue}
         renderSuggestion={renderSuggestion}
         inputProps={inputProps}
