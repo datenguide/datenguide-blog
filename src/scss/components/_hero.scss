@@ -25,10 +25,15 @@
   font-weight: bold;
   line-height: 1.2;
   font-size: 1.3em;
-  margin: 0 auto 2em auto;
+  margin: 0 auto 1em auto;
 
   @include mq(tablet) {
     font-size: 2.2em;
     width: 80%;
   }
+}
+
+.hero__search {
+  width: 60%;
+  margin: 0 auto 1em auto;
 }
