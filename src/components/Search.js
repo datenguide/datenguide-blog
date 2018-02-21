@@ -28,16 +28,17 @@ const onSuggestionSelected = (event, { suggestion, suggestionValue }) => {
 }
 
 export default class Search extends React.Component {
-  constructor() {
+  constructor({ districts }) {
     super()
 
-    // Autosuggest is a controlled component.
-    // This means that you need to provide an input value
-    // and an onChange handler that updates this value (see below).
-    // Suggestions also need to be provided to the Autosuggest,
-    // and they are initially empty because the Autosuggest is closed.
-
-    this.state = { value: '', suggestions: [] }
+    this.state = {
+      value: '',
+      suggestions: [],
+      districts: districts.edges
+        .map(edge => edge.node)
+        .filter(district => district.name)
+        .sort((a, b) => a.name.localeCompare(b.name))
+    }
   }
 
   onChange = (event, { newValue }) => {
@@ -47,13 +48,8 @@ export default class Search extends React.Component {
   // Autosuggest will call this function every time you need to update suggestions.
   // You already implemented this logic above, so just use it.
   onSuggestionsFetchRequested = ({ value }) => {
-    const districts = this.props.districts.edges
-      .map(edge => edge.node)
-      .filter(district => district.name)
-      .sort((a, b) => a.name.localeCompare(b.name))
-
     this.setState({
-      suggestions: getSuggestions(value, districts)
+      suggestions: getSuggestions(value, this.state.districts)
     })
   }
 
