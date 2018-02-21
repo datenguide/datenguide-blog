@@ -9,12 +9,13 @@ import Footer from '../components/Footer'
 
 export default ({ data }) => {
   const page = data.markdownRemark
+  const districts = data.allDistrict
 
   return (
     <div>
       <Header />
 
-      <Hero tagline={page.frontmatter.intro} />
+      <Hero districts={districts} tagline={page.frontmatter.intro} />
 
       <Grid>
         <GridCell span="8">
@@ -43,6 +44,9 @@ export const query = graphql`
         title
         intro
       }
+    }
+    allDistrict {
+      ...DistrictsFragment
     }
   }
 `
