@@ -26,7 +26,7 @@ class DistrictHeader extends React.Component {
     })
 
     map.scrollZoom.disable()
-    map.addControl(new mapboxgl.NavigationControl(), 'top-left')
+    map.addControl(new mapboxgl.NavigationControl(), 'top-right')
 
     map.on('load', () => {
       const width = this.mapContainer.clientWidth
