@@ -20,7 +20,7 @@ class DistrictHeader extends React.Component {
 
     const map = new mapboxgl.Map({
       container: this.mapContainer,
-      style: 'mapbox://styles/datenguide/cjdg1i735g07y2ska4gns1ta2',
+      style: 'mapbox://styles/datenguide/cjdywdhi39bik2sqdt6itqz73',
       center: [parseFloat(lon), parseFloat(lat)],
       zoom: 9
     })
@@ -50,8 +50,25 @@ class DistrictHeader extends React.Component {
         'source-layer': 'landkreise_sim20-97ng3s',
         type: 'fill',
         paint: {
-          'fill-color': ['match', ['get', 'id'], id, 'black', 'white'],
+          'fill-color': ['match', ['get', 'id'], id, 'transparent', '#44707f'],
           'fill-opacity': 0.3
+        }
+      })
+
+      map.addLayer({
+        // https://www.mapbox.com/mapbox-gl-js/example/data-driven-circle-colors/
+        id: 'districts-border-layer',
+        source: 'districts-data',
+        'source-layer': 'landkreise_sim20-97ng3s',
+        type: 'line',
+        layout: {
+          'line-join': 'round',
+          'line-cap': 'round'
+        },
+        paint: {
+          'line-color': '#44707f',
+          'line-width': 3,
+          'line-opacity': 0.5
         }
       })
 
