@@ -1,4 +1,6 @@
 import React from 'react'
+import { Grid, GridCell } from 'rmwc/Grid'
+
 import Tooltip from './Tooltip.js'
 
 class DistrictHeader extends React.Component {
@@ -51,7 +53,7 @@ class DistrictHeader extends React.Component {
         type: 'fill',
         paint: {
           'fill-color': ['match', ['get', 'id'], id, 'transparent', '#44707f'],
-          'fill-opacity': 0.3
+          'fill-opacity': 0.6
         }
       })
 
@@ -68,7 +70,7 @@ class DistrictHeader extends React.Component {
         paint: {
           'line-color': '#44707f',
           'line-width': 3,
-          'line-opacity': 0.5
+          'line-opacity': 0.6
         }
       })
 
@@ -99,11 +101,17 @@ class DistrictHeader extends React.Component {
   render() {
     const { hoverPosition, hoverName, showTooltip } = this.state
     return (
-      <header className="district__header">
+      <header className="district-header">
         <div
           ref={el => (this.mapContainer = el)}
           className="absolute top right left bottom"
         />
+        <Grid className="district-header__hgroup">
+          <GridCell span="8">
+            <h1>{this.props.district.name}</h1>
+            <p>{this.props.district.name_ext}</p>
+          </GridCell>
+        </Grid>
         <Tooltip
           position={hoverPosition}
           name={hoverName}

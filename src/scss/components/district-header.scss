@@ -1,8 +1,41 @@
-.district__header {
-  display: block;
+.district-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
   width: 100%;
+  height: 400px;
 
   .mapboxgl-map {
-    height: 400px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  .mapboxgl-ctrl {
+    opacity: 0.6;
+  }
+}
+
+.district-header__hgroup {
+  z-index: 1;
+  top: 50%;
+  text-shadow: 2px 2px 15px rgba(0, 0, 0, 0.3);
+  color: $color-white;
+  pointer-events: none;
+
+  h1 {
+    margin: 2em 0 0 0;
+    font-size: 60px;
+    line-height: 1;
+    font-weight: normal;
+  }
+
+  p {
+    margin: 1em 0 0 0;
+    font-weight: bold;
+    font-size: 22px;
   }
 }

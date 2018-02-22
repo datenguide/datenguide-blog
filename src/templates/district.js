@@ -15,8 +15,6 @@ export default ({ data }) => {
 
       <Grid>
         <GridCell span="8">
-          <h1>{district.name}</h1>
-          <p>{district.name_ext}</p>
           <VictoryChart domainPadding={50}>
             <VictoryBar
               data={[
