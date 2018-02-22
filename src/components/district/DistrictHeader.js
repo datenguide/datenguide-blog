@@ -30,10 +30,13 @@ class DistrictHeader extends React.Component {
 
     map.on('load', () => {
       const width = this.mapContainer.clientWidth
-      map.fitBounds(bbox.split(','), {
-        padding: 40,
-        offset: [width / 4, 0] // FIXME
-      })
+
+      if (bbox) {
+        map.fitBounds(bbox.split(','), {
+          padding: 40,
+          offset: [width / 4, 0] // offset to make space for title
+        })
+      }
 
       map.addSource('districts-data', {
         type: 'vector',
