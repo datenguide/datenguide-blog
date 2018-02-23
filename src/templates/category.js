@@ -3,7 +3,7 @@ import { Grid, GridCell } from 'rmwc/Grid'
 import { VictoryBar, VictoryChart } from 'victory'
 
 import Header from '../components/Header'
-import DistrictHeader from '../components/district/DistrictHeader.js'
+import Footer from '../components/Footer'
 
 export default ({ data, pathContext }) => {
   const { district } = data
@@ -95,6 +95,7 @@ export default ({ data, pathContext }) => {
           </VictoryChart>
         </GridCell>
       </Grid>
+      <Footer />
     </div>
   )
 }
