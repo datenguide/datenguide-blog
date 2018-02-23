@@ -1,4 +1,7 @@
 import React from 'react'
+import ArrowLeftIcon from 'mdi-react/ArrowLeftIcon'
+import GatsbyLink from 'gatsby-link'
+import { Toolbar, ToolbarRow, ToolbarSection } from 'rmwc/Toolbar'
 import { Grid, GridCell } from 'rmwc/Grid'
 import { VictoryBar, VictoryChart } from 'victory'
 
@@ -10,7 +13,18 @@ export default ({ data, pathContext }) => {
 
   return (
     <div className="district">
-      <Header />
+      <Header category={pathContext.category} />
+
+      <Toolbar>
+        <ToolbarRow>
+          <ToolbarSection alignStart>
+            <GatsbyLink to={pathContext.slug}>
+              <ArrowLeftIcon />
+              {district.name}
+            </GatsbyLink>
+          </ToolbarSection>
+        </ToolbarRow>
+      </Toolbar>
 
       <Grid>
         <GridCell span="12">
