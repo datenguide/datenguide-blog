@@ -1,6 +1,7 @@
 import React from 'react'
+import GatsbyLink from 'gatsby-link'
+import ArrowRightIcon from 'mdi-react/ArrowRightIcon'
 import { Grid, GridCell } from 'rmwc/Grid'
-import { Button } from 'rmwc/Button'
 import { VictoryBar, VictoryChart } from 'victory'
 
 import Header from '../components/Header'
@@ -27,9 +28,10 @@ export default ({ data }) => {
             eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
             ad minim veniam, quis nostrud exercitation ullamco laboris nisi
           </p>
-          <Button stroked href="./arbeit">
+          <GatsbyLink to={`${district.slug}/arbeit`}>
+            <ArrowRightIcon />
             Mehr Daten zum Thema Arbeit
-          </Button>
+          </GatsbyLink>
         </GridCell>
         <GridCell span="5">
           <VictoryChart domainPadding={50}>
@@ -56,9 +58,10 @@ export default ({ data }) => {
             eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
             ad minim veniam, quis nostrud exercitation ullamco laboris nisi
           </p>
-          <Button stroked href="./bildung">
+          <GatsbyLink to={`${district.slug}/bildung`}>
+            <ArrowRightIcon />
             Mehr Daten zum Thema Bildung
-          </Button>
+          </GatsbyLink>
         </GridCell>
         <GridCell span="5">
           <VictoryChart domainPadding={50}>
@@ -85,9 +88,10 @@ export default ({ data }) => {
             eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
             ad minim veniam, quis nostrud exercitation ullamco laboris nisi
           </p>
-          <Button stroked href="./gesundheit">
+          <GatsbyLink to={`${district.slug}/gesundheit`}>
+            <ArrowRightIcon />
             Mehr Daten zum Thema Gesundheit
-          </Button>
+          </GatsbyLink>
         </GridCell>
         <GridCell span="5">
           <VictoryChart domainPadding={50}>
