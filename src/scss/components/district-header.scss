@@ -1,7 +1,7 @@
+$title-padding: 1rem;
+$title-background: $color-blue-dark;
+
 .district-header {
-  display: flex;
-  align-items: center;
-  justify-content: center;
   position: relative;
   width: 100%;
   height: 400px;
@@ -21,21 +21,33 @@
 
 .district-header__hgroup {
   z-index: 1;
-  top: 50%;
-  text-shadow: 2px 2px 15px rgba(0, 0, 0, 0.3);
+  display: block;
+  position: absolute;
+  bottom: 3em;
+  width: 100%;
   color: $color-white;
   pointer-events: none;
 
   h1 {
-    margin: 2em 0 0 0;
     font-size: 60px;
-    line-height: 1;
+    line-height: 1.2em;
     font-weight: normal;
+    display: inline;
+    background: $title-background;
+    color: white;
+    padding: 0;
+    -webkit-box-decoration-break: clone;
+    -ms-box-decoration-break: clone;
+    -o-box-decoration-break: clone;
+    box-decoration-break: clone;
+    box-shadow: $title-padding 0 0 $title-background,
+      -$title-padding 0 0 $title-background;
   }
 
   p {
     margin: 1em 0 0 0;
     font-weight: bold;
     font-size: 22px;
+    text-shadow: 2px 2px 15px rgba(0, 0, 0, 0.3);
   }
 }

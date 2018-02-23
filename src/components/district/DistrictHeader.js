@@ -53,7 +53,7 @@ class DistrictHeader extends React.Component {
         type: 'fill',
         paint: {
           'fill-color': ['match', ['get', 'id'], id, 'transparent', '#44707f'],
-          'fill-opacity': 0.6
+          'fill-opacity': 0.4
         }
       })
 
@@ -70,7 +70,7 @@ class DistrictHeader extends React.Component {
         paint: {
           'line-color': '#44707f',
           'line-width': 3,
-          'line-opacity': 0.6
+          'line-opacity': 0.4
         }
       })
 
@@ -106,12 +106,14 @@ class DistrictHeader extends React.Component {
           ref={el => (this.mapContainer = el)}
           className="absolute top right left bottom"
         />
-        <Grid className="district-header__hgroup">
-          <GridCell span="8">
-            <h1>{this.props.district.name}</h1>
-            <p>{this.props.district.name_ext}</p>
-          </GridCell>
-        </Grid>
+        <div className="district-header__hgroup">
+          <Grid>
+            <GridCell span="7">
+              <h1>{this.props.district.name}</h1>
+              <p>{this.props.district.name_ext}</p>
+            </GridCell>
+          </Grid>
+        </div>
         <Tooltip
           position={hoverPosition}
           name={hoverName}
