@@ -79,6 +79,16 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
               slug: node.slug
             }
           })
+          ;['bildung', 'arbeit', 'gesundheit'].forEach(category => {
+            createPage({
+              path: `${node.slug}/${category}`,
+              component: getTemplate('category'),
+              context: {
+                slug: node.slug,
+                category
+              }
+            })
+          })
         }
       })
       resolve()
