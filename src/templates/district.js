@@ -6,6 +6,7 @@ import { VictoryBar, VictoryChart } from 'victory'
 
 import Header from '../components/Header'
 import DistrictHeader from '../components/district/DistrictHeader.js'
+import DistrictMeta from '../components/district/DistrictMeta.js'
 import Footer from '../components/Footer'
 import theme from '../components/theme'
 
@@ -16,6 +17,7 @@ export default ({ data }) => {
     <div className="district">
       <Header />
       <DistrictHeader district={district} />
+      <DistrictMeta district={district} />
       <Grid>
         <GridCell span="7">
           <h3>Arbeit und Soziales</h3>
@@ -125,6 +127,7 @@ export const query = graphql`
       BEVSTD {
         GESM
         GESW
+        GEST
       }
     }
   }
