@@ -1,5 +1,10 @@
 .logo {
-  background: url('../assets/images/logo.svg') no-repeat;
-  padding-left: 2em;
-  font-size: 22px;
+  color: $color-black;
+  text-decoration: none;
+
+  h1 {
+    padding-left: 2em;
+    font-size: 22px;
+    background: url('../assets/images/logo.svg') no-repeat;
+  }
 }
