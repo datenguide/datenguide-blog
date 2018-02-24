@@ -7,6 +7,7 @@ import { VictoryBar, VictoryChart } from 'victory'
 import Header from '../components/Header'
 import DistrictHeader from '../components/district/DistrictHeader.js'
 import Footer from '../components/Footer'
+import theme from '../components/theme'
 
 export default ({ data }) => {
   const { district } = data
@@ -34,7 +35,7 @@ export default ({ data }) => {
           </GatsbyLink>
         </GridCell>
         <GridCell span="5">
-          <VictoryChart domainPadding={50}>
+          <VictoryChart domainPadding={50} theme={theme}>
             <VictoryBar
               data={[
                 { x: 'A', y: district.BEVSTD.GESM },
