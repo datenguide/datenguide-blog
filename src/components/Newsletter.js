@@ -32,8 +32,8 @@ export default function Newsletter(props) {
 
           <p className="newsletter__terms">
             Deine Email-Adressen wird von uns ausschliesslich zur Information
-            über den CycleHack Berlin genutzt und nicht an Dritte weitergegeben.
-            Für diesen Verteiler verwenden wir Mailchimp.{' '}
+            über den Datenguide genutzt und nicht an Dritte weitergegeben. Für
+            diesen Verteiler verwenden wir Mailchimp.{' '}
             <a href="https://mailchimp.com/legal/privacy/">
               Mailchimp Privacy Policy
             </a>
