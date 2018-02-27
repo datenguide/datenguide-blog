@@ -9,10 +9,10 @@ import Header from '../components/Header'
 import Footer from '../components/Footer'
 
 export default ({ data, pathContext }) => {
-  const { district } = data
+  const { region } = data
 
   return (
-    <div className="district">
+    <div className="region">
       <Header category={pathContext.category} />
 
       <Toolbar>
@@ -20,7 +20,7 @@ export default ({ data, pathContext }) => {
           <ToolbarSection alignStart>
             <GatsbyLink to={pathContext.slug}>
               <ArrowLeftIcon />
-              {district.name}
+              {region.name}
             </GatsbyLink>
           </ToolbarSection>
         </ToolbarRow>
@@ -29,7 +29,7 @@ export default ({ data, pathContext }) => {
       <Grid>
         <GridCell span="12">
           <h1>
-            {district.name.toUpperCase()}&nbsp;/&nbsp;
+            {region.name.toUpperCase()}&nbsp;/&nbsp;
             {pathContext.category.toUpperCase()}
           </h1>
         </GridCell>
@@ -50,8 +50,8 @@ export default ({ data, pathContext }) => {
           <VictoryChart domainPadding={50}>
             <VictoryBar
               data={[
-                { x: 'male', y: district.BEVSTD.GESM },
-                { x: 'female', y: district.BEVSTD.GESW }
+                { x: 'male', y: region.BEVSTD.GESM },
+                { x: 'female', y: region.BEVSTD.GESW }
               ]}
             />
           </VictoryChart>
@@ -63,8 +63,8 @@ export default ({ data, pathContext }) => {
           <VictoryChart domainPadding={50}>
             <VictoryBar
               data={[
-                { x: 'male', y: district.BEVSTD.GESM },
-                { x: 'female', y: district.BEVSTD.GESW }
+                { x: 'male', y: region.BEVSTD.GESM },
+                { x: 'female', y: region.BEVSTD.GESW }
               ]}
             />
           </VictoryChart>
@@ -102,8 +102,8 @@ export default ({ data, pathContext }) => {
           <VictoryChart domainPadding={50}>
             <VictoryBar
               data={[
-                { x: 'male', y: district.BEVSTD.GESM },
-                { x: 'female', y: district.BEVSTD.GESW }
+                { x: 'male', y: region.BEVSTD.GESM },
+                { x: 'female', y: region.BEVSTD.GESW }
               ]}
             />
           </VictoryChart>
@@ -116,7 +116,7 @@ export default ({ data, pathContext }) => {
 
 export const query = graphql`
   query CategoryQuery($slug: String!) {
-    district(slug: { eq: $slug }) {
+    region(slug: { eq: $slug }) {
       id
       name
       name_ext

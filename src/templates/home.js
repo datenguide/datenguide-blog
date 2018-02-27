@@ -9,13 +9,13 @@ import Footer from '../components/Footer'
 
 export default ({ data }) => {
   const page = data.markdownRemark
-  const districts = data.allDistrict
+  const regions = data.allRegion
 
   return (
     <div>
       <Header />
 
-      <Hero districts={districts} tagline={page.frontmatter.intro} />
+      <Hero regions={regions} tagline={page.frontmatter.intro} />
 
       <Grid>
         <GridCell span="8">
@@ -45,8 +45,8 @@ export const query = graphql`
         intro
       }
     }
-    allDistrict {
-      ...DistrictsFragment
+    allRegion {
+      ...RegionsFragment
     }
   }
 `

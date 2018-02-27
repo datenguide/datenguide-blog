@@ -1,7 +1,7 @@
 $title-padding: 1rem;
 $title-background: $color-blue-dark;
 
-.district-header {
+.region-header {
   position: relative;
   width: 100%;
   height: 400px;
@@ -19,7 +19,7 @@ $title-background: $color-blue-dark;
   }
 }
 
-.district-header__hgroup {
+.region-header__hgroup {
   z-index: 1;
   display: block;
   position: absolute;
