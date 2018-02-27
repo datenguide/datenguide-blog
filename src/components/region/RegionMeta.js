@@ -23,7 +23,7 @@ export default function RegionMeta({ region }) {
           />
         </GridCell>
         <GridCell span="4">
-          <div className="region-meta__geo">
+          <div className="region-meta__listing">
             <h3>
               {region.name_ext} {region.name}
             </h3>
