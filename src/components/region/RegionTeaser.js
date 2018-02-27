@@ -1,45 +1,42 @@
 import React from 'react'
-import GatsbyLink from 'gatsby-link'
-import {
-  Card,
-  CardAction,
-  CardActions,
-  CardActionButtons,
-  CardActionIcons
-} from 'rmwc/Card'
-import { Typography } from 'rmwc/Typography'
+import { Grid, GridCell } from 'rmwc/Grid'
 
-import theme from '../../components/theme'
+import RegionTeaserCard from './RegionTeaserCard.js'
 
-export default function RegionTeaser({ region }) {
+const teaserRegions = [
+  {
+    name: 'Herne',
+    name_ext: 'Kreisfreie Stadt',
+    url: '/herne/',
+    text:
+      'Herne im Ruhrbeiet ist mit <strong>3.031 Einwohnern pro km²</strong> nach Berlin und München die am dichtesten bewohnte Region in Deutschland.'
+  },
+  {
+    name: 'Passau',
+    name_ext: 'Landkreis',
+    url: '/passau/',
+    text:
+      'Im Landkreis Passau wohnen anteilsmäßig die meisten Frauen: <strong>Knapp 53 Pozent</strong>. Deutschlandweit sind es 50,6 Prozent.'
+  },
+  {
+    name: 'Offenbach am Main',
+    name_ext: 'Kreisfreie Stadt',
+    url: '/offenbach-am-main/',
+    text:
+      'Offenbach ist die jüngste Stadt: <strong>Von 1000 Einwohnern sind 34 unter 3 Jahre alt</strong> – das sind acht Babies mehr als im Bundesschnitt.'
+  }
+]
+
+const renderRegionTeaser = region => {
   return (
-    <div className="region-teaser">
-      <Card>
-        <div className="mdc-card__primary-action">
-          <GatsbyLink to={region.url}>
-            <div style={{ padding: '0 1rem 1rem 1rem' }}>
-              <Typography use="display1" tag="h1">
-                {region.name}
-              </Typography>
-              <Typography
-                use="subheading1"
-                tag="h3"
-                theme="text-secondary-on-background"
-                style={{ marginTop: '-1rem' }}
-              >
-                {region.name_ext}
-              </Typography>
-              <Typography
-                use="body1"
-                tag="div"
-                theme="text-primary-on-background"
-              >
-                <p dangerouslySetInnerHTML={{ __html: region.text }} />
-              </Typography>
-            </div>
-          </GatsbyLink>
-        </div>
-      </Card>
-    </div>
+    <GridCell span="4" phone="12" tablet="4">
+      <RegionTeaserCard key={region.name} region={region} />
+    </GridCell>
   )
 }
+
+export default ({ data }) => (
+  <div className="region-teaser">
+    <Grid>{teaserRegions.map(region => renderRegionTeaser(region))}</Grid>
+  </div>
+)
