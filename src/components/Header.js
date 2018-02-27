@@ -1,4 +1,5 @@
 import React from 'react'
+import GatsbyLink from 'gatsby-link'
 import { Toolbar, ToolbarRow, ToolbarSection } from 'rmwc/Toolbar'
 
 import Logo from './Logo'
@@ -10,7 +11,9 @@ export default function AppHeader(props) {
         <ToolbarSection alignStart>
           <Logo />
         </ToolbarSection>
-        <ToolbarSection alignEnd />
+        <ToolbarSection alignEnd>
+          <GatsbyLink to="regions">Explore</GatsbyLink>
+        </ToolbarSection>
       </ToolbarRow>
     </Toolbar>
   )
