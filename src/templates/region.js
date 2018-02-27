@@ -124,6 +124,7 @@ export const query = graphql`
         lon
         bbox
       }
+      FLC006
       BEVSTD {
         GESM
         GESW

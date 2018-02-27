@@ -1,6 +1,9 @@
 import React from 'react'
 import { Grid, GridCell } from 'rmwc/Grid'
 import { VictoryPie } from 'victory'
+import VectorSquareIcon from 'mdi-react/VectorSquareIcon'
+import MapMarkerIcon from 'mdi-react/MapMarkerIcon'
+import MapMarkerMultipleIcon from 'mdi-react/MapMarkerMultipleIcon'
 
 import theme from '../../components/theme'
 
@@ -21,9 +24,24 @@ export default function RegionMeta({ region }) {
         </GridCell>
         <GridCell span="4">
           <div className="region-meta__geo">
-            <p>
-              {region.geo.lat} / {region.geo.lon}
-            </p>
+            <h3>
+              {region.name_ext} {region.name}
+            </h3>
+            <ul>
+              <li>
+                <VectorSquareIcon />
+                {region.FLC006} km² Fläche
+              </li>
+              <li>
+                <MapMarkerIcon />
+                {region.geo.lat},{region.geo.lon}
+              </li>
+              <li>
+                {' '}
+                <MapMarkerMultipleIcon />
+                {region.geo.bbox}
+              </li>
+            </ul>
           </div>
         </GridCell>
       </Grid>
