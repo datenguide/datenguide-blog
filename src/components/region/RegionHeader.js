@@ -90,11 +90,11 @@ class RegionHeader extends React.Component {
         feature && console.log(feature.properties.id)
       }
 
-      map.on('mousemove', 'districts-layer', e => triggerMouseMove(e))
-      map.on('click', 'districts-layer', e => triggerMouseClick(e)) // FIXME
-      map.on('mouseleave', 'districts-laver', () =>
-        this.setState({ showTooltip: false })
-      )
+      // map.on('mousemove', 'districts-layer', e => triggerMouseMove(e))
+      // map.on('click', 'districts-layer', e => triggerMouseClick(e)) // FIXME
+      // map.on('mouseleave', 'districts-laver', () =>
+      //   this.setState({ showTooltip: false })
+      // )
     })
   }
 
