@@ -9,7 +9,7 @@ const teaserRegions = [
     name_ext: 'Kreisfreie Stadt',
     url: '/herne/',
     text:
-      'Herne im Ruhrbeiet ist mit <strong>3.031 Einwohnern pro km²</strong> nach Berlin und München die am dichtesten bewohnte Region in Deutschland.'
+      'Herne ist mit <strong>3.031 Einwohnern pro km²</strong> nach Berlin und München die am dichtesten bewohnte Region in Deutschland.'
   },
   {
     name: 'Passau',
