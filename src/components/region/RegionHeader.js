@@ -110,7 +110,7 @@ class RegionHeader extends React.Component {
           <Grid>
             <GridCell span="7">
               <h1>{this.props.region.name}</h1>
-              <p>{this.props.region.name_ext}</p>
+              <p>{this.props.region.state.name}</p>
             </GridCell>
           </Grid>
         </div>

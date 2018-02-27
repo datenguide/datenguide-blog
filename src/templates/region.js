@@ -119,6 +119,11 @@ export const query = graphql`
       name
       name_ext
       slug
+      state {
+        id
+        name
+        slug
+      }
       geo {
         lat
         lon
