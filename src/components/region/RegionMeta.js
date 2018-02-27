@@ -1,6 +1,6 @@
 import React from 'react'
 import { Grid, GridCell } from 'rmwc/Grid'
-import { VictoryPie, VictoryChart, VictoryBar } from 'victory'
+import { VictoryPie, VictoryChart, VictoryBar, VictoryTheme } from 'victory'
 import VectorSquareIcon from 'mdi-react/VectorSquareIcon'
 import MapMarkerIcon from 'mdi-react/MapMarkerIcon'
 import MapMarkerMultipleIcon from 'mdi-react/MapMarkerMultipleIcon'
@@ -14,17 +14,19 @@ export default function RegionMeta({ region }) {
       x: id,
       y: parseInt(value, 10)
     }))
-    .values() //get the values of the result
+    .values()
     .sortBy(value => value.x)
-    .value() //unwrap array of objects
-
-  console.log(popData)
+    .value()
 
   return (
     <div className="region-meta">
       <Grid>
         <GridCell span="8">
-          <VictoryChart domainPadding={50} theme={theme}>
+          <h3>Bevölkerungsentwicklung</h3>
+          <VictoryChart
+            theme={theme}
+            padding={{ top: 20, bottom: 40, left: 60, right: 40 }}
+          >
             <VictoryBar data={popData} />
           </VictoryChart>
           <div className="region-meta__demo">{region.BEVSTD.GEST}</div>
