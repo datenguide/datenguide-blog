@@ -3,7 +3,7 @@ import { Grid, GridCell } from 'rmwc/Grid'
 
 import Tooltip from './Tooltip.js'
 
-class DistrictHeader extends React.Component {
+class RegionHeader extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
@@ -17,8 +17,8 @@ class DistrictHeader extends React.Component {
     mapboxgl.accessToken =
       'pk.eyJ1IjoiZGF0ZW5ndWlkZSIsImEiOiJjamRmcjdmeGUwYXBrMnhwZ2V3ZnUyZGJpIn0.0S5TQa_lEc9PmWihbA4VBw'
 
-    const { lon, lat, bbox } = this.props.district.geo
-    const id = this.props.district.id
+    const { lon, lat, bbox } = this.props.region.geo
+    const id = this.props.region.id
 
     const map = new mapboxgl.Map({
       container: this.mapContainer,
@@ -101,16 +101,16 @@ class DistrictHeader extends React.Component {
   render() {
     const { hoverPosition, hoverName, showTooltip } = this.state
     return (
-      <header className="district-header">
+      <header className="region-header">
         <div
           ref={el => (this.mapContainer = el)}
           className="absolute top right left bottom"
         />
-        <div className="district-header__hgroup">
+        <div className="region-header__hgroup">
           <Grid>
             <GridCell span="7">
-              <h1>{this.props.district.name}</h1>
-              <p>{this.props.district.name_ext}</p>
+              <h1>{this.props.region.name}</h1>
+              <p>{this.props.region.name_ext}</p>
             </GridCell>
           </Grid>
         </div>
@@ -124,4 +124,4 @@ class DistrictHeader extends React.Component {
   }
 }
 
-export default DistrictHeader
+export default RegionHeader

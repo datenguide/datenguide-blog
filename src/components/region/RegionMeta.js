@@ -4,25 +4,25 @@ import { VictoryPie } from 'victory'
 
 import theme from '../../components/theme'
 
-export default function DistrictMeta({ district }) {
+export default function RegionMeta({ region }) {
   return (
-    <div className="district-meta">
+    <div className="region-meta">
       <Grid>
         <GridCell span="8">
-          <div className="district-meta__demo">{district.BEVSTD.GEST}</div>
+          <div className="region-meta__demo">{region.BEVSTD.GEST}</div>
           <VictoryPie
             innerRadius={100}
             theme={theme}
             data={[
-              { x: 'M', y: district.BEVSTD.GESM },
-              { x: 'W', y: district.BEVSTD.GESW }
+              { x: 'M', y: region.BEVSTD.GESM },
+              { x: 'W', y: region.BEVSTD.GESW }
             ]}
           />
         </GridCell>
         <GridCell span="4">
-          <div className="district-meta__geo">
+          <div className="region-meta__geo">
             <p>
-              {district.geo.lat} / {district.geo.lon}
+              {region.geo.lat} / {region.geo.lon}
             </p>
           </div>
         </GridCell>

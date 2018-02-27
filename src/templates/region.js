@@ -5,19 +5,19 @@ import { Grid, GridCell } from 'rmwc/Grid'
 import { VictoryBar, VictoryChart } from 'victory'
 
 import Header from '../components/Header'
-import DistrictHeader from '../components/district/DistrictHeader.js'
-import DistrictMeta from '../components/district/DistrictMeta.js'
+import RegionHeader from '../components/region/RegionHeader.js'
+import RegionMeta from '../components/region/RegionMeta.js'
 import Footer from '../components/Footer'
 import theme from '../components/theme'
 
 export default ({ data }) => {
-  const { district } = data
+  const { region } = data
 
   return (
-    <div className="district">
+    <div className="region">
       <Header />
-      <DistrictHeader district={district} />
-      <DistrictMeta district={district} />
+      <RegionHeader region={region} />
+      <RegionMeta region={region} />
       <Grid>
         <GridCell span="7">
           <h3>Arbeit und Soziales</h3>
@@ -31,7 +31,7 @@ export default ({ data }) => {
             eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
             ad minim veniam, quis nostrud exercitation ullamco laboris nisi
           </p>
-          <GatsbyLink to={`${district.slug}/arbeit`}>
+          <GatsbyLink to={`${region.slug}/arbeit`}>
             <ArrowRightIcon />
             Mehr Daten zum Thema Arbeit
           </GatsbyLink>
@@ -40,8 +40,8 @@ export default ({ data }) => {
           <VictoryChart domainPadding={50} theme={theme}>
             <VictoryBar
               data={[
-                { x: 'A', y: district.BEVSTD.GESM },
-                { x: 'B', y: district.BEVSTD.GESW }
+                { x: 'A', y: region.BEVSTD.GESM },
+                { x: 'B', y: region.BEVSTD.GESW }
               ]}
             />
           </VictoryChart>
@@ -61,7 +61,7 @@ export default ({ data }) => {
             eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
             ad minim veniam, quis nostrud exercitation ullamco laboris nisi
           </p>
-          <GatsbyLink to={`${district.slug}/bildung`}>
+          <GatsbyLink to={`${region.slug}/bildung`}>
             <ArrowRightIcon />
             Mehr Daten zum Thema Bildung
           </GatsbyLink>
@@ -70,8 +70,8 @@ export default ({ data }) => {
           <VictoryChart domainPadding={50}>
             <VictoryBar
               data={[
-                { x: 'A', y: district.BEVSTD.GESM },
-                { x: 'B', y: district.BEVSTD.GESW }
+                { x: 'A', y: region.BEVSTD.GESM },
+                { x: 'B', y: region.BEVSTD.GESW }
               ]}
             />
           </VictoryChart>
@@ -91,7 +91,7 @@ export default ({ data }) => {
             eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
             ad minim veniam, quis nostrud exercitation ullamco laboris nisi
           </p>
-          <GatsbyLink to={`${district.slug}/gesundheit`}>
+          <GatsbyLink to={`${region.slug}/gesundheit`}>
             <ArrowRightIcon />
             Mehr Daten zum Thema Gesundheit
           </GatsbyLink>
@@ -100,8 +100,8 @@ export default ({ data }) => {
           <VictoryChart domainPadding={50}>
             <VictoryBar
               data={[
-                { x: 'A', y: district.BEVSTD.GESM },
-                { x: 'B', y: district.BEVSTD.GESW }
+                { x: 'A', y: region.BEVSTD.GESM },
+                { x: 'B', y: region.BEVSTD.GESW }
               ]}
             />
           </VictoryChart>
@@ -113,8 +113,8 @@ export default ({ data }) => {
 }
 
 export const query = graphql`
-  query DistrictQuery($slug: String!) {
-    district(slug: { eq: $slug }) {
+  query RegionQuery($slug: String!) {
+    region(slug: { eq: $slug }) {
       id
       name
       name_ext

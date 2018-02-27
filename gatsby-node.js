@@ -18,9 +18,9 @@ const staticPagesQuery = `
 }
 `
 
-const districtsQuery = `
+const regionsQuery = `
 {
-  allDistrict {
+  allRegion {
     edges {
       node {
         slug
@@ -68,13 +68,13 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
     })
   })
 
-  const districtsGenerator = new Promise((resolve, reject) => {
-    graphql(districtsQuery).then(result => {
-      result.data.allDistrict.edges.map(({ node }) => {
+  const regionsGenerator = new Promise((resolve, reject) => {
+    graphql(regionsQuery).then(result => {
+      result.data.allRegion.edges.map(({ node }) => {
         if (node.slug) {
           createPage({
             path: node.slug,
-            component: getTemplate('district'),
+            component: getTemplate('region'),
             context: {
               slug: node.slug
             }
@@ -95,5 +95,5 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
     })
   })
 
-  return Promise.all([districtsGenerator, staticPagesGenerator])
+  return Promise.all([regionsGenerator, staticPagesGenerator])
 }

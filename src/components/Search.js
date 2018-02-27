@@ -3,13 +3,13 @@ import Autosuggest from 'react-autosuggest'
 import { navigateTo } from 'gatsby-link'
 
 // Teach Autosuggest how to calculate suggestions for any given input value.
-const getSuggestions = (value, districts) => {
+const getSuggestions = (value, regions) => {
   const inputValue = value.trim().toLowerCase()
   const inputLength = inputValue.length
 
   if (inputLength === 0) return []
 
-  return districts.filter(({ name }) => {
+  return regions.filter(({ name }) => {
     const segment = name.toLowerCase().slice(0, inputLength)
     return segment === inputValue
   })
@@ -28,15 +28,15 @@ const onSuggestionSelected = (event, { suggestion, suggestionValue }) => {
 }
 
 export default class Search extends React.Component {
-  constructor({ districts }) {
+  constructor({ regions }) {
     super()
 
     this.state = {
       value: '',
       suggestions: [],
-      districts: districts.edges
+      regions: regions.edges
         .map(edge => edge.node)
-        .filter(district => district.name)
+        .filter(region => region.name)
         .sort((a, b) => a.name.localeCompare(b.name))
     }
   }
@@ -49,7 +49,7 @@ export default class Search extends React.Component {
   // You already implemented this logic above, so just use it.
   onSuggestionsFetchRequested = ({ value }) => {
     this.setState({
-      suggestions: getSuggestions(value, this.state.districts)
+      suggestions: getSuggestions(value, this.state.regions)
     })
   }
 
@@ -82,7 +82,7 @@ export default class Search extends React.Component {
 }
 
 export const query = graphql`
-  fragment DistrictsFragment on DistrictConnection {
+  fragment RegionsFragment on RegionConnection {
     edges {
       node {
         id
