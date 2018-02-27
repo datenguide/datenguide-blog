@@ -1,6 +1,7 @@
 import React from 'react'
 import { Grid, GridCell } from 'rmwc/Grid'
 import { VictoryPie, VictoryChart, VictoryBar, VictoryTheme } from 'victory'
+
 import VectorSquareIcon from 'mdi-react/VectorSquareIcon'
 import MapMarkerIcon from 'mdi-react/MapMarkerIcon'
 import MapMarkerMultipleIcon from 'mdi-react/MapMarkerMultipleIcon'
@@ -23,6 +24,8 @@ export default function RegionMeta({ region }) {
       <Grid>
         <GridCell span="8">
           <h3>Bevölkerungsentwicklung</h3>
+          <a href="#">Visualisierung</a> &nbsp;|&nbsp;
+          <a href="#">Daten herunterladen</a>
           <VictoryChart
             theme={theme}
             padding={{ top: 20, bottom: 40, left: 60, right: 40 }}
