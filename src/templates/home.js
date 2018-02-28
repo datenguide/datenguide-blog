@@ -6,6 +6,7 @@ import Hero from '../components/Hero'
 import Newsletter from '../components/Newsletter'
 import Funders from '../components/Funders'
 import Footer from '../components/Footer'
+import RegionTeaser from '../components/region/RegionTeaser.js'
 
 export default ({ data }) => {
   const page = data.markdownRemark
@@ -16,6 +17,8 @@ export default ({ data }) => {
       <Header />
 
       <Hero regions={regions} tagline={page.frontmatter.intro} />
+
+      <RegionTeaser />
 
       <Grid>
         <GridCell span="8">
