@@ -25,6 +25,7 @@
     "gatsby-source-datenguide": "^1.0.1",
     "gatsby-source-filesystem": "^1.5.8",
     "gatsby-transformer-remark": "^1.7.21",
+    "lodash": "^4.17.5",
     "material-components-web": "^0.30.0",
     "mdi-react": "^2.1.19",
     "node-sass": "^4.5.2",
