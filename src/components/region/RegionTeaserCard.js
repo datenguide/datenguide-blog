@@ -11,7 +11,7 @@ import { Typography } from 'rmwc/Typography'
 
 import theme from '../../components/theme'
 
-export default function RegionTeaser({ region }) {
+export default function RegionTeaserCard({ region }) {
   return (
     <div className="region-teaser__card">
       <Card>
