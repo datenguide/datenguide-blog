@@ -3,20 +3,16 @@ import { assign } from 'lodash'
 // *
 // * Colors
 // *
-const yellow200 = '#FFF59D'
-const deepOrange600 = '#F4511E'
-const lime300 = '#DCE775'
-const lightGreen500 = '#8BC34A'
-const teal700 = '#00796B'
-const cyan900 = '#006064'
-const colors = [
-  deepOrange600,
-  yellow200,
-  lime300,
-  lightGreen500,
-  teal700,
-  cyan900
-]
+
+const blue = '#6ac9ee'
+const blueLight = '#c3e5f1'
+const blueDark = '#01627c'
+const red = '#f26c6f'
+const green = '#bcd869'
+const yellow = '#fed957'
+
+const colors = [red, blueDark, yellow, green, blue, blueLight]
+
 const blueGrey50 = '#ECEFF1'
 const blueGrey300 = '#90A4AE'
 const blueGrey700 = '#455A64'

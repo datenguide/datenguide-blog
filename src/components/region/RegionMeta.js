@@ -32,15 +32,21 @@ export default function RegionMeta({ region }) {
           >
             <VictoryBar data={popData} />
           </VictoryChart>
-          <div className="region-meta__demo">{region.BEVSTD.GEST}</div>
-          <VictoryPie
-            innerRadius={100}
-            theme={theme}
-            data={[
-              { x: 'M', y: region.BEVSTD.GESM },
-              { x: 'W', y: region.BEVSTD.GESW }
-            ]}
-          />
+          <div className="region-meta__demo">
+            {region.BEVSTD.GEST} Einwohner
+            <div className="region-meta__donut">
+              <VictoryPie
+                innerRadius={40}
+                width={150}
+                height={150}
+                theme={theme}
+                data={[
+                  { x: 'M', y: +region.BEVSTD.GESM },
+                  { x: 'W', y: +region.BEVSTD.GESW }
+                ]}
+              />
+            </div>
+          </div>
         </GridCell>
         <GridCell span="4">
           <div className="region-meta__listing">
@@ -57,7 +63,6 @@ export default function RegionMeta({ region }) {
                 {region.geo.lat},{region.geo.lon}
               </li>
               <li>
-                {' '}
                 <MapMarkerMultipleIcon />
                 {region.geo.bbox}
               </li>
