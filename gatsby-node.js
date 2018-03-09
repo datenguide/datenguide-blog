@@ -1,4 +1,6 @@
 const path = require(`path`)
+const glob = require('glob')
+const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const { createFilePath } = require(`gatsby-source-filesystem`)
 
 const staticPagesQuery = `
@@ -86,4 +88,70 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
   })
 
   return Promise.all([regionsGenerator, staticPagesGenerator])
+}
+
+const sassOptions = {
+  includePaths: ['node_modules', 'node_modules/@material/*']
+    .map(d => path.join(__dirname, d))
+    .map(g => glob.sync(g))
+    .reduce((a, c) => a.concat(c), [])
+}
+
+const sassLoader = `sass?${JSON.stringify(sassOptions)}`
+
+exports.modifyWebpackConfig = ({ config, stage }) => {
+  switch (stage) {
+    case 'develop':
+      config.loader('sass', {
+        test: /\.(sass|scss)$/,
+        exclude: /\.module\.(sass|scss)$/,
+        // loaders: ['style', 'css', 'postcss', 'sass'],
+
+        loaders: [
+          'style-loader',
+          'css-loader',
+          sassLoader
+          // {
+          //   loader: 'sass-loader',
+          //   options: {
+          //     includePaths: ['node_modules', 'node_modules/@material/*']
+          //       .map(d => path.join(__dirname, d))
+          //       .map(g => glob.sync(g))
+          //       .reduce((a, c) => a.concat(c), [])
+          //   }
+          // }
+        ]
+      })
+
+      break
+
+    case 'build-css':
+      config.loader('sass', {
+        test: /\.(sass|scss)$/,
+        exclude: /\.module\.(sass|scss)$/,
+        loader: ExtractTextPlugin.extract(['css?minimize', 'postcss', 'sass'])
+      })
+
+      break
+
+    case 'build-html':
+      config.loader('sass', {
+        test: /\.(sass|scss)$/,
+        exclude: /\.module\.(sass|scss)$/,
+        loader: 'null'
+      })
+
+      break
+
+    case 'build-javascript':
+      config.loader('sass', {
+        test: /\.(sass|scss)$/,
+        exclude: /\.module\.(sass|scss)$/,
+        loader: 'null'
+      })
+
+      break
+  }
+
+  return config
 }
