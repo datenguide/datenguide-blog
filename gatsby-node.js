@@ -97,7 +97,7 @@ const sassOptions = {
     .reduce((a, c) => a.concat(c), [])
 }
 
-const sassLoader = `sass?${JSON.stringify(sassOptions)}`
+const sassLoader = `fast-sass-loader?${JSON.stringify(sassOptions)}`
 
 exports.modifyWebpackConfig = ({ config, stage }) => {
   switch (stage) {
