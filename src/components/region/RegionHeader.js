@@ -2,6 +2,7 @@ import React from 'react'
 import { Grid, GridCell } from 'rmwc/Grid'
 
 import Tooltip from './Tooltip.js'
+import '../../scss/components/region-header.scss'
 
 class RegionHeader extends React.Component {
   constructor(props) {
