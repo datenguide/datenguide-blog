@@ -3,6 +3,7 @@ import GatsbyLink from 'gatsby-link'
 import { Toolbar, ToolbarRow, ToolbarSection } from 'rmwc/Toolbar'
 
 import Logo from './Logo'
+import '../scss/components/_header.scss'
 
 export default function AppHeader(props) {
   return (

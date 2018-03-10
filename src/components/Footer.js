@@ -3,6 +3,8 @@ import GatsbyLink from 'gatsby-link'
 import { Grid, GridCell } from 'rmwc/Grid'
 import GithubCircleIcon from 'mdi-react/GithubCircleIcon'
 
+import '../scss/components/_footer.scss'
+
 export default function AppFooter(props) {
   return (
     <footer className="footer">

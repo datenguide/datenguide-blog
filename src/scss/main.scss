@@ -3,7 +3,6 @@
 /**
  * External dependencies
  */
-@import 'sass-mq/mq';
 @import 'normalize.css/normalize';
 @import 'material-components-web/material-components-web';
 
@@ -14,16 +13,6 @@ $font-prefix: '~@ibm/type';
 @import '@ibm/type/scss/sans/index';
 
 /**
- * Custom components
+ * Baseline styling
  */
 @import 'baseline';
-@import 'components/logo';
-@import 'components/hero';
-@import 'components/search.scss';
-@import 'components/toolbar';
-@import 'components/newsletter';
-@import 'components/footer';
-@import 'components/region-header.scss';
-@import 'components/region-teaser.scss';
-@import 'components/region-meta.scss';
-@import 'components/tooltip.scss';

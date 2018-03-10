@@ -1,3 +1,6 @@
+@import 'sass-mq/mq';
+@import '../../scss/_variables.scss';
+
 .hero {
   display: flex;
   align-items: center;
@@ -5,8 +8,8 @@
   background-color: $color-blue-light;
   min-height: 420px;
   border-bottom: 2px solid #44707f;
-  background-image: url('../assets/images/hero_village.svg'),
-    url('../assets/images/hero_city.svg');
+  background-image: url('../../assets/images/hero_village.svg'),
+    url('../../assets/images/hero_city.svg');
   background-repeat: no-repeat, no-repeat;
   background-size: 470px auto, 470px auto;
   background-position: -275px bottom, 275px bottom;

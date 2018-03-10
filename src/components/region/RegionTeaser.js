@@ -3,6 +3,8 @@ import { Grid, GridCell } from 'rmwc/Grid'
 
 import RegionTeaserCard from './RegionTeaserCard.js'
 
+import '../../scss/components/region-teaser.scss'
+
 const teaserRegions = [
   {
     name: 'Herne',

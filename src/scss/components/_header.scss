@@ -1,3 +1,6 @@
+@import '@material/layout-grid/mixins.scss';
+@import '../../scss/_variables.scss';
+
 .mdc-toolbar {
   background: $color-white;
 }

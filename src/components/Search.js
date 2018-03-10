@@ -2,6 +2,8 @@ import React from 'react'
 import Autosuggest from 'react-autosuggest'
 import { navigateTo } from 'gatsby-link'
 
+import '../scss/components/_search.scss'
+
 // Teach Autosuggest how to calculate suggestions for any given input value.
 const getSuggestions = (value, regions) => {
   const inputValue = value.trim().toLowerCase()

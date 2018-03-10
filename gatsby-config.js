@@ -21,20 +21,6 @@ module.exports = {
         obtainQueryUrl: 'http://127.0.0.1:5000/query/'
       }
     },
-    'gatsby-transformer-remark',
-    {
-      resolve: 'gatsby-plugin-sass',
-      options: {
-        includePaths: ['node_modules', 'node_modules/@material/*']
-          .map(d => path.join(__dirname, d))
-          .map(g => glob.sync(g))
-          .reduce((a, c) => a.concat(c), []),
-        postCssPlugins: [
-          autoprefixer({
-            browsers: ['last 2 versions']
-          })
-        ]
-      }
-    }
+    'gatsby-transformer-remark'
   ]
 }

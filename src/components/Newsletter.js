@@ -4,6 +4,8 @@ import { Button } from 'rmwc/Button'
 import { Grid, GridCell } from 'rmwc/Grid'
 import EmailOutlineIcon from 'mdi-react/EmailOutlineIcon'
 
+import '../scss/components/_newsletter.scss'
+
 export default function Newsletter(props) {
   return (
     <form
