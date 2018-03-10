@@ -2,6 +2,7 @@ const path = require(`path`)
 const glob = require('glob')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const { createFilePath } = require(`gatsby-source-filesystem`)
+const { cssModulesConfig } = require(`gatsby-1-config-css-modules`)
 
 const staticPagesQuery = `
 {
@@ -97,61 +98,68 @@ const sassOptions = {
     .reduce((a, c) => a.concat(c), [])
 }
 
+const sassFiles = /\.(sass|scss)$/
+const sassModules = /\.module\.(sass|scss)$/
 const sassLoader = `fast-sass-loader?${JSON.stringify(sassOptions)}`
+const extractSass = new ExtractTextPlugin(`styles.css`, { allChunks: true })
 
 exports.modifyWebpackConfig = ({ config, stage }) => {
   switch (stage) {
-    case 'develop':
+    case 'develop': {
       config.loader('sass', {
-        test: /\.(sass|scss)$/,
-        exclude: /\.module\.(sass|scss)$/,
-        // loaders: ['style', 'css', 'postcss', 'sass'],
+        test: sassFiles,
+        exclude: sassModules,
+        loaders: ['style', 'css', sassLoader]
+      })
 
-        loaders: [
-          'style-loader',
-          'css-loader',
+      config.loader('sassModules', {
+        test: sassModules,
+        loaders: ['style', cssModulesConfig(stage), sassLoader]
+      })
+      return config
+    }
+    case 'build-css': {
+      config.loader('sass', {
+        test: sassFiles,
+        exclude: sassModules,
+        loader: extractSass.extract(['css?minimize', sassLoader])
+      })
+
+      config.loader('sassModules', {
+        test: sassModules,
+        loader: extractSass.extract('style', [
+          cssModulesConfig(stage),
           sassLoader
-          // {
-          //   loader: 'sass-loader',
-          //   options: {
-          //     includePaths: ['node_modules', 'node_modules/@material/*']
-          //       .map(d => path.join(__dirname, d))
-          //       .map(g => glob.sync(g))
-          //       .reduce((a, c) => a.concat(c), [])
-          //   }
-          // }
-        ]
+        ])
       })
 
-      break
+      config.merge({ plugins: [extractSass] })
 
-    case 'build-css':
-      config.loader('sass', {
-        test: /\.(sass|scss)$/,
-        exclude: /\.module\.(sass|scss)$/,
-        loader: ExtractTextPlugin.extract(['css?minimize', 'postcss', 'sass'])
-      })
-
-      break
-
+      return config
+    }
+    case 'develop-html':
     case 'build-html':
+    case 'build-javascript': {
       config.loader('sass', {
-        test: /\.(sass|scss)$/,
-        exclude: /\.module\.(sass|scss)$/,
+        test: sassFiles,
+        exclude: sassModules,
         loader: 'null'
       })
 
-      break
-
-    case 'build-javascript':
-      config.loader('sass', {
-        test: /\.(sass|scss)$/,
-        exclude: /\.module\.(sass|scss)$/,
-        loader: 'null'
+      config.loader('sassModules', {
+        test: sassModules,
+        loader: extractSass.extract('style', [
+          cssModulesConfig(stage),
+          sassLoader
+        ])
       })
 
-      break
+      config.merge({ plugins: [extractSass] })
+
+      return config
+    }
+    default: {
+      return config
+    }
   }
-
-  return config
 }

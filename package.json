@@ -18,7 +18,8 @@
   "dependencies": {
     "@ibm/type": "^0.5.4",
     "autoprefixer": "^8.0.0",
-    "extract-text-webpack-plugin": "^3.0.2",
+    "extract-text-webpack-plugin": "^1.0.1",
+    "gatsby-1-config-css-modules": "^1.0.10",
     "fast-sass-loader": "^1.4.0",
     "gatsby": "^1.9.221",
     "gatsby-link": "^1.6.38",
