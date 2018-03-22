@@ -1,15 +1,5 @@
 import React from 'react'
-import GatsbyLink from 'gatsby-link'
-
-const DistrictList = ({ state }) => (
-  <ul>
-    {state.districts.map(district => (
-      <li key={district.id}>
-        <GatsbyLink to={district.slug}>{district.name}</GatsbyLink>
-      </li>
-    ))}
-  </ul>
-)
+import DistrictList from '../components/DistrictList'
 
 const prepareData = ({ regions, stateNames }) => {
   const districts = regions.edges
@@ -32,7 +22,7 @@ export default ({ data }) => (
     {prepareData(data).map(state => (
       <li key={state.id}>
         <h3>{state.name}</h3>
-        <DistrictList state={state} />
+        <DistrictList districts={state.districts} />
       </li>
     ))}
   </ul>
