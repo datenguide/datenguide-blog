@@ -1,0 +1,20 @@
+@import 'sass-mq/mq';
+@import '../../scss/_variables.scss';
+
+.district-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+
+  @include mq(tablet) {
+    column-count: 2;
+  }
+
+  @include mq(desktop) {
+    column-count: 3;
+  }
+
+  @include mq(wide) {
+    column-count: 4;
+  }
+}
