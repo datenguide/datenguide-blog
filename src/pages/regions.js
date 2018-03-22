@@ -1,4 +1,8 @@
 import React from 'react'
+import { Grid, GridCell } from 'rmwc/Grid'
+
+import Header from '../components/Header'
+import Footer from '../components/Footer'
 import DistrictList from '../components/DistrictList'
 
 const prepareData = ({ regions, stateNames }) => {
@@ -18,14 +22,20 @@ const prepareData = ({ regions, stateNames }) => {
 }
 
 export default ({ data }) => (
-  <ul>
-    {prepareData(data).map(state => (
-      <li key={state.id}>
-        <h3>{state.name}</h3>
-        <DistrictList districts={state.districts} />
-      </li>
-    ))}
-  </ul>
+  <div>
+    <Header />
+    <Grid>
+      <GridCell span="12">
+        {prepareData(data).map(state => (
+          <section key={state.id}>
+            <h2>{state.name}</h2>
+            <DistrictList districts={state.districts} />
+          </section>
+        ))}
+      </GridCell>
+    </Grid>
+    <Footer />
+  </div>
 )
 
 export const query = graphql`
