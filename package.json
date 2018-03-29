@@ -23,7 +23,7 @@
     "fast-sass-loader": "^1.4.0",
     "gatsby": "^1.9.221",
     "gatsby-link": "^1.6.38",
-    "gatsby-source-datenguide": "^1.0.1",
+    "gatsby-source-datenguide": "^1.0.3",
     "gatsby-source-filesystem": "^1.5.25",
     "gatsby-transformer-remark": "^1.7.34",
     "lodash": "^4.17.5",
