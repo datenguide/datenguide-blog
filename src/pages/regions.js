@@ -52,6 +52,7 @@ export const query = graphql`
           id
           slug
           name
+          name_ext
           state {
             slug
           }
