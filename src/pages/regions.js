@@ -3,7 +3,7 @@ import { Grid, GridCell } from 'rmwc/Grid'
 
 import Header from '../components/Header'
 import Footer from '../components/Footer'
-import DistrictList from '../components/DistrictList'
+import StateList from '../components/StateList'
 
 const prepareData = ({ regions, stateNames }) => {
   const districts = regions.edges
@@ -26,12 +26,7 @@ export default ({ data }) => (
     <Header />
     <Grid>
       <GridCell span="12">
-        {prepareData(data).map(state => (
-          <section key={state.id}>
-            <h2>{state.name}</h2>
-            <DistrictList districts={state.districts} />
-          </section>
-        ))}
+        {prepareData(data).map(state => <StateList state={state} />)}
       </GridCell>
     </Grid>
     <Footer />
