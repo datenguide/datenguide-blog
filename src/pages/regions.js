@@ -1,26 +1,56 @@
 import React from 'react'
+import { Grid, GridCell } from 'rmwc/Grid'
 
-const renderRegion = ({ node }) => {
-  return (
-    <li key={node.id}>
-      <a href={node.slug}>{node.name}</a>
-    </li>
-  )
+import Header from '../components/Header'
+import Footer from '../components/Footer'
+import StateList from '../components/StateList'
+
+const prepareData = ({ regions, stateNames }) => {
+  const districts = regions.edges
+    .filter(({ node }) => node.slug !== node.state.slug)
+    .map(({ node }) => node)
+
+  const states = regions.edges
+    .filter(({ node }) => node.slug === node.state.slug)
+    .map(({ node }) => node)
+    .reduce((map, state) => ((map[state.slug] = state), map), {})
+
+  return stateNames.distinct.map(stateSlug => ({
+    ...states[stateSlug],
+    districts: districts.filter(({ state }) => stateSlug === state.slug)
+  }))
 }
 
-export default ({ data }) => {
-  const regions = data.allRegion.edges
-  return <ul>{regions.map(renderRegion)}</ul>
-}
+export default ({ data }) => (
+  <div>
+    <Header />
+    <Grid>
+      <GridCell span="12">
+        {prepareData(data).map(state => <StateList state={state} />)}
+      </GridCell>
+    </Grid>
+    <Footer />
+  </div>
+)
 
 export const query = graphql`
   query regionsOverview {
-    allRegion {
+    stateNames: allRegion(filter: { slug: { ne: "deutschland" } }) {
+      distinct(field: state___slug)
+    }
+    regions: allRegion(
+      filter: { slug: { ne: null } }
+      sort: { fields: [slug], order: ASC }
+    ) {
       edges {
         node {
           id
           slug
           name
+          name_ext
+          state {
+            slug
+          }
         }
       }
     }

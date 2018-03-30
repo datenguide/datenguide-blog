@@ -1,0 +1,19 @@
+@import 'sass-mq/mq';
+@import '../../scss/_variables.scss';
+
+.state-list {
+  display: block;
+  padding: 0;
+  margin: 0;
+  border-top: 1px solid $color-gray;
+}
+
+.state-list__header {
+  display: block;
+  padding: 0;
+}
+
+.state-list__title {
+  display: block;
+  font-size: $font-size-title;
+}

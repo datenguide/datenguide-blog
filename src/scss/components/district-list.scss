@@ -1,0 +1,79 @@
+@import 'sass-mq/mq';
+@import '../../scss/_variables.scss';
+
+.district-list {
+  display: block;
+  position: relative;
+  margin: 0;
+  padding: 1em 0;
+  border-top: 1px solid $color-gray;
+  list-style: none;
+
+  @include mq(tablet) {
+    column-count: 2;
+  }
+
+  @include mq(desktop) {
+    column-count: 3;
+  }
+
+  @include mq(wide) {
+    column-count: 4;
+  }
+}
+
+.district-list__item {
+  display: inline-block;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+
+  a {
+    display: block;
+    position: relative;
+    min-height: 3.2em;
+    padding: 0.6em 1em 0.6em 3.6em;
+    margin-bottom: 0.5em;
+    text-decoration: none;
+    color: $color-black;
+  }
+
+  a:hover,
+  a:focus,
+  a:active {
+    .district-list__icon {
+      background: $color-blue-light;
+      fill: $color-blue-dark;
+    }
+  }
+}
+
+.district-list__icon {
+  display: block;
+  position: absolute;
+  left: 0;
+  top: 0.6em;
+  height: 2.6em;
+  width: 2.6em;
+  padding: 0.4em;
+  background: $color-gray-light;
+  fill: $color-gray-dark;
+  border-radius: 50%;
+}
+
+.district-list__name {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  font-size: $font-size-default;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.district-list__extension {
+  margin: 0;
+  padding: 0;
+  font-size: $font-size-accent;
+  color: $color-gray-dark;
+}
