@@ -2,6 +2,7 @@
 @import '../../scss/_variables.scss';
 
 .district-list {
+  display: block;
   margin: 0;
   padding: 0;
   list-style: none;
@@ -20,7 +21,8 @@
 }
 
 .district-list__item {
-  display: block;
+  display: inline-block;
+  width: 100%;
   margin: 0;
   padding: 0;
 
@@ -58,9 +60,13 @@
 }
 
 .district-list__name {
+  width: 100%;
   margin: 0;
   padding: 0;
   font-size: $font-size-default;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .district-list__extension {
