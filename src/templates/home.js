@@ -2,7 +2,7 @@ import React from 'react'
 import { Grid, GridCell } from 'rmwc/Grid'
 
 import Header from '../components/Header'
-import Hero from '../components/Hero'
+import HeroSearch from '../components/HeroSearch'
 import Newsletter from '../components/Newsletter'
 import Funders from '../components/Funders'
 import Footer from '../components/Footer'
@@ -16,7 +16,7 @@ export default ({ data }) => {
     <div>
       <Header />
 
-      <Hero regions={regions} tagline={page.frontmatter.intro} />
+      <HeroSearch regions={regions} title={page.frontmatter.intro} />
 
       <RegionTeaser />
 

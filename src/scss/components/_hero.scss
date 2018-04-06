@@ -2,10 +2,42 @@
 @import '../../scss/_variables.scss';
 
 .hero {
+  background-color: $color-blue-light;
+  padding: 0.65rem;
+}
+
+.hero__title {
+  margin: 0.65rem 0;
+  font-weight: bold;
+  line-height: 1.2;
+  font-size: 1.3rem;
+
+  @include mq(tablet) {
+    font-size: 2.2rem;
+    width: 80%;
+  }
+}
+
+.hero__intro {
+  &:before {
+    content: '';
+    display: block;
+    height: 0.3rem;
+    width: 5rem;
+    background: $color-blue-dark;
+    margin: 0.65rem 0;
+  }
+
+  display: block;
+  line-height: 1.2;
+  font-size: 1.5rem;
+  margin: 0.65rem 0;
+}
+
+.hero--search {
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: $color-blue-light;
   min-height: 420px;
   border-bottom: 2px solid #44707f;
   background-image: url('../../assets/images/hero_village.svg'),
@@ -21,22 +53,14 @@
   @include mq(wide) {
     background-position: -85px bottom, 98% bottom;
   }
-}
 
-.hero__tagline {
-  text-align: center;
-  font-weight: bold;
-  line-height: 1.2;
-  font-size: 1.3em;
-  margin: 0 auto 1em auto;
-
-  @include mq(tablet) {
-    font-size: 2.2em;
-    width: 80%;
+  .hero__title {
+    text-align: center;
+    margin: 0 auto;
   }
-}
 
-.hero__search {
-  width: 60%;
-  margin: 0 auto 1em auto;
+  .hero__search {
+    width: 60%;
+    margin: 2rem auto 0 auto;
+  }
 }

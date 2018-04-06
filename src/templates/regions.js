@@ -2,6 +2,7 @@ import React from 'react'
 import { Grid, GridCell } from 'rmwc/Grid'
 
 import Header from '../components/Header'
+import Hero from '../components/Hero'
 import Footer from '../components/Footer'
 import StateList from '../components/StateList'
 
@@ -24,12 +25,10 @@ const prepareData = ({ regions, stateNames }) => {
 export default ({ data }) => (
   <div>
     <Header />
-    <Grid>
-      <GridCell span="8">
-        <h2>{data.page.frontmatter.title}</h2>
-        <div dangerouslySetInnerHTML={{ __html: data.page.html }} />
-      </GridCell>
-    </Grid>
+    <Hero
+      title={data.page.frontmatter.title}
+      intro={data.page.frontmatter.intro}
+    />
     <Grid>
       <GridCell span="12">
         {prepareData(data).map(state => <StateList state={state} />)}
@@ -45,6 +44,7 @@ export const query = graphql`
       html
       frontmatter {
         title
+        intro
       }
     }
     stateNames: allRegion(filter: { slug: { ne: "deutschland" } }) {
