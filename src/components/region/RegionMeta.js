@@ -7,7 +7,7 @@ import MapMarkerMultipleIcon from 'mdi-react/MapMarkerMultipleIcon'
 import _ from 'lodash'
 
 import theme from '../../components/theme'
-import Chart from './chart'
+import Chart from './Chart'
 
 import '../../scss/components/region-meta.scss'
 
