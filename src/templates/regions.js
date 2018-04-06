@@ -25,6 +25,12 @@ export default ({ data }) => (
   <div>
     <Header />
     <Grid>
+      <GridCell span="8">
+        <h2>{data.page.frontmatter.title}</h2>
+        <div dangerouslySetInnerHTML={{ __html: data.page.html }} />
+      </GridCell>
+    </Grid>
+    <Grid>
       <GridCell span="12">
         {prepareData(data).map(state => <StateList state={state} />)}
       </GridCell>
@@ -34,7 +40,13 @@ export default ({ data }) => (
 )
 
 export const query = graphql`
-  query regionsOverview {
+  query regionsOverview($slug: String!) {
+    page: markdownRemark(fields: { slug: { eq: $slug } }) {
+      html
+      frontmatter {
+        title
+      }
+    }
     stateNames: allRegion(filter: { slug: { ne: "deutschland" } }) {
       distinct(field: state___slug)
     }
