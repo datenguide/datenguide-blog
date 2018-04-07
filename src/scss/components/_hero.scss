@@ -3,22 +3,35 @@
 
 .hero {
   background-color: $color-blue-light;
-  padding: 0.65rem;
+  padding: 1rem 0;
+
+  @include mq(tablet) {
+    background-image: url('../../assets/images/hero_village.svg');
+    background-repeat: no-repeat, no-repeat;
+    background-size: 470px auto;
+    background-position: 750px bottom;
+    border-bottom: 1px solid #44707f;
+  }
 }
 
 .hero__title {
   margin: 0.65rem 0;
   font-weight: bold;
   line-height: 1.2;
-  font-size: 1.3rem;
+  font-size: 2.2rem;
 
   @include mq(tablet) {
-    font-size: 2.2rem;
     width: 80%;
   }
 }
 
 .hero__intro {
+  display: block;
+  line-height: 1.4;
+  font-size: $font-size-title;
+  margin: 0.65rem 0;
+  max-width: 600px;
+
   &:before {
     content: '';
     display: block;
@@ -26,12 +39,8 @@
     width: 5rem;
     background: $color-blue-dark;
     margin: 0.65rem 0;
+  border-bottom: 2px solid #44707f;
   }
-
-  display: block;
-  line-height: 1.2;
-  font-size: 1.5rem;
-  margin: 0.65rem 0;
 }
 
 .hero--search {
@@ -39,7 +48,6 @@
   align-items: center;
   justify-content: center;
   min-height: 420px;
-  border-bottom: 2px solid #44707f;
   background-image: url('../../assets/images/hero_village.svg'),
     url('../../assets/images/hero_city.svg');
   background-repeat: no-repeat, no-repeat;
