@@ -1,6 +1,7 @@
 import React from 'react'
 import { VictoryChart, VictoryBar, VictoryAxis, VictoryTheme } from 'victory'
 
+import DataTable from '../../components/DataTable'
 import theme from '../../components/theme'
 
 export default function RegionMeta({ data }) {
@@ -14,16 +15,20 @@ export default function RegionMeta({ data }) {
     .value()
 
   return (
-    <VictoryChart
-      theme={theme}
-      padding={{ top: 20, bottom: 40, left: 60, right: 40 }}
-    >
-      <VictoryBar data={popData} />
-      <VictoryAxis fixLabelOverlap />
-      <VictoryAxis
-        dependentAxis
-        tickFormat={val => Intl.NumberFormat('de').format(val)}
-      />
-    </VictoryChart>
+    <div className="chart-container">
+      <DataTable data={popData} />
+
+      <VictoryChart
+        theme={theme}
+        padding={{ top: 20, bottom: 40, left: 60, right: 40 }}
+      >
+        <VictoryBar data={popData} />
+        <VictoryAxis fixLabelOverlap />
+        <VictoryAxis
+          dependentAxis
+          tickFormat={val => Intl.NumberFormat('de').format(val)}
+        />
+      </VictoryChart>
+    </div>
   )
 }
