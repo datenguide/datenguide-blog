@@ -5,8 +5,8 @@
   display: block;
   position: relative;
   margin: 0;
-  padding: 1em 0;
-  border-top: 1px solid $color-gray;
+  padding: 1.3rem 0;
+  border-bottom: 1px solid $color-gray;
   list-style: none;
 
   @include mq(tablet) {

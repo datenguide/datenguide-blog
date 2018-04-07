@@ -5,15 +5,23 @@
   display: block;
   padding: 0;
   margin: 0;
-  border-top: 1px solid $color-gray;
+
+  &:first-of-type {
+    padding-top: 1.3rem;
+  }
 }
 
 .state-list__header {
   display: block;
-  padding: 0;
+  position: relative;
+  margin: 0;
+  padding: 0 0 1.3rem 0;
+  border-bottom: 1px solid $color-gray;
 }
 
 .state-list__title {
   display: block;
   font-size: $font-size-title;
+  padding: 0;
+  margin: 0;
 }

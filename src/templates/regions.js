@@ -1,5 +1,4 @@
 import React from 'react'
-import { Grid, GridCell } from 'rmwc/Grid'
 
 import Header from '../components/Header'
 import Hero from '../components/Hero'
@@ -25,15 +24,14 @@ const prepareData = ({ regions, stateNames }) => {
 export default ({ data }) => (
   <div>
     <Header />
+
     <Hero
       title={data.page.frontmatter.title}
       intro={data.page.frontmatter.intro}
     />
-    <Grid>
-      <GridCell span="12">
-        {prepareData(data).map(state => <StateList state={state} />)}
-      </GridCell>
-    </Grid>
+
+    {prepareData(data).map(state => <StateList state={state} />)}
+
     <Footer />
   </div>
 )
