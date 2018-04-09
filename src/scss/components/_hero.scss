@@ -9,8 +9,16 @@
     background-image: url('../../assets/images/hero_village.svg');
     background-repeat: no-repeat, no-repeat;
     background-size: 470px auto;
-    background-position: 750px bottom;
+    background-position: 105% bottom;
     border-bottom: 1px solid #44707f;
+  }
+
+  @include mq(desktop) {
+    background-position: 760px bottom;
+  }
+
+  @include mq(wide) {
+    background-position: 970px bottom;
   }
 }
 
@@ -39,7 +47,7 @@
     width: 5rem;
     background: $color-blue-dark;
     margin: 0.65rem 0;
-  border-bottom: 2px solid #44707f;
+    border-bottom: 2px solid #44707f;
   }
 }
 
