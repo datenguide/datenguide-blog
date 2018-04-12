@@ -1,16 +1,18 @@
 import React from 'react'
 
+import '../scss/components/data-table.scss'
+
 export default function DataTable({ data }) {
   return (
-    <div className="data-table">
-      <table>
+    <table className="data-table">
+      <tbody>
         {data.map(row => (
           <tr>
             <td>{row.x}</td>
             <td>{row.y}</td>
           </tr>
         ))}
-      </table>
-    </div>
+      </tbody>
+    </table>
   )
 }

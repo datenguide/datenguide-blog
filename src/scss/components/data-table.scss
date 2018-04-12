@@ -1,0 +1,71 @@
+@import '../../scss/_variables.scss';
+
+$data-table-dividers: 1px solid $color-gray;
+$data-table-row-height: 20px;
+$data-table-column-padding: 15px;
+
+.data-table {
+  position: relative;
+  border: $data-table-dividers;
+  border-collapse: collapse;
+  white-space: nowrap;
+  font-size: $font-size-accent;
+  background-color: $color-white;
+
+  thead {
+    padding-bottom: 3px;
+
+    .data-table__select {
+      margin-top: 0;
+    }
+  }
+
+  tbody {
+    tr {
+      position: relative;
+      height: $data-table-row-height;
+      transition-property: background-color;
+
+      &:hover {
+        background-color: $color-gray-light;
+      }
+    }
+  }
+
+  td,
+  th {
+    padding: 0 $data-table-column-padding 12px $data-table-column-padding;
+    text-align: right;
+
+    &:first-of-type {
+      padding-left: 24px;
+    }
+
+    &:last-of-type {
+      padding-right: 24px;
+    }
+  }
+
+  td {
+    position: relative;
+    vertical-align: middle;
+    height: $data-table-row-height;
+    border-top: $data-table-dividers;
+    border-bottom: $data-table-dividers;
+    padding-top: $data-table-column-padding;
+    box-sizing: border-box;
+
+    .data-table__select {
+      vertical-align: middle;
+    }
+  }
+
+  th {
+    position: relative;
+    vertical-align: bottom;
+    text-overflow: ellipsis;
+    height: $data-table-row-height;
+    padding-bottom: 8px;
+    box-sizing: border-box;
+  }
+}
