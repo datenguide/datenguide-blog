@@ -16,7 +16,7 @@ export default function RegionMeta({ data }) {
 
   return (
     <div className="chart-container">
-      <DataTable data={popData} />
+      <DataTable columnLabels={['Jahr', 'Einwohner']} data={popData} />
 
       <VictoryChart
         theme={theme}
