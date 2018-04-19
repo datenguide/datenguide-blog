@@ -5,18 +5,23 @@ $data-table-row-height: 20px;
 $data-table-column-padding: 15px;
 
 .data-table {
-  position: relative;
-  border: $data-table-dividers;
-  border-collapse: collapse;
-  white-space: nowrap;
-  font-size: $font-size-accent;
-  background-color: $color-white;
+  width: 100%;
+  overflow: scroll;
 
-  thead {
-    padding-bottom: 3px;
+  table {
+    position: relative;
+    border: $data-table-dividers;
+    border-collapse: collapse;
+    white-space: nowrap;
+    font-size: $font-size-accent;
+    background-color: $color-white;
 
-    .data-table__select {
-      margin-top: 0;
+    thead {
+      padding-bottom: 3px;
+
+      .data-table__select {
+        margin-top: 0;
+      }
     }
   }
 
