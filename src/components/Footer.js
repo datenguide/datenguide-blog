@@ -21,7 +21,7 @@ export default function AppFooter(props) {
         <GridCell span="4">
           <GatsbyLink
             className="footer__link footer__link--contact"
-            to="contact"
+            to="/contact"
           >
             Kontakt und Impressum
           </GatsbyLink>
