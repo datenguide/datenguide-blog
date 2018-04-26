@@ -6,10 +6,9 @@ $data-table-column-padding: 15px;
 
 .data-table {
   width: 100%;
-  overflow: scroll;
+  position: relative;
 
   table {
-    position: relative;
     border: $data-table-dividers;
     border-collapse: collapse;
     white-space: nowrap;
@@ -44,6 +43,21 @@ $data-table-column-padding: 15px;
     text-align: center;
     border: $data-table-dividers;
     background-color: $color-gray-light;
+  }
+
+  &:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: $data-table-column-padding * 2;
+    background: linear-gradient(to left, white, rgba(255, 255, 255, 0));
+  }
+
+  .data-table__container {
+    width: 100%;
+    overflow: scroll;
   }
 
   .data-table__cell--str {

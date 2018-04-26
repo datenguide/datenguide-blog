@@ -53,7 +53,9 @@ const HorizontalTable = ({ columnLabels, data }) => (
 export default function DataTable({ columnLabels, data }) {
   return (
     <div className="data-table">
-      <VerticalTable columnLabels={columnLabels} data={data} />
+      <div className="data-table__container">
+        <VerticalTable columnLabels={columnLabels} data={data} />
+      </div>
     </div>
   )
 }
