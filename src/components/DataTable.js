@@ -26,16 +26,13 @@ const TableBody = ({ isTransposed, ...props }) =>
 
 const TableBodyHorizontal = ({ headers, data }) => (
   <tbody>
-    <tr>
-      <th>1</th>
-      <th className="data-table__cell--str">{headers[0].label}</th>
-      {data.map(row => <td className="data-table__cell--num">{row.x}</td>)}
-    </tr>
-    <tr>
-      <th>2</th>
-      <th className="data-table__cell--str">{headers[1].label}</th>
-      {data.map(row => <td className="data-table__cell--num">{row.y}</td>)}
-    </tr>
+    {headers.map(({ label, key }, count) => (
+      <tr>
+        <th>{count + 1}</th>
+        <th className="data-table__cell--str">{label}</th>
+        {data.map(row => <td className="data-table__cell--num">{row[key]}</td>)}
+      </tr>
+    ))}
   </tbody>
 )
 
