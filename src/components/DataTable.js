@@ -27,12 +27,12 @@ const TableBodyHorizontal = ({ columnLabels, data }) => (
   <tbody>
     <tr>
       <th>1</th>
-      <td className="data-table__cell--str">{columnLabels[0]}</td>
+      <th className="data-table__cell--str">{columnLabels[0]}</th>
       {data.map(row => <td className="data-table__cell--num">{row.x}</td>)}
     </tr>
     <tr>
       <th>2</th>
-      <td className="data-table__cell--str">{columnLabels[1]}</td>
+      <th className="data-table__cell--str">{columnLabels[1]}</th>
       {data.map(row => <td className="data-table__cell--num">{row.y}</td>)}
     </tr>
   </tbody>

@@ -9,7 +9,7 @@ $data-table-column-padding: 15px;
   position: relative;
 
   table {
-    min-width: 80%;
+    min-width: calc(100% - 30px);
     border: $data-table-dividers;
     border-collapse: collapse;
     white-space: nowrap;
@@ -43,11 +43,15 @@ $data-table-column-padding: 15px;
     padding: $data-table-column-padding/2 $data-table-column-padding;
     text-align: center;
     border: $data-table-dividers;
-    background-color: $color-gray-light;
 
     &:first-of-type {
       width: 30px;
+      background-color: $color-gray-light;
     }
+  }
+
+  thead th {
+    background-color: $color-gray-light;
   }
 
   &:after {
