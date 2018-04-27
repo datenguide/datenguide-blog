@@ -1,12 +1,13 @@
 import React from 'react'
+import { CSVLink } from 'react-csv'
 import * as alphabet from 'alphabet'
 
 import '../scss/components/data-table.scss'
 
-const TableHeader = ({ isTransposed, transpose, data, columnLabels }) => {
-  const colIndex = isTransposed ? data.length + 1 : columnLabels.length
-  const colIndexArray = Array.from(Array(colIndex).keys())
-  const colHeader = colIndexArray.map(i => alphabet.upper[i])
+const TableHeader = ({ isTransposed, transpose, headers, data }) => {
+  const colCount = isTransposed ? data.length + 1 : headers.length
+  const colIndex = Array.from(Array(colCount).keys())
+  const colHeader = colIndex.map(i => alphabet.upper[i])
 
   return (
     <thead>
@@ -23,26 +24,26 @@ const TableHeader = ({ isTransposed, transpose, data, columnLabels }) => {
 const TableBody = ({ isTransposed, ...props }) =>
   isTransposed ? TableBodyHorizontal(props) : TableBodyVertical(props)
 
-const TableBodyHorizontal = ({ columnLabels, data }) => (
+const TableBodyHorizontal = ({ headers, data }) => (
   <tbody>
     <tr>
       <th>1</th>
-      <th className="data-table__cell--str">{columnLabels[0]}</th>
+      <th className="data-table__cell--str">{headers[0].label}</th>
       {data.map(row => <td className="data-table__cell--num">{row.x}</td>)}
     </tr>
     <tr>
       <th>2</th>
-      <th className="data-table__cell--str">{columnLabels[1]}</th>
+      <th className="data-table__cell--str">{headers[1].label}</th>
       {data.map(row => <td className="data-table__cell--num">{row.y}</td>)}
     </tr>
   </tbody>
 )
 
-const TableBodyVertical = ({ columnLabels, data }) => (
+const TableBodyVertical = ({ headers, data }) => (
   <tbody>
     <tr>
       <th>1</th>
-      {columnLabels.map(label => (
+      {headers.map(({ label }) => (
         <th className="data-table__cell--num">{label}</th>
       ))}
     </tr>
@@ -70,23 +71,29 @@ class DataTable extends React.Component {
   }
 
   render() {
+    const { data, headers } = this.props
+    const { isTransposed } = this.state
+
     return (
       <div className="data-table">
         <div className="data-table__container">
           <table>
             <TableHeader
-              isTransposed={this.state.isTransposed}
               transpose={this.transpose}
-              columnLabels={this.props.columnLabels}
-              data={this.props.data}
+              isTransposed={isTransposed}
+              headers={headers}
+              data={data}
             />
             <TableBody
-              isTransposed={this.state.isTransposed}
-              columnLabels={this.props.columnLabels}
-              data={this.props.data}
+              isTransposed={isTransposed}
+              headers={headers}
+              data={data}
             />
           </table>
         </div>
+        <CSVLink data={data} headers={headers} filename={'datenguide.csv'}>
+          Daten herunterladen
+        </CSVLink>
       </div>
     )
   }
