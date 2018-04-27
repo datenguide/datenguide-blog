@@ -3,59 +3,93 @@ import * as alphabet from 'alphabet'
 
 import '../scss/components/data-table.scss'
 
-const VerticalTable = ({ columnLabels, data }) => {
-  const colIndex = Array.from(Array(data.length + 1).keys())
-  const colHeader = colIndex.map(i => alphabet.upper[i])
+const TableHeader = ({ isTransposed, transpose, data, columnLabels }) => {
+  const colIndex = isTransposed ? data.length + 1 : columnLabels.length
+  const colIndexArray = Array.from(Array(colIndex).keys())
+  const colHeader = colIndexArray.map(i => alphabet.upper[i])
 
   return (
-    <table>
-      <thead>
-        <tr>
-          <th className="data-table__cell--plain">
-            <button className="data-table__transpose">⤭</button>
-          </th>
-          {colHeader.map(i => <th>{i}</th>)}
-        </tr>
-      </thead>
-
-      <tbody>
-        <tr>
-          <th>1</th>
-          <td className="data-table__cell--str">{columnLabels[0]}</td>
-          {data.map(row => <td className="data-table__cell--num">{row.x}</td>)}
-        </tr>
-        <tr>
-          <th>2</th>
-          <td className="data-table__cell--str">{columnLabels[1]}</td>
-          {data.map(row => <td className="data-table__cell--num">{row.y}</td>)}
-        </tr>
-      </tbody>
-    </table>
+    <thead>
+      <tr>
+        <th className="data-table__transpose">
+          <button onClick={transpose}>⤭</button>
+        </th>
+        {colHeader.map(i => <th>{i}</th>)}
+      </tr>
+    </thead>
   )
 }
 
-const HorizontalTable = ({ columnLabels, data }) => (
-  <table>
-    <thead>
-      <tr>{columnLabels.map(label => <th>{label}</th>)}</tr>
-    </thead>
-    <tbody>
-      {data.map(row => (
-        <tr>
-          <td>{row.x}</td>
-          <td>{row.y}</td>
-        </tr>
-      ))}
-    </tbody>
-  </table>
+const TableBody = ({ isTransposed, ...props }) =>
+  isTransposed ? TableBodyHorizontal(props) : TableBodyVertical(props)
+
+const TableBodyHorizontal = ({ columnLabels, data }) => (
+  <tbody>
+    <tr>
+      <th>1</th>
+      <td className="data-table__cell--str">{columnLabels[0]}</td>
+      {data.map(row => <td className="data-table__cell--num">{row.x}</td>)}
+    </tr>
+    <tr>
+      <th>2</th>
+      <td className="data-table__cell--str">{columnLabels[1]}</td>
+      {data.map(row => <td className="data-table__cell--num">{row.y}</td>)}
+    </tr>
+  </tbody>
 )
 
-export default function DataTable({ columnLabels, data }) {
-  return (
-    <div className="data-table">
-      <div className="data-table__container">
-        <VerticalTable columnLabels={columnLabels} data={data} />
+const TableBodyVertical = ({ columnLabels, data }) => (
+  <tbody>
+    <tr>
+      <th>1</th>
+      {columnLabels.map(label => (
+        <th className="data-table__cell--num">{label}</th>
+      ))}
+    </tr>
+    {data.map((row, index) => (
+      <tr>
+        <th>{index + 2}</th>
+        <td className="data-table__cell--num">{row.x}</td>
+        <td className="data-table__cell--num">{row.y}</td>
+      </tr>
+    ))}
+  </tbody>
+)
+
+class DataTable extends React.Component {
+  constructor(props) {
+    super(props)
+    this.state = { isTransposed: false }
+    this.transpose = this.transpose.bind(this)
+  }
+
+  transpose() {
+    this.setState(prevState => ({
+      isTransposed: !prevState.isTransposed
+    }))
+  }
+
+  render() {
+    return (
+      <div className="data-table">
+        <div className="data-table__container">
+          <table>
+            <TableHeader
+              isTransposed={this.state.isTransposed}
+              transpose={this.transpose}
+              columnLabels={this.props.columnLabels}
+              data={this.props.data}
+            />
+            <TableBody
+              isTransposed={this.state.isTransposed}
+              columnLabels={this.props.columnLabels}
+              data={this.props.data}
+            />
+          </table>
+        </div>
       </div>
-    </div>
-  )
+    )
+  }
 }
+
+export default DataTable

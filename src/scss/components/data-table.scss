@@ -9,6 +9,7 @@ $data-table-column-padding: 15px;
   position: relative;
 
   table {
+    min-width: 80%;
     border: $data-table-dividers;
     border-collapse: collapse;
     white-space: nowrap;
@@ -43,6 +44,10 @@ $data-table-column-padding: 15px;
     text-align: center;
     border: $data-table-dividers;
     background-color: $color-gray-light;
+
+    &:first-of-type {
+      width: 30px;
+    }
   }
 
   &:after {
@@ -69,14 +74,16 @@ $data-table-column-padding: 15px;
     text-align: right;
   }
 
-  .data-table__cell--plain {
-    padding: 0;
-  }
-
   .data-table__transpose {
-    padding: $data-table-column-padding/2 $data-table-column-padding;
-    margin: 0;
-    border: 0;
-    background: transparent;
+    padding: 0;
+
+    button {
+      padding: $data-table-column-padding/2 0;
+      display: block;
+      width: 100%;
+      margin: 0;
+      border: 0;
+      background: transparent;
+    }
   }
 }
