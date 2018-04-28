@@ -15,7 +15,7 @@ const TableHeader = ({ isTransposed, transpose, headers, data }) => {
         <th className="data-table__transpose">
           <button onClick={transpose}>⤭</button>
         </th>
-        {colHeader.map(i => <th>{i}</th>)}
+        {colHeader.map(i => <th key={i}>{i}</th>)}
       </tr>
     </thead>
   )
@@ -26,11 +26,15 @@ const TableBody = ({ isTransposed, ...props }) =>
 
 const TableBodyHorizontal = ({ headers, data }) => (
   <tbody>
-    {headers.map(({ label, key }, count) => (
+    {headers.map(({ label, key }, index) => (
       <tr>
-        <th>{count + 1}</th>
+        <th>{index + 1}</th>
         <th className="data-table__cell--str">{label}</th>
-        {data.map(row => <td className="data-table__cell--num">{row[key]}</td>)}
+        {data.map(row => (
+          <td className="data-table__cell--num" key={row[key]}>
+            {row[key]}
+          </td>
+        ))}
       </tr>
     ))}
   </tbody>
@@ -40,12 +44,14 @@ const TableBodyVertical = ({ headers, data }) => (
   <tbody>
     <tr>
       <th>1</th>
-      {headers.map(({ label }) => (
-        <th className="data-table__cell--num">{label}</th>
+      {headers.map(({ label, key }) => (
+        <th className="data-table__cell--num" key={key}>
+          {label}
+        </th>
       ))}
     </tr>
     {data.map((row, index) => (
-      <tr>
+      <tr key={index}>
         <th>{index + 2}</th>
         <td className="data-table__cell--num">{row.x}</td>
         <td className="data-table__cell--num">{row.y}</td>
