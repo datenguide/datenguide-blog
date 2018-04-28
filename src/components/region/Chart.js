@@ -59,7 +59,6 @@ class Chart extends React.Component {
     return (
       <div className="chart-container">
         <TabBar
-          activeTab={this.state.activeTab}
           onChange={evt => this.setState({ activeTab: evt.target.value })}
         >
           <Tab>Visualisierung</Tab>
