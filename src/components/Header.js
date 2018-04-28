@@ -13,7 +13,7 @@ export default function AppHeader(props) {
           <Logo />
         </ToolbarSection>
         <ToolbarSection alignEnd>
-          <GatsbyLink to="regions">Explore</GatsbyLink>
+          <GatsbyLink to="/regions">Explore</GatsbyLink>
         </ToolbarSection>
       </ToolbarRow>
     </Toolbar>
