@@ -17,8 +17,6 @@ export default function RegionMeta({ region }) {
       <Grid>
         <GridCell span="8">
           <h3>Bevölkerungsentwicklung</h3>
-          <a href="#">Visualisierung</a> &nbsp;|&nbsp;
-          <a href="#">Daten herunterladen</a>
           <Chart data={region.BEVSTD.ALTX20.INSGESAMT.GEST__years} />
           <div className="region-meta__demo">
             {region.BEVSTD.GEST} Einwohner
