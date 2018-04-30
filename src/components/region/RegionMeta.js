@@ -8,6 +8,7 @@ import _ from 'lodash'
 
 import theme from '../../components/theme'
 import Chart from './Chart'
+import PopulationOverTime from '../charts/PopulationOverTime'
 
 import '../../scss/components/region-meta.scss'
 
@@ -17,6 +18,7 @@ export default function RegionMeta({ region }) {
       <Grid>
         <GridCell span="8">
           <h3>Bevölkerungsentwicklung</h3>
+          <PopulationOverTime />
           <Chart data={region.BEVSTD.ALTX20.INSGESAMT.GEST__years} />
           <div className="region-meta__demo">
             {region.BEVSTD.GEST} Einwohner
@@ -59,37 +61,3 @@ export default function RegionMeta({ region }) {
     </div>
   )
 }
-
-export const query = graphql`
-  fragment population on Region {
-    BEVSTD {
-      ALTX20 {
-        INSGESAMT {
-          GEST__years {
-            _1995
-            _1996
-            _1997
-            _1998
-            _1999
-            _2000
-            _2001
-            _2002
-            _2003
-            _2004
-            _2005
-            _2006
-            _2007
-            _2008
-            _2009
-            _2010
-            _2011
-            _2012
-            _2013
-            _2014
-            _2015
-          }
-        }
-      }
-    }
-  }
-`

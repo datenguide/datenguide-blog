@@ -46,7 +46,7 @@ export const query = graphql`
         GESW
         GEST
       }
-      ...population
+      ...PopulationOverTime
     }
   }
 `

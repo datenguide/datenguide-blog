@@ -1,5 +1,7 @@
 const path = require(`path`)
 const glob = require('glob')
+const fs = require('fs')
+
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const { createFilePath } = require(`gatsby-source-filesystem`)
 const { cssModulesConfig } = require(`gatsby-1-config-css-modules`)
@@ -31,6 +33,12 @@ const regionsQuery = `
     }
   }
 }`
+
+const fragmentTemplate = (output, fragment) => `
+${output}\n
+export const ${fragment.name} = graphql\`
+${fragment.body}
+\``
 
 const getTemplate = slug => path.resolve(`./src/templates/${slug}.js`)
 
@@ -89,6 +97,20 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
   })
 
   return Promise.all([regionsGenerator, staticPagesGenerator])
+}
+
+exports.onPreExtractQueries = () => {
+  // Write fragments from *.graphql files to cache so they can be processed by relay
+  const fragmentPath = `${__dirname}/.cache/fragments/external-component-fragments.js`
+  const queryFragments = glob
+    .sync('./src/components/**/*.graphql')
+    .map(filename => ({
+      name: path.basename(filename, '.graphql'),
+      body: fs.readFileSync(filename, 'utf8')
+    }))
+    .reduce(fragmentTemplate, '/* generated from gatsby-node.js */')
+
+  fs.writeFileSync(fragmentPath, queryFragments)
 }
 
 const sassOptions = {
