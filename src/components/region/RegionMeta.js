@@ -4,7 +4,6 @@ import { VictoryPie, VictoryChart, VictoryTheme } from 'victory'
 import VectorSquareIcon from 'mdi-react/VectorSquareIcon'
 import MapMarkerIcon from 'mdi-react/MapMarkerIcon'
 import MapMarkerMultipleIcon from 'mdi-react/MapMarkerMultipleIcon'
-import _ from 'lodash'
 
 import theme from '../../components/theme'
 import PopulationOverTime from '../charts/PopulationOverTime'
