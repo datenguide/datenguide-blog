@@ -7,7 +7,6 @@ import MapMarkerMultipleIcon from 'mdi-react/MapMarkerMultipleIcon'
 import _ from 'lodash'
 
 import theme from '../../components/theme'
-import Chart from './Chart'
 import PopulationOverTime from '../charts/PopulationOverTime'
 
 import '../../scss/components/region-meta.scss'
@@ -18,8 +17,8 @@ export default function RegionMeta({ region }) {
       <Grid>
         <GridCell span="8">
           <h3>Bevölkerungsentwicklung</h3>
-          <PopulationOverTime />
-          <Chart data={region.BEVSTD.ALTX20.INSGESAMT.GEST__years} />
+          <PopulationOverTime data={region} />
+
           <div className="region-meta__demo">
             {region.BEVSTD.GEST} Einwohner
             <div className="region-meta__donut">

@@ -2,17 +2,17 @@ import React from 'react'
 import { TabBar, Tab } from 'rmwc/Tabs'
 import { VictoryChart, VictoryBar, VictoryAxis, VictoryTheme } from 'victory'
 
-import DataTable from '../../components/DataTable'
-import theme from '../../components/theme'
+import DataTable from './DataTable'
+import theme from './theme'
 
-const TabSelector = ({ activeTab, data }) => {
+const TabSelector = ({ activeTab, data, query }) => {
   switch (activeTab) {
     case 0:
       return <TabVis data={data} />
     case 1:
       return <TabData data={data} />
     case 2:
-      return <TabApi data={data} />
+      return <TabApi query={query} />
     default:
       return null
   }
@@ -39,9 +39,9 @@ const TabVis = ({ data }) => (
   </VictoryChart>
 )
 
-const TabApi = ({ data }) => <div>DATA</div>
+const TabApi = ({ query }) => <pre>{query}</pre>
 
-class Chart extends React.Component {
+class ChartContainer extends React.Component {
   constructor(props) {
     super(props)
     this.state = { activeTab: 0 }
@@ -66,10 +66,14 @@ class Chart extends React.Component {
           <Tab>GraphQL</Tab>
         </TabBar>
 
-        <TabSelector data={data} activeTab={this.state.activeTab} />
+        <TabSelector
+          activeTab={this.state.activeTab}
+          data={data}
+          query={this.props.query}
+        />
       </div>
     )
   }
 }
 
-export default Chart
+export default ChartContainer
