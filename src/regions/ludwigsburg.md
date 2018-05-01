@@ -1,0 +1,7 @@
+---
+id: 08118
+slug: ludwigsburg
+source_url: https://de.wikipedia.org/wiki/Ludwigsburg
+---
+
+Ludwigsburg ist eine Stadt in Baden-Württemberg, etwa 12 km nördlich der Stuttgarter Innenstadt. Sie gehört zur Region Stuttgart (bis 1992 Region Mittlerer Neckar) und zur europäischen Metropolregion Stuttgart. Sie ist die Kreisstadt und größte Stadt des Landkreises Ludwigsburg sowie noch vor Esslingen am Neckar die größte Mittelstadt Baden-Württembergs. Zusammen mit Kornwestheim bildet Ludwigsburg ein Mittelzentrum für die umliegenden Gemeinden. Seit dem 1. April 1956 ist Ludwigsburg Große Kreisstadt. Das Residenzschloss, die umgebenden Grünanlagen und die Alleen prägen das Stadtbild.

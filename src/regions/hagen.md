@@ -1,0 +1,7 @@
+---
+id: 05914
+slug: hagen
+source_url: https://de.wikipedia.org/wiki/Hagen
+---
+
+Hagen ist eine kreisfreie Großstadt im Bundesland Nordrhein-Westfalen. Sie liegt am südöstlichen Rand des Ruhrgebiets und ist die größte Stadt in Südwestfalen. Hagen wird oft als „das Tor zum Sauerland“ bezeichnet.
