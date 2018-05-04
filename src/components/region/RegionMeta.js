@@ -45,12 +45,8 @@ export default function RegionMeta({ region }) {
                 {region.FLC006} km² Fläche
               </li>
               <li>
-                <MapMarkerIcon />
-                {region.geo.lat},{region.geo.lon}
-              </li>
-              <li>
                 <MapMarkerMultipleIcon />
-                {region.geo.bbox}
+                [{region.geo.bbox.join(', ')}]
               </li>
             </ul>
           </div>
@@ -59,3 +55,37 @@ export default function RegionMeta({ region }) {
     </div>
   )
 }
+
+export const query = graphql`
+  fragment population on Region {
+    BEVSTD {
+      ALTX20 {
+        INSGESAMT {
+          GEST__years {
+            _1995
+            _1996
+            _1997
+            _1998
+            _1999
+            _2000
+            _2001
+            _2002
+            _2003
+            _2004
+            _2005
+            _2006
+            _2007
+            _2008
+            _2009
+            _2010
+            _2011
+            _2012
+            _2013
+            _2014
+            _2015
+          }
+        }
+      }
+    }
+  }
+`

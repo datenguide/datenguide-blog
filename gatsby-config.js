@@ -21,7 +21,7 @@ module.exports = {
         queryUrl: 'https://api.datengui.de/?query=',
         query: `
           {
-            regions {
+            regions(nuts: 3, valid: true) {
               id
               name
               name_ext
@@ -32,8 +32,6 @@ module.exports = {
                 slug
               }
               geo {
-                lat
-                lon
                 bbox
               }
               FLC006
