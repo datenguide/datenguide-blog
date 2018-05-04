@@ -2,10 +2,9 @@ import React from 'react'
 import { TabBar, Tab } from 'rmwc/Tabs'
 
 import DataTable from './DataTable'
+import '../scss/components/_chart-container.scss'
 
 const TabSelector = ({ activeTab, data, query, chartComponent }) => {
-  debugger
-
   switch (activeTab) {
     case 0:
       return chartComponent
@@ -25,7 +24,11 @@ const TabData = ({ data }) => (
   />
 )
 
-const TabApi = ({ query }) => <pre>{query}</pre>
+const TabApi = ({ query }) => (
+  <pre className="chart-container__snippet">
+    <code>{query}</code>
+  </pre>
+)
 
 class ChartContainer extends React.Component {
   constructor(props) {
