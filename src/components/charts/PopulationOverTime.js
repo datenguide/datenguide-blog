@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { VictoryChart, VictoryBar, VictoryAxis, VictoryTheme } from 'victory'
+import { VictoryChart, VictoryArea, VictoryAxis, VictoryTheme } from 'victory'
 import _ from 'lodash'
 
 import ChartContainer from '../ChartContainer'
@@ -22,7 +22,7 @@ const PopulationOverTime = ({ data }) => {
         theme={theme}
         padding={{ top: 20, bottom: 40, left: 60, right: 40 }}
       >
-        <VictoryBar data={processedData} />
+        <VictoryArea data={processedData} />
         <VictoryAxis fixLabelOverlap />
         <VictoryAxis
           dependentAxis
