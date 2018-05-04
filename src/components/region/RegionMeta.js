@@ -45,12 +45,8 @@ export default function RegionMeta({ region }) {
                 {region.FLC006} km² Fläche
               </li>
               <li>
-                <MapMarkerIcon />
-                {region.geo.lat},{region.geo.lon}
-              </li>
-              <li>
                 <MapMarkerMultipleIcon />
-                {region.geo.bbox}
+                [{region.geo.bbox.join(', ')}]
               </li>
             </ul>
           </div>

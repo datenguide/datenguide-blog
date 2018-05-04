@@ -36,8 +36,6 @@ export const query = graphql`
         slug
       }
       geo {
-        lat
-        lon
         bbox
       }
       FLC006

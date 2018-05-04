@@ -32,8 +32,6 @@ module.exports = {
                 slug
               }
               geo {
-                lat
-                lon
                 bbox
               }
               FLC006

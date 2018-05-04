@@ -18,13 +18,12 @@ class RegionHeader extends React.Component {
     mapboxgl.accessToken =
       'pk.eyJ1IjoiZGF0ZW5ndWlkZSIsImEiOiJjamRmcjdmeGUwYXBrMnhwZ2V3ZnUyZGJpIn0.0S5TQa_lEc9PmWihbA4VBw'
 
-    const { lon, lat, bbox } = this.props.region.geo
+    const { bbox } = this.props.region.geo
     const id = this.props.region.id
 
     const map = new mapboxgl.Map({
       container: this.mapContainer,
       style: 'mapbox://styles/datenguide/cjdywdhi39bik2sqdt6itqz73',
-      center: [parseFloat(lon), parseFloat(lat)],
       zoom: 9
     })
 
@@ -35,8 +34,9 @@ class RegionHeader extends React.Component {
       const width = this.mapContainer.clientWidth
 
       if (bbox) {
-        map.fitBounds(bbox.split(','), {
+        map.fitBounds(bbox, {
           padding: 40,
+          duration: 0,
           offset: [width / 4, 0] // offset to make space for title
         })
       }
