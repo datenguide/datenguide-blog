@@ -45,12 +45,12 @@ export const query = graphql`
         intro
       }
     }
-    stateNames: allRegion(filter: { slug: { ne: "deutschland" } }) {
+    stateNames: allRegion {
       distinct(field: state___slug)
     }
     regions: allRegion(
       filter: { slug: { ne: null } }
-      sort: { fields: [slug], order: ASC }
+      sort: { fields: [name], order: ASC }
     ) {
       edges {
         node {
@@ -59,6 +59,8 @@ export const query = graphql`
           name
           name_ext
           state {
+            id
+            name
             slug
           }
         }
