@@ -10,11 +10,13 @@ import PopulationOverTime from '../charts/PopulationOverTime'
 
 import '../../scss/components/region-meta.scss'
 
-export default function RegionMeta({ region }) {
+export default function RegionMeta({ region, meta }) {
   return (
     <div className="region-meta">
       <Grid>
         <GridCell span="8">
+          <div dangerouslySetInnerHTML={{ __html: meta.html }} />
+
           <h3>Bevölkerungsentwicklung</h3>
           <PopulationOverTime data={region} />
 

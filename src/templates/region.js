@@ -11,13 +11,13 @@ import Footer from '../components/Footer'
 import theme from '../components/theme'
 
 export default ({ data }) => {
-  const { region } = data
+  const { meta, region } = data
 
   return (
     <div className="region">
       <Header />
       <RegionHeader region={region} />
-      <RegionMeta region={region} />
+      <RegionMeta region={region} meta={meta} />
       <Footer />
     </div>
   )
@@ -25,6 +25,14 @@ export default ({ data }) => {
 
 export const query = graphql`
   query RegionQuery($slug: String!) {
+    meta: markdownRemark(frontmatter: { slug: { eq: $slug } }) {
+      html
+      frontmatter {
+        slug
+        source_url
+      }
+    }
+
     region(slug: { eq: $slug }) {
       id
       name
