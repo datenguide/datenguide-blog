@@ -16,8 +16,8 @@ export default ({ data }) => {
   return (
     <div className="region">
       <Header />
-      <RegionHeader region={region} />
-      <RegionMeta region={region} meta={meta} />
+      {region && <RegionHeader region={region} />}
+      {region && <RegionMeta region={region} meta={meta} />}
       <Footer />
     </div>
   )
