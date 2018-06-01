@@ -1,5 +1,13 @@
 @import '../../scss/_variables.scss';
 
+.region-meta__source {
+  color: $color-gray-dark;
+
+  a {
+    color: $color-gray-dark;
+  }
+}
+
 .region-meta__listing {
   ul {
     margin: 0;

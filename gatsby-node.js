@@ -8,7 +8,9 @@ const { cssModulesConfig } = require(`gatsby-1-config-css-modules`)
 
 const staticPagesQuery = `
 {
-  allMarkdownRemark {
+  allMarkdownRemark(
+    filter: { fields:  { slug: { regex: "/^(?!\/regions\/.).*$/"}}}
+  ) {
     edges {
       node {
         frontmatter {
@@ -25,14 +27,19 @@ const staticPagesQuery = `
 
 const regionsQuery = `
 {
-  allRegion {
+  allMarkdownRemark(
+    filter: { fields:  { slug: { regex: "/\/regions\/..*$/"}}}
+  ) {
     edges {
       node {
-        slug
+        frontmatter {
+          slug
+        }
       }
     }
   }
-}`
+}
+`
 
 const fragmentTemplate = (output, fragment) => `
 ${output}\n
@@ -57,11 +64,10 @@ exports.onCreateNode = ({ node, getNode, boundActionCreators }) => {
 
 exports.createPages = ({ graphql, boundActionCreators }) => {
   const { createPage } = boundActionCreators
+  const defaultTemplate = path.resolve(`./src/templates/page.js`)
 
   const staticPagesGenerator = new Promise((resolve, reject) => {
     graphql(staticPagesQuery).then(result => {
-      const defaultTemplate = path.resolve(`./src/templates/page.js`)
-
       result.data.allMarkdownRemark.edges.map(({ node }) => {
         const template = node.frontmatter.template
         const customTemplate = template && getTemplate(template)
@@ -81,13 +87,13 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
 
   const regionsGenerator = new Promise((resolve, reject) => {
     graphql(regionsQuery).then(result => {
-      result.data.allRegion.edges.map(({ node }) => {
-        if (node.slug) {
+      result.data.allMarkdownRemark.edges.map(({ node }) => {
+        if (node.frontmatter.slug) {
           createPage({
-            path: node.slug,
+            path: node.frontmatter.slug,
             component: getTemplate('region'),
             context: {
-              slug: node.slug
+              slug: node.frontmatter.slug
             }
           })
         }
