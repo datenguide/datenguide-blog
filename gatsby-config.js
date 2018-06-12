@@ -18,7 +18,7 @@ module.exports = {
     {
       resolve: 'gatsby-source-datenguide',
       options: {
-        queryUrl: 'https://api.datengui.de/?query=',
+        queryUrl: 'https://api.datengui.de/?',
         query: `
           {
             regions(valid: true) {
