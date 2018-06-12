@@ -7,6 +7,7 @@ import MapMarkerMultipleIcon from 'mdi-react/MapMarkerMultipleIcon'
 
 import theme from '../../components/theme'
 import PopulationOverTime from '../charts/PopulationOverTime'
+import PopulationDistribution from '../charts/PopulationDistribution'
 
 import '../../scss/components/region-meta.scss'
 
@@ -28,6 +29,9 @@ export default function RegionMeta({ region, meta }) {
 
           <h3>Bevölkerungsentwicklung</h3>
           <PopulationOverTime data={region} />
+
+          <h3>Bevölkerungsverteilung</h3>
+          <PopulationDistribution data={region} />
 
           <div className="region-meta__demo">
             {region.BEVSTD.GEST} Einwohner
