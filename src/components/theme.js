@@ -22,11 +22,11 @@ const grey900 = '#212121'
 // *
 const fontFamily = "'IBM Plex Sans', 'Helvetica Neue', Arial, sans-serif"
 const letterSpacing = 'normal'
-const fontSize = 8
+const fontSize = 7
 // *
 // * Layout
 // *
-const padding = 8
+const padding = 5
 const baseProps = {
   width: 350,
   height: 200,
@@ -202,17 +202,18 @@ export default {
   ),
   tooltip: {
     style: assign({}, centeredLabelStyles, {
-      padding: 5,
+      padding: 10,
       pointerEvents: 'none'
     }),
     flyoutStyle: {
-      stroke: grey900,
+      stroke: blueGrey300,
       strokeWidth: 1,
-      fill: '#f0f0f0',
+      fill: 'white',
       pointerEvents: 'none'
     },
-    cornerRadius: 5,
-    pointerLength: 10
+    cornerRadius: 0,
+    pointerLength: 3,
+    pointerWidth: 6
   },
   voronoi: assign(
     {
@@ -227,9 +228,9 @@ export default {
           pointerEvents: 'none'
         }),
         flyout: {
-          stroke: grey900,
+          stroke: blueGrey300,
           strokeWidth: 1,
-          fill: '#f0f0f0',
+          fill: 'white',
           pointerEvents: 'none'
         }
       }
