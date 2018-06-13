@@ -5,7 +5,7 @@ import {
   VictoryArea,
   VictoryLine,
   VictoryAxis,
-  VictoryTheme,
+  VictoryLabel,
   VictoryTooltip
 } from 'victory'
 import _ from 'lodash'
@@ -71,9 +71,26 @@ const PopulationOverTime = ({ data }) => {
           data={d1995}
           style={{ data: { fill: '#dadada' } }}
         />
+
         <VictoryLine interpolation="step" data={d2015} />
         <VictoryAxis fixLabelOverlap tickFormat={d => `${d} Jahre`} />
         <VictoryAxis dependentAxis tickFormat={numberFormat} />
+
+        <VictoryLabel
+          datum={_.last(d2015)}
+          dx={3}
+          text="2015"
+          style={{ fontSize: '7', fontFamily: 'inherit' }}
+        />
+
+        <VictoryLabel
+          datum={_.last(d1995)}
+          dx={3}
+          text="1995"
+          style={{ fontSize: '7', fontFamily: 'inherit', fill: 'grey' }}
+        />
+
+        <VictoryLabel datum={_.last(d1995)} />
       </VictoryChart>
     </ChartContainer>
   )
