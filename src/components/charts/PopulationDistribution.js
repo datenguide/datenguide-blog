@@ -45,31 +45,33 @@ const mapPerYear = ({ key, min, max, desc }, year, popData) => ({
 
 const PopulationOverTime = ({ data }) => {
   const popData = data.BEVSTD.ALTX20
-  const data1995 = ageGroup.map(d => mapPerYear(d, 1995, popData))
-  const data2015 = ageGroup.map(d => mapPerYear(d, 2015, popData))
+  const d1995 = ageGroup.map(d => mapPerYear(d, 1995, popData))
+  const d2015 = ageGroup.map(d => mapPerYear(d, 2015, popData))
   const numberFormat = Intl.NumberFormat('de').format
-  const xMax = Math.max(...ageGroup.map(d => d.max))
-  const domain = { x: [0, xMax], y: [0, 100000] }
-  const tooltip = d => `${d.desc}:\n${numberFormat(d.y)} (${d.year})`
+  const maxY = Math.max(...d2015.map(d => d.y), ...d1995.map(d => d.y))
+  const tooltipOrientation = d => (d.y < maxY * 0.75 ? 'top' : 'bottom')
+  const tooltipLabel = d => `${d.desc}:\n${numberFormat(d.y)} (${d.year})`
 
   return (
-    <ChartContainer query={query} data={data1995}>
+    <ChartContainer query={query} data={d1995}>
       <VictoryChart
         theme={theme}
-        padding={{ top: 30, bottom: 40, left: 60, right: 40 }}
+        padding={{ top: 10, bottom: 40, left: 60, right: 40 }}
         containerComponent={
           <VictoryVoronoiContainer
-            labels={tooltip}
-            labelComponent={<VictoryTooltip dy={2} />}
+            labels={tooltipLabel}
+            labelComponent={
+              <VictoryTooltip dy={2} orientation={tooltipOrientation} />
+            }
           />
         }
       >
         <VictoryArea
           interpolation="step"
-          data={data1995}
+          data={d1995}
           style={{ data: { fill: '#dadada' } }}
         />
-        <VictoryLine interpolation="step" data={data2015} />
+        <VictoryLine interpolation="step" data={d2015} />
         <VictoryAxis fixLabelOverlap tickFormat={d => `${d} Jahre`} />
         <VictoryAxis dependentAxis tickFormat={numberFormat} />
       </VictoryChart>
