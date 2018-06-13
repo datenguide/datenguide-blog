@@ -70,7 +70,7 @@ const PopulationOverTime = ({ data }) => {
           style={{ data: { fill: '#dadada' } }}
         />
         <VictoryLine interpolation="step" data={data2015} />
-        <VictoryAxis fixLabelOverlap />
+        <VictoryAxis fixLabelOverlap tickFormat={d => `${d} Jahre`} />
         <VictoryAxis dependentAxis tickFormat={numberFormat} />
       </VictoryChart>
     </ChartContainer>
