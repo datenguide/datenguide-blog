@@ -1,5 +1,6 @@
 import React from 'react'
 import { CSVLink } from 'react-csv'
+import _ from 'lodash'
 import * as alphabet from 'alphabet'
 
 import '../scss/components/data-table.scss'
@@ -74,8 +75,8 @@ class DataTable extends React.Component {
   }
 
   render() {
-    const { data, headers } = this.props
     const { isTransposed } = this.state
+    const { data, headers } = this.props
 
     return (
       <div className="data-table">

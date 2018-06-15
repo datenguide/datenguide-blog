@@ -4,12 +4,12 @@ import { TabBar, Tab } from 'rmwc/Tabs'
 import DataTable from './DataTable'
 import '../scss/components/_chart-container.scss'
 
-const TabSelector = ({ activeTab, data, query, chartComponent }) => {
+const TabSelector = ({ activeTab, data, query, chartComponent, headers }) => {
   switch (activeTab) {
     case 0:
       return chartComponent
     case 1:
-      return <TabData data={data} />
+      return <TabData data={data} headers={headers} />
     case 2:
       return <TabApi query={query} />
     default:
@@ -17,11 +17,8 @@ const TabSelector = ({ activeTab, data, query, chartComponent }) => {
   }
 }
 
-const TabData = ({ data }) => (
-  <DataTable
-    data={data}
-    headers={[{ key: 'x', label: 'Jahr' }, { key: 'y', label: 'Einwohner' }]}
-  />
+const TabData = ({ data, headers }) => (
+  <DataTable data={data} headers={headers} />
 )
 
 const TabApi = ({ query }) => (
@@ -52,6 +49,7 @@ class ChartContainer extends React.Component {
           chartComponent={this.props.children}
           activeTab={this.state.activeTab}
           data={this.props.data}
+          headers={this.props.dataHeaders}
           query={this.props.query}
         />
       </div>

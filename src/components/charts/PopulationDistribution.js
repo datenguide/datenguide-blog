@@ -14,6 +14,12 @@ import ChartContainer from '../ChartContainer'
 import theme from '../theme'
 import query from 'raw-loader!./PopulationOverTime.graphql'
 
+const dataHeaders = [
+  { key: 'desc', label: 'Altersgruppe' },
+  { key: '1995', label: 'Jahr 1995' },
+  { key: '2015', label: 'Jahr 2015' }
+]
+
 const ageGroups = [
   { key: 'ALT000B03', min: 0, max: 3, desc: 'unter 3 Jahre' },
   { key: 'ALT003B06', min: 3, max: 6, desc: '3 bis 6 Jahre' },
@@ -56,7 +62,7 @@ const PopulationOverTime = ({ data }) => {
   }
 
   return (
-    <ChartContainer query={query} data={displayData}>
+    <ChartContainer query={query} data={displayData} dataHeaders={dataHeaders}>
       <VictoryChart
         theme={theme}
         padding={{ top: 10, bottom: 40, left: 60, right: 40 }}
