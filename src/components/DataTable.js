@@ -54,8 +54,9 @@ const TableBodyVertical = ({ headers, data }) => (
     {data.map((row, index) => (
       <tr key={index}>
         <th>{index + 2}</th>
-        <td className="data-table__cell--num">{row.x}</td>
-        <td className="data-table__cell--num">{row.y}</td>
+        {headers.map(({ label, key }) => (
+          <td className="data-table__cell--num">{row[key]}</td>
+        ))}
       </tr>
     ))}
   </tbody>
