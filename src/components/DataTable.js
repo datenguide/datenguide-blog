@@ -1,5 +1,6 @@
 import React from 'react'
 import { CSVLink } from 'react-csv'
+import _ from 'lodash'
 import * as alphabet from 'alphabet'
 
 import '../scss/components/data-table.scss'
@@ -26,12 +27,12 @@ const TableBody = ({ isTransposed, ...props }) =>
 
 const TableBodyHorizontal = ({ headers, data }) => (
   <tbody>
-    {headers.map(({ label, key }, index) => (
+    {headers.map(({ label, key, type }, index) => (
       <tr>
         <th>{index + 1}</th>
-        <th className="data-table__cell--str">{label}</th>
+        <th className="data-table__cell--string">{label}</th>
         {data.map(row => (
-          <td className="data-table__cell--num" key={row[key]}>
+          <td className={`data-table__cell--${type}`} key={row[key]}>
             {row[key]}
           </td>
         ))}
@@ -44,8 +45,8 @@ const TableBodyVertical = ({ headers, data }) => (
   <tbody>
     <tr>
       <th>1</th>
-      {headers.map(({ label, key }) => (
-        <th className="data-table__cell--num" key={key}>
+      {headers.map(({ label, key, type }) => (
+        <th className={`data-table__cell--${type}`} key={key}>
           {label}
         </th>
       ))}
@@ -53,8 +54,9 @@ const TableBodyVertical = ({ headers, data }) => (
     {data.map((row, index) => (
       <tr key={index}>
         <th>{index + 2}</th>
-        <td className="data-table__cell--num">{row.x}</td>
-        <td className="data-table__cell--num">{row.y}</td>
+        {headers.map(({ label, key, type }) => (
+          <td className={`data-table__cell--${type}`}>{row[key]}</td>
+        ))}
       </tr>
     ))}
   </tbody>
@@ -74,8 +76,8 @@ class DataTable extends React.Component {
   }
 
   render() {
-    const { data, headers } = this.props
     const { isTransposed } = this.state
+    const { data, headers } = this.props
 
     return (
       <div className="data-table">

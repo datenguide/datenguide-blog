@@ -6,8 +6,13 @@ import ChartContainer from '../ChartContainer'
 import theme from '../theme'
 import query from 'raw-loader!./PopulationOverTime.graphql'
 
+const dataHeaders = [
+  { key: 'x', label: 'Jahr', type: 'number' },
+  { key: 'y', label: 'Einwohner', type: 'number' }
+]
+
 const PopulationOverTime = ({ data }) => {
-  const processedData = _(data.BEVSTD.ALTX20.INSGESAMT.GEST__years)
+  const displayData = _(data.BEVSTD.ALTX20.INSGESAMT.GEST__years)
     .mapValues((value, id) => ({
       x: id.substring(1),
       y: parseInt(value, 10)
@@ -17,12 +22,12 @@ const PopulationOverTime = ({ data }) => {
     .value()
 
   return (
-    <ChartContainer query={query} data={processedData}>
+    <ChartContainer query={query} data={displayData} dataHeaders={dataHeaders}>
       <VictoryChart
         theme={theme}
         padding={{ top: 20, bottom: 40, left: 60, right: 40 }}
       >
-        <VictoryArea data={processedData} />
+        <VictoryArea data={displayData} />
         <VictoryAxis fixLabelOverlap />
         <VictoryAxis
           dependentAxis

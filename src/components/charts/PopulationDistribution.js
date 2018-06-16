@@ -14,7 +14,13 @@ import ChartContainer from '../ChartContainer'
 import theme from '../theme'
 import query from 'raw-loader!./PopulationOverTime.graphql'
 
-const ageGroup = [
+const dataHeaders = [
+  { key: 'desc', label: 'Altersgruppe', type: 'string' },
+  { key: '1995', label: 'Jahr 1995', type: 'number' },
+  { key: '2015', label: 'Jahr 2015', type: 'number' }
+]
+
+const ageGroups = [
   { key: 'ALT000B03', min: 0, max: 3, desc: 'unter 3 Jahre' },
   { key: 'ALT003B06', min: 3, max: 6, desc: '3 bis 6 Jahre' },
   { key: 'ALT006B10', min: 6, max: 10, desc: '6 bis 10 Jahre' },
@@ -34,63 +40,72 @@ const ageGroup = [
   { key: 'ALT075UM', min: 75, max: 90, desc: 'über 75 Jahre' }
 ]
 
-const mapPerYear = ({ key, min, max, desc }, year, popData) => ({
-  x: (max - min) / 2 + min,
-  y: parseInt(popData[key].GEST__years[`_${year}`]),
-  year,
-  min,
-  max,
-  desc
-})
+const prepareDisplayData = data =>
+  ageGroups.map(({ key, min, max, desc }) => ({
+    1995: parseInt(data[key].GEST__years._1995),
+    2015: parseInt(data[key].GEST__years._2015),
+    min,
+    max,
+    desc
+  }))
 
 const PopulationOverTime = ({ data }) => {
-  const popData = data.BEVSTD.ALTX20
-  const d1995 = ageGroup.map(d => mapPerYear(d, 1995, popData))
-  const d2015 = ageGroup.map(d => mapPerYear(d, 2015, popData))
-  const numberFormat = Intl.NumberFormat('de').format
-  const maxY = Math.max(...d2015.map(d => d.y), ...d1995.map(d => d.y))
-  const tooltipOrientation = d => (d.y < maxY * 0.75 ? 'top' : 'bottom')
-  const tooltipLabel = d => `${d.desc}:\n${numberFormat(d.y)} (${d.year})`
+  const xValue = d => (d.max - d.min) / 2 + d.min
+  const tip = d => `${d.desc}:\n${numFormat(d[d.childName])} (${d.childName})`
+
+  const numFormat = Intl.NumberFormat('de').format
+  const displayData = prepareDisplayData(data.BEVSTD.ALTX20)
+  const lastDatum = _.last(displayData)
+  const seriesLabels = {
+    1995: { x: xValue(lastDatum), y: lastDatum[1995] },
+    2015: { x: xValue(lastDatum), y: lastDatum[2015] }
+  }
 
   return (
-    <ChartContainer query={query} data={d1995}>
+    <ChartContainer query={query} data={displayData} dataHeaders={dataHeaders}>
       <VictoryChart
         theme={theme}
         padding={{ top: 10, bottom: 40, left: 60, right: 40 }}
         containerComponent={
           <VictoryVoronoiContainer
-            labels={tooltipLabel}
-            labelComponent={
-              <VictoryTooltip dy={2} orientation={tooltipOrientation} />
-            }
+            labelComponent={<VictoryTooltip dy={2} orientation="bottom" />}
+            labels={tip}
           />
         }
       >
         <VictoryArea
+          name="1995"
+          data={displayData}
+          x={xValue}
+          y={d => d[1995]}
           interpolation="step"
-          data={d1995}
           style={{ data: { fill: '#dadada' } }}
         />
 
-        <VictoryLine interpolation="step" data={d2015} />
-        <VictoryAxis fixLabelOverlap tickFormat={d => `${d} Jahre`} />
-        <VictoryAxis dependentAxis tickFormat={numberFormat} />
-
         <VictoryLabel
-          datum={_.last(d2015)}
-          dx={3}
-          text="2015"
-          style={{ fontSize: '7', fontFamily: 'inherit' }}
-        />
-
-        <VictoryLabel
-          datum={_.last(d1995)}
-          dx={3}
+          datum={seriesLabels[1995]}
           text="1995"
+          dx={3}
           style={{ fontSize: '7', fontFamily: 'inherit', fill: 'grey' }}
         />
 
-        <VictoryLabel datum={_.last(d1995)} />
+        <VictoryLine
+          name="2015"
+          data={displayData}
+          x={xValue}
+          y={d => d[2015]}
+          interpolation="step"
+        />
+
+        <VictoryLabel
+          datum={seriesLabels[2015]}
+          text="2015"
+          dx={3}
+          style={{ fontSize: '7', fontFamily: 'inherit' }}
+        />
+
+        <VictoryAxis fixLabelOverlap tickFormat={d => `${d} Jahre`} />
+        <VictoryAxis dependentAxis tickFormat={numFormat} />
       </VictoryChart>
     </ChartContainer>
   )

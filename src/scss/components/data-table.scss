@@ -43,6 +43,7 @@ $data-table-column-padding: 15px;
     padding: $data-table-column-padding/2 $data-table-column-padding;
     text-align: center;
     border: $data-table-dividers;
+    font-weight: bold;
 
     &:first-of-type {
       width: 30px;
@@ -69,12 +70,11 @@ $data-table-column-padding: 15px;
     overflow: scroll;
   }
 
-  .data-table__cell--str {
+  .data-table__cell--string {
     text-align: left;
-    font-weight: bold;
   }
 
-  .data-table__cell--num {
+  .data-table__cell--number {
     text-align: right;
   }
 
