@@ -15,9 +15,9 @@ import theme from '../theme'
 import query from 'raw-loader!./PopulationOverTime.graphql'
 
 const dataHeaders = [
-  { key: 'desc', label: 'Altersgruppe' },
-  { key: '1995', label: 'Jahr 1995' },
-  { key: '2015', label: 'Jahr 2015' }
+  { key: 'desc', label: 'Altersgruppe', type: 'string' },
+  { key: '1995', label: 'Jahr 1995', type: 'number' },
+  { key: '2015', label: 'Jahr 2015', type: 'number' }
 ]
 
 const ageGroups = [

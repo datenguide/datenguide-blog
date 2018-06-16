@@ -7,8 +7,8 @@ import theme from '../theme'
 import query from 'raw-loader!./PopulationOverTime.graphql'
 
 const dataHeaders = [
-  { key: 'x', label: 'Jahr' },
-  { key: 'y', label: 'Einwohner' }
+  { key: 'x', label: 'Jahr', type: 'number' },
+  { key: 'y', label: 'Einwohner', type: 'number' }
 ]
 
 const PopulationOverTime = ({ data }) => {
