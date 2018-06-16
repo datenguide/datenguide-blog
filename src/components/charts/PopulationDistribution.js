@@ -12,7 +12,7 @@ import _ from 'lodash'
 
 import ChartContainer from '../ChartContainer'
 import theme from '../theme'
-import query from 'raw-loader!./PopulationOverTime.graphql'
+import query from 'raw-loader!./PopulationDistribution.graphql'
 
 const dataHeaders = [
   { key: 'desc', label: 'Altersgruppe', type: 'string' },
@@ -62,7 +62,12 @@ const PopulationOverTime = ({ data }) => {
   }
 
   return (
-    <ChartContainer query={query} data={displayData} dataHeaders={dataHeaders}>
+    <ChartContainer
+      id={data.id}
+      query={query}
+      data={displayData}
+      dataHeaders={dataHeaders}
+    >
       <VictoryChart
         theme={theme}
         padding={{ top: 10, bottom: 40, left: 60, right: 40 }}

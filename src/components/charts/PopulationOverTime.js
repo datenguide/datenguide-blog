@@ -22,7 +22,12 @@ const PopulationOverTime = ({ data }) => {
     .value()
 
   return (
-    <ChartContainer query={query} data={displayData} dataHeaders={dataHeaders}>
+    <ChartContainer
+      id={data.id}
+      query={query}
+      data={displayData}
+      dataHeaders={dataHeaders}
+    >
       <VictoryChart
         theme={theme}
         padding={{ top: 20, bottom: 40, left: 60, right: 40 }}
