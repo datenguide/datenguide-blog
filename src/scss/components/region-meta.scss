@@ -8,6 +8,17 @@
   }
 }
 
+.region-meta__highlight {
+  margin-bottom: 1em;
+
+  b {
+    font-size: 60px;
+    line-height: 1em;
+    font-weight: bold;
+    display: block;
+  }
+}
+
 .region-meta__listing {
   ul {
     margin: 0;
