@@ -13,6 +13,7 @@
 
   b {
     font-size: 60px;
+    color: $color-blue-dark;
     line-height: 1em;
     font-weight: bold;
     display: block;
@@ -20,6 +21,8 @@
 }
 
 .region-meta__listing {
+  font-size: $font-size-accent;
+
   ul {
     margin: 0;
     padding: 0;
@@ -33,12 +36,7 @@
 
   svg {
     position: relative;
-    top: 0.2em;
+    top: 0.4em;
     padding-right: 0.2em;
   }
-}
-
-.region-meta__donut {
-  width: 200px;
-  height: 200px;
 }
