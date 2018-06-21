@@ -17,8 +17,8 @@ export default function Newsletter(props) {
       noValidate
     >
       <Grid>
-        <GridCell span="6">
-          <h3 className="newsletter__title">Newsletter abonnieren</h3>
+        <GridCell span="7">
+          <h3 className="newsletter__title">Das Neueste vom Datenguide</h3>
 
           <TextField
             className="newsletter__input"
@@ -29,16 +29,15 @@ export default function Newsletter(props) {
             withLeadingIcon={<EmailOutlineIcon className="newsletter__icon" />}
           />
           <Button className="newsletter__button" outlined type="submit">
-            Abonnieren
+            Newsletter abonnieren
           </Button>
 
           <p className="newsletter__terms">
             Deine Email-Adressen wird von uns ausschliesslich zur Information
             über den Datenguide genutzt und nicht an Dritte weitergegeben. Für
-            diesen Verteiler verwenden wir Mailchimp.{' '}
-            <a href="https://mailchimp.com/legal/privacy/">
-              Mailchimp Privacy Policy
-            </a>
+            diesen Verteiler verwenden wir{' '}
+            <a href="http://mailchimp.com/">Mailchimp</a>.{' '}
+            <a href="/privacy">Mehr zum Datenschutz bei Datenguide</a>
           </p>
         </GridCell>
       </Grid>
