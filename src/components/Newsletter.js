@@ -18,7 +18,9 @@ export default function Newsletter(props) {
     >
       <Grid>
         <GridCell span="7">
-          <h3 className="newsletter__title">Das Neueste vom Datenguide</h3>
+          <h3 id="newsletter" className="newsletter__title">
+            Das Neueste vom Datenguide
+          </h3>
 
           <TextField
             className="newsletter__input"
