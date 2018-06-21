@@ -28,7 +28,7 @@ export default function Newsletter(props) {
             size="28"
             withLeadingIcon={<EmailOutlineIcon className="newsletter__icon" />}
           />
-          <Button className="newsletter__button" stroked type="submit">
+          <Button className="newsletter__button" outlined type="submit">
             Abonnieren
           </Button>
 
