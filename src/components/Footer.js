@@ -9,7 +9,7 @@ export default function AppFooter(props) {
   return (
     <footer className="footer">
       <Grid>
-        <GridCell span="8">
+        <GridCell span="7">
           <a
             className="footer__link footer__link--github"
             href="http://github.com/datenguide"
@@ -18,12 +18,18 @@ export default function AppFooter(props) {
             Datenguide ist open source
           </a>
         </GridCell>
-        <GridCell span="4">
+        <GridCell span="5">
           <GatsbyLink
             className="footer__link footer__link--contact"
             to="/contact"
           >
             Kontakt und Impressum
+          </GatsbyLink>
+          <GatsbyLink
+            className="footer__link footer__link--privacy"
+            to="/privacy"
+          >
+            Datenschutz
           </GatsbyLink>
         </GridCell>
       </Grid>

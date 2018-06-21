@@ -1,14 +1,14 @@
 @import '../../scss/_variables.scss';
 
 .footer__link {
+  display: inline-block;
   position: relative;
-  display: block;
   color: $color-black;
+  padding-left: 30px;
 }
 
 .footer__link--github {
   color: $color-black;
-  padding-left: 30px;
 
   svg {
     position: absolute;
