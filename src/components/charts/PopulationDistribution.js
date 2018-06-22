@@ -21,29 +21,43 @@ const dataHeaders = [
 ]
 
 const ageGroups = [
-  { key: 'ALT000B03', min: 0, max: 3, desc: 'unter 3 Jahre' },
-  { key: 'ALT003B06', min: 3, max: 6, desc: '3 bis 6 Jahre' },
-  { key: 'ALT006B10', min: 6, max: 10, desc: '6 bis 10 Jahre' },
-  { key: 'ALT010B15', min: 10, max: 15, desc: '10 bis 15 Jahre' },
-  { key: 'ALT015B18', min: 15, max: 18, desc: '15 bis 18 Jahre' },
-  { key: 'ALT018B20', min: 18, max: 20, desc: '18 bis 20 Jahre' },
-  { key: 'ALT020B25', min: 20, max: 25, desc: '20 bis 25 Jahre' },
-  { key: 'ALT025B30', min: 25, max: 30, desc: '25 bis 30 Jahre' },
-  { key: 'ALT030B35', min: 30, max: 35, desc: '30 bis 35 Jahre' },
-  { key: 'ALT035B40', min: 35, max: 40, desc: '35 bis 40 Jahre' },
-  { key: 'ALT040B45', min: 40, max: 45, desc: '40 bis 45 Jahre' },
-  { key: 'ALT045B50', min: 45, max: 50, desc: '45 bis 50 Jahre' },
-  { key: 'ALT050B55', min: 50, max: 55, desc: '50 bis 55 Jahre' },
-  { key: 'ALT055B60', min: 55, max: 60, desc: '55 bis 60 Jahre' },
-  { key: 'ALT060B65', min: 60, max: 65, desc: '60 bis 65 Jahre' },
-  { key: 'ALT065B75', min: 65, max: 75, desc: '65 bis 75 Jahre' },
-  { key: 'ALT075UM', min: 75, max: 90, desc: 'über 75 Jahre' }
+  {
+    min: 0,
+    max: 15,
+    desc: 'unter 15 Jahre',
+    keys: ['ALT000B03', 'ALT003B06', 'ALT006B10', 'ALT010B15']
+  },
+  {
+    min: 15,
+    max: 30,
+    desc: '15 bis 30 Jahre',
+    keys: ['ALT015B18', 'ALT018B20', 'ALT020B25', 'ALT025B30']
+  },
+  {
+    min: 30,
+    max: 45,
+    desc: '30 bis 45 Jahre',
+    keys: ['ALT030B35', 'ALT035B40', 'ALT040B45']
+  },
+  {
+    min: 45,
+    max: 60,
+    desc: '45 bis 60 Jahre',
+    keys: ['ALT045B50', 'ALT050B55', 'ALT055B60']
+  },
+  {
+    min: 60,
+    max: 75,
+    desc: '60 bis 75 Jahre',
+    keys: ['ALT060B65', 'ALT065B75']
+  },
+  { min: 75, max: 90, desc: 'über 75 Jahre', keys: ['ALT075UM'] }
 ]
 
 const prepareDisplayData = data =>
-  ageGroups.map(({ key, min, max, desc }) => ({
-    1995: parseInt(data[key].GEST__years._1995),
-    2015: parseInt(data[key].GEST__years._2015),
+  ageGroups.map(({ keys, min, max, desc }) => ({
+    1995: keys.reduce((sum, key) => sum + data[key].GEST__years._1995, 0),
+    2015: keys.reduce((sum, key) => sum + data[key].GEST__years._2015, 0),
     min,
     max,
     desc
@@ -83,8 +97,8 @@ const PopulationOverTime = ({ data }) => {
           data={displayData}
           x={xValue}
           y={d => d[1995]}
-          interpolation="step"
           style={{ data: { fill: '#dadada' } }}
+          interpolation="step"
         />
 
         <VictoryLabel
