@@ -16,7 +16,7 @@ const teaserRegions = [
   {
     name: 'Passau',
     name_ext: 'Landkreis',
-    url: '/passau/',
+    url: '/passau-stadt/',
     text:
       'Im Landkreis Passau wohnen anteilsmäßig die meisten Frauen: <strong>Knapp 53 Pozent</strong>. Deutschlandweit sind es 50,6 Prozent.'
   },
