@@ -4,7 +4,6 @@ import { navigateTo } from 'gatsby-link'
 
 import '../scss/components/_search.scss'
 
-// Teach Autosuggest how to calculate suggestions for any given input value.
 const getSuggestions = (value, regions) => {
   const inputValue = value.trim().toLowerCase()
   const inputLength = inputValue.length
@@ -17,13 +16,16 @@ const getSuggestions = (value, regions) => {
   })
 }
 
-// When suggestion is clicked, Autosuggest needs to populate the input
-// based on the clicked suggestion. Teach Autosuggest how to calculate the
-// input value for every given suggestion.
 const getSuggestionValue = suggestion => suggestion.name
 
-// Use your imagination to render suggestions.
-const renderSuggestion = suggestion => <div>{suggestion.name}</div>
+const renderSuggestion = suggestion => {
+  console.log(suggestion.name_ext)
+  return (
+    <div>
+      {suggestion.name} <small>({suggestion.name_ext})</small>
+    </div>
+  )
+}
 
 const onSuggestionSelected = (event, { suggestion, suggestionValue }) => {
   navigateTo(`/${suggestion.slug}`)
@@ -90,6 +92,7 @@ export const query = graphql`
         id
         slug
         name
+        name_ext
       }
     }
   }
