@@ -34,7 +34,7 @@ class RegionHeader extends React.Component {
       const width = this.mapContainer.clientWidth
 
       if (bbox) {
-        map.fitBounds(bbox, {
+        map.fitBounds(JSON.parse(bbox), {
           padding: 40,
           duration: 0,
           offset: [width / 4, 0] // offset to make space for title

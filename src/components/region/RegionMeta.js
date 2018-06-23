@@ -74,7 +74,7 @@ export default function RegionMeta({ region, meta }) {
               </li>
               <li>
                 <MapMarkerMultipleIcon />
-                [{region.geo && region.geo.bbox.join(', ')}]
+                {region.geo && region.geo.bbox}
               </li>
             </ul>
           </div>
