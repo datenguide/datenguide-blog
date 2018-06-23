@@ -21,7 +21,7 @@ module.exports = {
         queryUrl: 'https://api.datengui.de/?',
         query: `
           {
-            regions(valid: true) {
+            regions(valid: true, nuts: 3) {
               id
               name
               name_ext
