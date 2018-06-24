@@ -29,13 +29,14 @@ class ChartContainer extends React.Component {
     return (
       <div className="chart-container">
         <TabBar
+          className="chart-container__tab-bar"
           onChange={({ detail }) =>
             this.setState({ activeTab: detail.activeTabIndex })
           }
         >
-          <Tab>Visualisierung</Tab>
-          <Tab>Daten</Tab>
-          <Tab>GraphQL</Tab>
+          <Tab className="chart-container__tab">Visualisierung</Tab>
+          <Tab className="chart-container__tab">Daten</Tab>
+          <Tab className="chart-container__tab">GraphQL</Tab>
         </TabBar>
 
         <TabSelector

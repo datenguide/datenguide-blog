@@ -1,7 +1,23 @@
 @import '../../scss/_variables.scss';
 
 .chart-container__snippet {
-  padding: 3rem;
+  padding: 2rem;
   margin: 0;
   background: $color-gray-light;
+  font-size: 15px;
+}
+
+.chart-container__tab-bar {
+  display: block;
+  height: inherit;
+}
+
+.chart-container__tab {
+  display: inline-block;
+  min-width: inherit;
+  min-height: inherit;
+  padding: 0.5rem;
+  margin-right: 0.5rem;
+  font-weight: bold;
+  line-height: 1.5rem;
 }
