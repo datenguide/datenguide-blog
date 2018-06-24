@@ -1,11 +1,14 @@
 @import '@material/layout-grid/mixins.scss';
 @import '../../scss/_variables.scss';
 
-.mdc-toolbar {
+.header {
   background: $color-white;
+  padding: 0.45rem 0;
+  box-shadow: 0 2px 5px -1px rgba(0, 0, 0, 0.4);
+  top: 0;
 }
 
-.mdc-toolbar__row {
+.header__row {
   @each $size in map-keys($mdc-layout-grid-columns) {
     @include mdc-layout-grid-media-query_($size) {
       $padding: map-get($mdc-layout-grid-default-margin, $size);
