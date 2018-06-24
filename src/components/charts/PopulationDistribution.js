@@ -63,7 +63,7 @@ const prepareDisplayData = data =>
     desc
   }))
 
-const PopulationOverTime = ({ data }) => {
+const PopulationOverTime = ({ data, credits }) => {
   const xValue = d => (d.max - d.min) / 2 + d.min
   const tip = d => `${d.desc}:\n${numFormat(d[d.childName])} (${d.childName})`
 
@@ -81,6 +81,7 @@ const PopulationOverTime = ({ data }) => {
       query={query}
       data={displayData}
       dataHeaders={dataHeaders}
+      credits={credits}
     >
       <VictoryChart
         theme={theme}

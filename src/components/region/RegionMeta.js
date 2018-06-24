@@ -1,13 +1,10 @@
 import React from 'react'
 import { Grid, GridCell } from 'rmwc/Grid'
-import { VictoryPie, VictoryChart, VictoryTheme } from 'victory'
 import VectorSquareIcon from 'mdi-react/VectorSquareIcon'
 import MapMarkerMultipleIcon from 'mdi-react/MapMarkerMultipleIcon'
-import MapMarkerIcon from 'mdi-react/MapMarkerIcon'
 import GenderMaleFemaleIcon from 'mdi-react/GenderMaleFemaleIcon'
 import AccountMultipleIcon from 'mdi-react/AccountMultipleIcon'
 
-import theme from '../../components/theme'
 import PopulationOverTime from '../charts/PopulationOverTime'
 import PopulationDistribution from '../charts/PopulationDistribution'
 
@@ -15,7 +12,7 @@ import '../../scss/components/region-meta.scss'
 
 const numberFormat = Intl.NumberFormat('de').format
 
-export default function RegionMeta({ region, meta }) {
+export default function RegionMeta({ region, meta, credits }) {
   return (
     <div className="region-meta">
       <Grid>
@@ -32,10 +29,10 @@ export default function RegionMeta({ region, meta }) {
           </small>
 
           <h3>Bevölkerungsentwicklung</h3>
-          <PopulationOverTime data={region} />
+          <PopulationOverTime data={region} credits={credits} />
 
           <h3>Bevölkerungsverteilung</h3>
-          <PopulationDistribution data={region} />
+          <PopulationDistribution data={region} credits={credits} />
         </GridCell>
 
         <GridCell span="4">

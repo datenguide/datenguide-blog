@@ -4,7 +4,12 @@ const glob = require('glob')
 
 module.exports = {
   siteMetadata: {
-    title: 'Datenguide'
+    title: 'Datenguide',
+    dataCredits: {
+      publisher: 'Quelle: Statistische Ämter des Bundes und der Länder',
+      licenseTitle: 'Datenlizenz Deutschland Namensnennung 2.0',
+      licenseUrl: 'https://www.govdata.de/dl-de/by-2-0'
+    }
   },
   plugins: [
     'gatsby-transformer-remark',

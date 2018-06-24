@@ -21,3 +21,11 @@
   font-weight: bold;
   line-height: 1.5rem;
 }
+
+.chart-container__credits {
+  color: $color-gray-dark;
+
+  a {
+    color: $color-gray-dark;
+  }
+}

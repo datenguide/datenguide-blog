@@ -44,6 +44,13 @@ class ChartContainer extends React.Component {
           chartComponent={this.props.children}
           props={this.props}
         />
+
+        <small className="chart-container__credits">
+          {this.props.credits.publisher}{' '}
+          <a href={this.props.credits.licenseUrl}>
+            {this.props.credits.licenseTitle}
+          </a>
+        </small>
       </div>
     )
   }

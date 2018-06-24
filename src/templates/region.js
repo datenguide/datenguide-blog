@@ -11,13 +11,14 @@ import Footer from '../components/Footer'
 import theme from '../components/theme'
 
 export default ({ data }) => {
-  const { meta, region } = data
+  const { meta, region, site } = data
+  const credits = site.siteMetadata.dataCredits
 
   return (
     <div className="region">
       <Header />
       {region && <RegionHeader region={region} />}
-      {region && <RegionMeta region={region} meta={meta} />}
+      {region && <RegionMeta region={region} meta={meta} credits={credits} />}
       <Footer />
     </div>
   )
@@ -30,6 +31,16 @@ export const query = graphql`
       frontmatter {
         slug
         source_url
+      }
+    }
+
+    site {
+      siteMetadata {
+        dataCredits {
+          publisher
+          licenseTitle
+          licenseUrl
+        }
       }
     }
 

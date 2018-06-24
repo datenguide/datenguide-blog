@@ -11,7 +11,7 @@ const dataHeaders = [
   { key: 'y', label: 'Einwohner', type: 'number' }
 ]
 
-const PopulationOverTime = ({ data }) => {
+const PopulationOverTime = ({ data, credits }) => {
   const displayData = _(data.BEVSTD.ALTX20.INSGESAMT.GEST__years)
     .mapValues((value, id) => ({
       x: id.substring(1),
@@ -27,6 +27,7 @@ const PopulationOverTime = ({ data }) => {
       query={query}
       data={displayData}
       dataHeaders={dataHeaders}
+      credits={credits}
     >
       <VictoryChart
         theme={theme}
