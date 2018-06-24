@@ -37,7 +37,7 @@
     "react-autosuggest": "^9.3.4",
     "react-csv": "^1.0.14",
     "react-dom": "^16.2.0",
-    "rmwc": "^1.7.0",
+    "rmwc": "^1.7.3",
     "sass-mq": "^4.0.2",
     "victory": "^0.27.0"
   },
