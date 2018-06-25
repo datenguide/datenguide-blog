@@ -1,6 +1,4 @@
 import React from 'react'
-import { CSVLink } from 'react-csv'
-import _ from 'lodash'
 import * as alphabet from 'alphabet'
 
 import '../scss/components/data-table.scss'
@@ -96,9 +94,6 @@ class DataTable extends React.Component {
             />
           </table>
         </div>
-        <CSVLink data={data} headers={headers} filename={'datenguide.csv'}>
-          Daten herunterladen
-        </CSVLink>
       </div>
     )
   }

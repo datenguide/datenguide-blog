@@ -1,5 +1,6 @@
 import React from 'react'
 import { TabBar, Tab } from 'rmwc/Tabs'
+import { CSVLink } from 'react-csv'
 
 import DataTable from './DataTable'
 import DataQuery from './DataQuery'
@@ -26,6 +27,8 @@ class ChartContainer extends React.Component {
   }
 
   render() {
+    const { data, dataHeaders, credits, children } = this.props
+
     return (
       <div className="chart-container">
         <TabBar
@@ -41,16 +44,23 @@ class ChartContainer extends React.Component {
 
         <TabSelector
           activeTab={this.state.activeTab}
-          chartComponent={this.props.children}
+          chartComponent={children}
           props={this.props}
         />
 
         <small className="chart-container__credits">
-          {this.props.credits.publisher}{' '}
-          <a href={this.props.credits.licenseUrl}>
-            {this.props.credits.licenseTitle}
-          </a>
+          {credits.publisher}{' '}
+          <a href={credits.licenseUrl}>{credits.licenseTitle}</a>
         </small>
+
+        <CSVLink
+          data={data}
+          headers={dataHeaders}
+          filename={'datenguide.csv'}
+          className="mdc-button mdc-button--outlined"
+        >
+          Daten herunterladen
+        </CSVLink>
       </div>
     )
   }
