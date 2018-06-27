@@ -4,4 +4,4 @@ slug: muenster-kreisfreie-stadt
 source_url: https://de.wikipedia.org/wiki/Münster
 ---
 
-Die kreisfreie Stadt Münster (westfälisch Mönster, niederländisch: Munster, friesisch: Múnster, altsächsisch Mimigernaford, lateinisch Monasterium) in Westfalen ist Sitz des gleichnamigen Regierungsbezirks im Bundesland Nordrhein-Westfalen. Von 1815 bis 1946 war Münster Hauptstadt der preußischen Provinz Westfalen. Die Stadt an der Münsterschen Aa liegt zwischen Dortmund und Osnabrück im Zentrum des Münsterlandes und ist als zwanzigstgrößte Stadt Deutschlands eines der Oberzentren des Landes Nordrhein-Westfalen.
+Die kreisfreie Stadt Münster in Westfalen ist Sitz des gleichnamigen Regierungsbezirks im Bundesland Nordrhein-Westfalen. Die Stadt an der Münsterschen Aa liegt zwischen Dortmund und Osnabrück im Zentrum des Münsterlandes und ist als zwanzigstgrößte Stadt Deutschlands eines der Oberzentren des Landes Nordrhein-Westfalen.
