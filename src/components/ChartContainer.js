@@ -1,6 +1,8 @@
 import React from 'react'
 import { TabBar, Tab } from 'rmwc/Tabs'
 import { CSVLink } from 'react-csv'
+import DownloadIcon from 'mdi-react/DownloadIcon'
+import CodeBracesIcon from 'mdi-react/CodeBracesIcon'
 
 import DataTable from './DataTable'
 import DataQuery from './DataQuery'
@@ -72,16 +74,18 @@ class ChartContainer extends React.Component {
             data={data}
             headers={dataHeaders}
             filename={'datenguide.csv'}
-            className="mdc-button mdc-button--outlined  mdc-button--dense"
+            className="mdc-button mdc-button--outlined"
           >
-            Daten herunterladen (CSV)
+            <DownloadIcon className="mdc-button__icon" aria-hidden="true" />
+            CSV herunterladen
           </CSVLink>
 
           <a
-            className="mdc-button mdc-button--outlined  mdc-button--dense"
+            className="mdc-button mdc-button--outlined"
             href={`https://api.datengui.de/?query=${escape(fullQuery)}`}
           >
-            API ausprobieren (GraphQL)
+            <CodeBracesIcon className="mdc-button__icon" aria-hidden="true" />
+            GraphQL testen
           </a>
         </div>
       </div>
