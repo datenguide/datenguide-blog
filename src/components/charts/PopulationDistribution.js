@@ -85,7 +85,7 @@ const PopulationOverTime = ({ data, credits }) => {
     >
       <VictoryChart
         theme={theme}
-        padding={{ top: 10, bottom: 40, left: 60, right: 40 }}
+        padding={{ top: 20, bottom: 20, left: 40, right: 20 }}
         containerComponent={
           <VictoryVoronoiContainer
             labelComponent={<VictoryTooltip dy={2} orientation="bottom" />}

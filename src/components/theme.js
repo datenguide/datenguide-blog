@@ -29,8 +29,8 @@ const fontSize = 7
 const padding = 5
 const baseProps = {
   width: 350,
-  height: 200,
-  padding: 50
+  height: 150,
+  padding: 20
 }
 // *
 // * Labels
