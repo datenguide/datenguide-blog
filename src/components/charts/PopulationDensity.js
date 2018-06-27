@@ -47,7 +47,7 @@ const PopulationDensity = ({ region, credits, comparison }) => {
     >
       <VictoryChart
         theme={theme}
-        padding={{ top: 10, bottom: 20, left: 30, right: 40 }}
+        padding={{ top: 10, bottom: 20, left: 30, right: 50 }}
       >
         <VictoryArea
           data={displayData.comparison}

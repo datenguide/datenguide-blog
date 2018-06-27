@@ -27,7 +27,23 @@ export default function RegionMeta({ region, meta, credits, comparison }) {
               CC BY-SA Lizenz
             </a>.
           </small>
+        </GridCell>
 
+        <GridCell span="4">
+          <h3>
+            {region.name_ext} {region.name}
+          </h3>
+          <div className="region-meta__listing">
+            <ul>
+              <li>
+                <MapMarkerMultipleIcon />
+                [{region.geo && region.geo.bbox.join(', ')}]
+              </li>
+            </ul>
+          </div>
+        </GridCell>
+
+        <GridCell span="8">
           <h3>Bevölkerungsdichte (Einwohner pro km²)</h3>
           <PopulationDensity
             region={region}
@@ -41,27 +57,12 @@ export default function RegionMeta({ region, meta, credits, comparison }) {
 
         <GridCell span="4">
           <div className="region-meta__listing">
-            <h3>
-              {region.name_ext} {region.name}
-            </h3>
-
             <div className="region-meta__highlight">
+              <h2> Einwohnerzahl 2017</h2>
+
               <b>{numberFormat(region.BEVSTD.GEST)}</b>
-              Einwohner (2017)
             </div>
             <ul>
-              <li>
-                <GenderMaleFemaleIcon />
-                {numberFormat(
-                  Math.round((100 / region.BEVSTD.GEST) * region.BEVSTD.GESW)
-                )}
-                % weiblich
-                {' / '}
-                {numberFormat(
-                  Math.round((100 / region.BEVSTD.GEST) * region.BEVSTD.GESM)
-                )}
-                % männlich
-              </li>
               <li>
                 <VectorSquareIcon />
                 {region.FLC006} km² Fläche
@@ -74,8 +75,16 @@ export default function RegionMeta({ region, meta, credits, comparison }) {
                 Einwohner pro km²
               </li>
               <li>
-                <MapMarkerMultipleIcon />
-                [{region.geo && region.geo.bbox.join(', ')}]
+                <GenderMaleFemaleIcon />
+                {numberFormat(
+                  Math.round((100 / region.BEVSTD.GEST) * region.BEVSTD.GESW)
+                )}
+                % weiblich
+                {' / '}
+                {numberFormat(
+                  Math.round((100 / region.BEVSTD.GEST) * region.BEVSTD.GESM)
+                )}
+                % männlich
               </li>
             </ul>
           </div>
