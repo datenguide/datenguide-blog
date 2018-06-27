@@ -1,31 +1,33 @@
 import React from 'react'
-import GatsbyLink from 'gatsby-link'
-import ArrowRightIcon from 'mdi-react/ArrowRightIcon'
-import { Grid, GridCell } from 'rmwc/Grid'
-import { VictoryBar, VictoryChart } from 'victory'
 
 import Header from '../components/Header'
 import RegionHeader from '../components/region/RegionHeader.js'
 import RegionMeta from '../components/region/RegionMeta.js'
 import Footer from '../components/Footer'
-import theme from '../components/theme'
 
 export default ({ data }) => {
-  const { meta, region, site } = data
+  const { meta, region, site, comparison } = data
   const credits = site.siteMetadata.dataCredits
 
   return (
     <div className="region">
       <Header />
       {region && <RegionHeader region={region} />}
-      {region && <RegionMeta region={region} meta={meta} credits={credits} />}
+      {region && (
+        <RegionMeta
+          region={region}
+          meta={meta}
+          credits={credits}
+          comparison={comparison}
+        />
+      )}
       <Footer />
     </div>
   )
 }
 
 export const query = graphql`
-  query RegionQuery($slug: String!) {
+  query RegionQuery($slug: String!, $comparison: String!) {
     meta: markdownRemark(frontmatter: { slug: { eq: $slug } }) {
       html
       frontmatter {
@@ -57,7 +59,6 @@ export const query = graphql`
       geo {
         bbox
       }
-      FLC006
       BEVSTD {
         GESM
         GESW
@@ -65,6 +66,10 @@ export const query = graphql`
       }
       ...PopulationOverTime
       ...PopulationDistribution
+    }
+
+    comparison: region(slug: { eq: $comparison }) {
+      ...PopulationOverTime
     }
   }
 `

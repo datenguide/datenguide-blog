@@ -2,6 +2,7 @@
 id: 15081
 slug: altmarkkreis-salzwedel-stadt
 source_url: https://de.wikipedia.org/wiki/Altmarkkreis_Salzwedel
+comparison: muenchen-landeshauptstadt
 ---
 
 Der Altmarkkreis Salzwedel ist ein Landkreis im Nordwesten des Landes Sachsen-Anhalt. Nachbarkreise sind im Norden der niedersächsische Landkreis Lüchow-Dannenberg, im Osten der Landkreis Stendal, im Süden der Landkreis Börde, im Westen der niedersächsische Landkreis Gifhorn und im Nordwesten der ebenfalls niedersächsische Landkreis Uelzen.

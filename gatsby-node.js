@@ -34,6 +34,7 @@ const regionsQuery = `
       node {
         frontmatter {
           slug
+          comparison
         }
       }
     }
@@ -93,7 +94,8 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
             path: node.frontmatter.slug,
             component: getTemplate('region'),
             context: {
-              slug: node.frontmatter.slug
+              slug: node.frontmatter.slug,
+              comparison: node.frontmatter.comparison
             }
           })
         }

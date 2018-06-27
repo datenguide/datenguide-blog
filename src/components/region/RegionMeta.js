@@ -12,7 +12,7 @@ import '../../scss/components/region-meta.scss'
 
 const numberFormat = Intl.NumberFormat('de').format
 
-export default function RegionMeta({ region, meta, credits }) {
+export default function RegionMeta({ region, meta, credits, comparison }) {
   return (
     <div className="region-meta">
       <Grid>
@@ -29,7 +29,11 @@ export default function RegionMeta({ region, meta, credits }) {
           </small>
 
           <h3>Bevölkerungsentwicklung</h3>
-          <PopulationOverTime data={region} credits={credits} />
+          <PopulationOverTime
+            region={region}
+            credits={credits}
+            comparison={comparison}
+          />
 
           <h3>Bevölkerungsverteilung</h3>
           <PopulationDistribution data={region} credits={credits} />

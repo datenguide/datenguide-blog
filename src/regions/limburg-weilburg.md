@@ -2,6 +2,7 @@
 id: 06533
 slug: limburg-weilburg
 source_url: https://de.wikipedia.org/wiki/Limburg-Weilburg
+comparison: muenchen-landeshauptstadt
 ---
 
 Der Landkreis Limburg-Weilburg ist eine Gebietskörperschaft im Regierungsbezirk Gießen im Land Hessen und liegt in der Metropolregion Frankfurt/Rhein-Main zwischen den Städten Frankfurt am Main und Köln/Bonn. Die Kreisstadt ist Limburg a. d. Lahn.
