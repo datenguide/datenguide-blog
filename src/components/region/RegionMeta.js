@@ -5,7 +5,7 @@ import MapMarkerMultipleIcon from 'mdi-react/MapMarkerMultipleIcon'
 import GenderMaleFemaleIcon from 'mdi-react/GenderMaleFemaleIcon'
 import AccountMultipleIcon from 'mdi-react/AccountMultipleIcon'
 
-import PopulationOverTime from '../charts/PopulationOverTime'
+import PopulationDensity from '../charts/PopulationDensity'
 import PopulationDistribution from '../charts/PopulationDistribution'
 
 import '../../scss/components/region-meta.scss'
@@ -28,14 +28,14 @@ export default function RegionMeta({ region, meta, credits, comparison }) {
             </a>.
           </small>
 
-          <h3>Bevölkerungsentwicklung</h3>
-          <PopulationOverTime
+          <h3>Bevölkerungsdichte (Einwohner pro km²)</h3>
+          <PopulationDensity
             region={region}
             credits={credits}
             comparison={comparison}
           />
 
-          <h3>Bevölkerungsverteilung</h3>
+          <h3>Bevölkerungsverteilung nach Altersgruppe</h3>
           <PopulationDistribution data={region} credits={credits} />
         </GridCell>
 
