@@ -31,7 +31,7 @@ const PopulationOverTime = ({ data, credits }) => {
     >
       <VictoryChart
         theme={theme}
-        padding={{ top: 20, bottom: 40, left: 60, right: 40 }}
+        padding={{ top: 20, bottom: 20, left: 40, right: 20 }}
       >
         <VictoryArea data={displayData} />
         <VictoryAxis fixLabelOverlap />

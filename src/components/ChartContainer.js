@@ -7,14 +7,25 @@ import DataQuery from './DataQuery'
 
 import '../scss/components/_chart-container.scss'
 
-const TabSelector = ({ activeTab, chartComponent, props }) => {
+const findFragmentName = (queryFragment, keyword) => {
+  const segments = queryFragment.split(' ')
+  return segments[segments.indexOf('fragment') + 1]
+}
+
+const composeFullQuery = (id, fragmentName, query) => `{
+  region(id: "${id}") {
+    ...${fragmentName}
+  }
+}\n\n${query}`
+
+const TabSelector = ({ activeTab, chartComponent, fullQuery, props }) => {
   switch (activeTab) {
     case 0:
       return chartComponent
     case 1:
       return <DataTable data={props.data} headers={props.dataHeaders} />
     case 2:
-      return <DataQuery id={props.id} queryFragment={props.query} />
+      return <DataQuery query={fullQuery} />
     default:
       return null
   }
@@ -27,7 +38,9 @@ class ChartContainer extends React.Component {
   }
 
   render() {
-    const { data, dataHeaders, credits, children } = this.props
+    const { data, dataHeaders, credits, children, query, id } = this.props
+    const fragmentName = findFragmentName(query)
+    const fullQuery = composeFullQuery(id, fragmentName, query)
 
     return (
       <div className="chart-container">
@@ -45,6 +58,7 @@ class ChartContainer extends React.Component {
         <TabSelector
           activeTab={this.state.activeTab}
           chartComponent={children}
+          fullQuery={fullQuery}
           props={this.props}
         />
 
@@ -57,10 +71,17 @@ class ChartContainer extends React.Component {
           data={data}
           headers={dataHeaders}
           filename={'datenguide.csv'}
-          className="mdc-button mdc-button--outlined"
+          className="mdc-button mdc-button--outlined  mdc-button--dense"
         >
-          Daten herunterladen
+          Daten herunterladen (CSV)
         </CSVLink>
+
+        <a
+          className="mdc-button mdc-button--outlined  mdc-button--dense"
+          href={`https://api.datengui.de/?query=${escape(fullQuery)}`}
+        >
+          API ausprobieren (GraphQL)
+        </a>
       </div>
     )
   }
