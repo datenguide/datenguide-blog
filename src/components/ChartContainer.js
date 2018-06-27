@@ -67,21 +67,23 @@ class ChartContainer extends React.Component {
           <a href={credits.licenseUrl}>{credits.licenseTitle}</a>
         </small>
 
-        <CSVLink
-          data={data}
-          headers={dataHeaders}
-          filename={'datenguide.csv'}
-          className="mdc-button mdc-button--outlined  mdc-button--dense"
-        >
-          Daten herunterladen (CSV)
-        </CSVLink>
+        <div className="chart-container__actions">
+          <CSVLink
+            data={data}
+            headers={dataHeaders}
+            filename={'datenguide.csv'}
+            className="mdc-button mdc-button--outlined  mdc-button--dense"
+          >
+            Daten herunterladen (CSV)
+          </CSVLink>
 
-        <a
-          className="mdc-button mdc-button--outlined  mdc-button--dense"
-          href={`https://api.datengui.de/?query=${escape(fullQuery)}`}
-        >
-          API ausprobieren (GraphQL)
-        </a>
+          <a
+            className="mdc-button mdc-button--outlined  mdc-button--dense"
+            href={`https://api.datengui.de/?query=${escape(fullQuery)}`}
+          >
+            API ausprobieren (GraphQL)
+          </a>
+        </div>
       </div>
     )
   }

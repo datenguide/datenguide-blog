@@ -1,5 +1,9 @@
 @import '../../scss/_variables.scss';
 
+.chart-container {
+  margin-bottom: 3rem;
+}
+
 .chart-container__snippet {
   padding: 2rem;
   margin: 0;
@@ -27,5 +31,14 @@
 
   a {
     color: $color-gray-dark;
+  }
+}
+
+.chart-container__actions {
+  margin: 1rem 0 0 0;
+
+  a {
+    margin: 0 0.5rem 0.5rem 0;
+    font-weight: bold;
   }
 }
