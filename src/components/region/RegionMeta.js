@@ -45,12 +45,18 @@ export default function RegionMeta({ region, meta, credits, comparison }) {
 
         <GridCell span="8">
           <h3>Bevölkerungsdichte (Einwohner pro km²)</h3>
+          <p>
+            Die Bevölkerungsdichte ist mittlere Anzahl der Einwohner pro
+            Quadratkilometer für ein bestimmtes Gebiet. Sie kann errechnet
+            werden, indem man die Einwohnerzahl durch die Fläche des Gebietes
+            teilt. In dieser Grafik vergleichen wir {region.name} mit München,
+            der Stadt mit der höchsten Bevölkerungsdichte in Deutschland.
+          </p>
           <PopulationDensity
             region={region}
             credits={credits}
             comparison={comparison}
           />
-
           <h3>Bevölkerungsverteilung nach Altersgruppe</h3>
           <PopulationDistribution data={region} credits={credits} />
         </GridCell>
