@@ -11,7 +11,7 @@ Ueckermünder Str. 6\
 
 Vertreten durch: Simon Jockers
 
-Telefon: +49 (0)30 – 5557 802 23\
+Telefon: +49 (0)175 - 59 25 122\
 E-Mail: hello(at)simonjockers.de
 
 [Impressum](/contact)
