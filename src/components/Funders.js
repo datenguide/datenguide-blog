@@ -4,7 +4,7 @@ import logos from '../assets/images/funders.svg'
 const Funders = () => (
   <img
     src={logos}
-    alt="Gefürdert vom Bundesministerium für Bildung und Forschung"
+    alt="Gefördert vom MIZ Babelsberg und dem Bundesministerium für Bildung und Forschung"
   />
 )
 

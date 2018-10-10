@@ -1,7 +1,8 @@
 ---
-title: "Datenguide"
-template: "home"
-intro: "Der Datenguide hilft dir dabei, dich im Dschungel der Statistiken zurecht zu finden."
+title: 'Datenguide'
+template: 'home'
+intro:
+  'Der Datenguide hilft dir dabei, dich im Dschungel der Statistiken zurecht zu finden.'
 ---
 
 ### Über dieses Projekt
@@ -18,4 +19,4 @@ und prägnant darstellt, vergleichbar macht, in Kontext setzt und erklärt.
 
 Momentan arbeiten wir an einem Prototyp für den Datenguide. Eine erste Version wurde bei der [re:publica 2018](https://18.re-publica.com/session/statistik-alle-wir-hacken-statistische-bundesamt) präsentiert. In den nächsten Wochen öffnen wir den Dateguide Schritt für Schritt für Nutzer\*innen. Um auf dem Laufenden zu bleiben, abonniere den [Datenguide-Newsletter](#newsletter)!
 
-Der Datenguide wird im Rahmen des [Prototype Fund](https://prototypefund.de/) von der Open Knowledge Foundation Deutschland und dem Bundesministerium für Bildung und Forschung gefördert.
+Der Datenguide wird durch das [MIZ Babelsberg](https://www.miz-babelsberg.de/) gefördert und ist Empfänger des [Grow-Stipendiums](https://netzwerkrecherche.org/ziele/gemeinnuetziger-journalismus/grow-stipendien/) von Netzwerk Recherche e.V. und der Schöpflin Stiftung. Von September 2017 bis Februar 2018 wurde das Projekt im Rahmen des [Prototype Fund](https://prototypefund.de/) von der Open Knowledge Foundation Deutschland und dem Bundesministerium für Bildung und Forschung gefördert.
