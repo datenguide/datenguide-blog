@@ -1,10 +1,10 @@
 ---
-title: "Kontakt und Impressum"
+title: 'Kontakt und Impressum'
 ---
 
 Simon Jockers und Simon Wörpel GbR\
-Ueckermünder Str. 6\
-10439 Berlin
+Oranienstr. 19A\
+10999 Berlin
 
 Vertreten durch: Simon Jockers
 
