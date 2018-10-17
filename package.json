@@ -28,7 +28,6 @@
     "gatsby-source-filesystem": "^1.5.25",
     "gatsby-transformer-remark": "^1.7.34",
     "lodash": "^4.17.5",
-    "material-components-web": "^0.36.0",
     "mdi-react": "^2.1.19",
     "node-sass": "^4.7.2",
     "normalize.css": "^8.0.0",
@@ -37,7 +36,7 @@
     "react-autosuggest": "^9.3.4",
     "react-csv": "^1.0.14",
     "react-dom": "^16.2.0",
-    "rmwc": "^1.7.3",
+    "rmwc": "^3.0.0",
     "sass-mq": "^4.0.2",
     "victory": "^0.27.0"
   },
