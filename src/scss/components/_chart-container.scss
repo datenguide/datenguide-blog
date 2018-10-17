@@ -18,12 +18,8 @@
 
 .chart-container__tab {
   display: inline-block;
-  min-width: inherit;
-  min-height: inherit;
-  padding: 0.5rem;
-  margin-right: 0.5rem;
-  font-weight: bold;
-  line-height: 1.5rem;
+  flex: initial;
+  padding: 0 1rem;
 }
 
 .chart-container__credits {
