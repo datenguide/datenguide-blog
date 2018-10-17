@@ -20,8 +20,8 @@ const composeFullQuery = (id, fragmentName, query) => `{
   }
 }\n\n${query}`
 
-const TabSelector = ({ activeTab, chartComponent, fullQuery, props }) => {
-  switch (activeTab) {
+const TabSelector = ({ activeTabIndex, chartComponent, fullQuery, props }) => {
+  switch (activeTabIndex) {
     case 0:
       return chartComponent
     case 1:
@@ -36,7 +36,7 @@ const TabSelector = ({ activeTab, chartComponent, fullQuery, props }) => {
 class ChartContainer extends React.Component {
   constructor(props) {
     super(props)
-    this.state = { activeTab: 0 }
+    this.state = { activeTabIndex: 0 }
   }
 
   render() {
@@ -48,9 +48,10 @@ class ChartContainer extends React.Component {
       <div className="chart-container">
         <TabBar
           className="chart-container__tab-bar"
-          onChange={({ detail }) =>
-            this.setState({ activeTab: detail.activeTabIndex })
-          }
+          activeTabIndex={this.state.activeTabIndex}
+          onActivate={({ detail }) => {
+            this.setState({ activeTabIndex: detail.index })
+          }}
         >
           <Tab className="chart-container__tab">Visualisierung</Tab>
           <Tab className="chart-container__tab">Daten</Tab>
@@ -58,7 +59,7 @@ class ChartContainer extends React.Component {
         </TabBar>
 
         <TabSelector
-          activeTab={this.state.activeTab}
+          activeTabIndex={this.state.activeTabIndex}
           chartComponent={children}
           fullQuery={fullQuery}
           props={this.props}

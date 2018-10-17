@@ -39,3 +39,85 @@ $mdc-theme-secondary: $color-blue-dark;
 $mdc-theme-background: $color-white;
 
 $mdc-typography-font-family: $font-family-default;
+
+$mdc-typography-styles: (
+  headline1: (
+    font-size: 6rem,
+    line-height: 6rem,
+    text-decoration: inherit,
+    text-transform: inherit
+  ),
+  headline2: (
+    font-size: 3.75rem,
+    line-height: 3.75rem,
+    text-decoration: inherit,
+    text-transform: inherit
+  ),
+  headline3: (
+    font-size: 3rem,
+    line-height: 3.125rem,
+    text-decoration: inherit,
+    text-transform: inherit
+  ),
+  headline4: (
+    font-size: 2.125rem,
+    line-height: 2.5rem,
+    text-decoration: inherit,
+    text-transform: inherit
+  ),
+  headline5: (
+    font-size: 1.5rem,
+    line-height: 2rem,
+    text-decoration: inherit,
+    text-transform: inherit
+  ),
+  headline6: (
+    font-size: 1.25rem,
+    line-height: 2rem,
+    text-decoration: inherit,
+    text-transform: inherit
+  ),
+  subtitle1: (
+    font-size: 1rem,
+    line-height: 1.75rem,
+    text-decoration: inherit,
+    text-transform: inherit
+  ),
+  subtitle2: (
+    font-size: 0.875rem,
+    line-height: 1.375rem,
+    text-decoration: inherit,
+    text-transform: inherit
+  ),
+  body1: (
+    font-size: 1rem,
+    line-height: 1.5rem,
+    text-decoration: inherit,
+    text-transform: inherit
+  ),
+  body2: (
+    font-size: 0.875rem,
+    line-height: 1.25rem,
+    text-decoration: inherit,
+    text-transform: inherit
+  ),
+  caption: (
+    font-size: 0.75rem,
+    line-height: 1.25rem,
+    text-decoration: inherit,
+    text-transform: inherit
+  ),
+  button: (
+    font-size: 0.875rem,
+    font-weight: bold,
+    line-height: 2.25rem,
+    text-decoration: none,
+    text-transform: uppercase
+  ),
+  overline: (
+    font-size: 0.75rem,
+    line-height: 2rem,
+    text-decoration: none,
+    text-transform: uppercase
+  )
+);

@@ -6,11 +6,17 @@
 }
 
 .newsletter__title {
-  margin-bottom: 0;
+  margin-bottom: 0.3rem;
 }
 
 .newsletter__input {
   margin-right: 1rem;
+
+  &.mdc-text-field,
+  &.mdc-text-field::before,
+  &.mdc-text-field::after {
+    background-color: transparent;
+  }
 
   input {
     background: $color-white;
@@ -20,11 +26,11 @@
   }
 
   .mdc-floating-label {
-    bottom: 0.7rem;
+    bottom: 0.6rem;
   }
 
   .mdc-floating-label--float-above {
-    bottom: 1.4rem;
+    bottom: 1.8rem;
   }
 }
 
@@ -37,6 +43,7 @@
 
 .newsletter__terms {
   font-size: 15px;
+  margin: 1.5rem 0;
 
   a {
     color: $color-black;
