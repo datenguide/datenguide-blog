@@ -5,17 +5,17 @@ This is the project that powers the [datengui.de](http://datengui.de) website. I
 Install dependencies:
 
 ```sh
-yarn run install
+yarn install
 ```
 
 Run development server:
 
 ```sh
-yarn run dev
+yarn dev
 ```
 
 Build for deployment:
 
 ```sh
-yarn run build
+yarn build
 ```
