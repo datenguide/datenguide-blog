@@ -4,13 +4,13 @@
 .hero {
   background-color: $color-blue-light;
   padding: 1rem 0;
+  border-bottom: 1px solid #44707f;
 
   @include mq(tablet) {
     background-image: url('../../assets/images/hero_village.svg');
     background-repeat: no-repeat, no-repeat;
     background-size: 470px auto;
     background-position: 105% bottom;
-    border-bottom: 1px solid #44707f;
   }
 
   @include mq(desktop) {
@@ -27,9 +27,10 @@
   font-weight: bold;
   line-height: 1.2;
   font-size: 2.2rem;
+  padding-bottom: 5rem;
 
   @include mq(tablet) {
-    width: 80%;
+    width: 780px;
   }
 }
 
@@ -55,7 +56,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  min-height: 420px;
+  min-height: 350px;
   background-image: url('../../assets/images/hero_village.svg'),
     url('../../assets/images/hero_city.svg');
   background-repeat: no-repeat, no-repeat;
