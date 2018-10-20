@@ -1,3 +1,4 @@
+@import 'sass-mq/mq';
 @import '../../scss/_variables.scss';
 
 .newsletter {
@@ -9,8 +10,26 @@
   margin-bottom: 0.3rem;
 }
 
+.newsletter__input-group {
+  @include mq(desktop) {
+    display: flex;
+    align-items: center;
+  }
+}
+
+.newsletter__button {
+  white-space: nowrap;
+  position: relative;
+  top: 0.6rem;
+}
+
 .newsletter__input {
   margin-right: 1rem;
+  width: 100%;
+
+  @include mq(desktop) {
+    width: auto;
+  }
 
   &.mdc-text-field,
   &.mdc-text-field::before,
@@ -20,8 +39,8 @@
 
   input {
     background: $color-white;
-    height: 2.3rem;
-    line-height: 2.3rem;
+    height: 2.4rem;
+    line-height: 2.4rem;
     padding: 0;
   }
 
@@ -48,4 +67,9 @@
   a {
     color: $color-black;
   }
+}
+
+.newsletter__terms__link {
+  display: block;
+  margin-top: 0.5rem;
 }
