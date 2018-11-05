@@ -1,5 +1,5 @@
 import React from 'react'
-import GatsbyLink from 'gatsby-link'
+import { Link } from 'gatsby'
 import {
   Card,
   CardAction,
@@ -16,7 +16,7 @@ export default function RegionTeaserCard({ region }) {
     <div className="region-teaser__card">
       <Card>
         <div className="mdc-card__primary-action">
-          <GatsbyLink to={region.url}>
+          <Link to={region.url}>
             <div style={{ padding: '0 1rem 1rem 1rem' }}>
               <Typography use="display1" tag="h1">
                 {region.name}
@@ -37,7 +37,7 @@ export default function RegionTeaserCard({ region }) {
                 <p dangerouslySetInnerHTML={{ __html: region.text }} />
               </Typography>
             </div>
-          </GatsbyLink>
+          </Link>
         </div>
       </Card>
     </div>

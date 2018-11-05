@@ -1,6 +1,7 @@
 import React from 'react'
 import { Grid, GridCell } from 'rmwc/Grid'
 
+import Layout from '../components/Layout'
 import Header from '../components/Header'
 import HeroSearch from '../components/HeroSearch'
 import Newsletter from '../components/Newsletter'
@@ -13,7 +14,7 @@ export default ({ data }) => {
   const regions = data.allRegion
 
   return (
-    <div>
+    <Layout>
       <Header />
 
       <HeroSearch regions={regions} title={page.frontmatter.intro} />
@@ -35,7 +36,7 @@ export default ({ data }) => {
       <Newsletter />
 
       <Footer />
-    </div>
+    </Layout>
   )
 }
 

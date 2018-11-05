@@ -1,5 +1,6 @@
 import React from 'react'
 
+import Layout from '../components/Layout'
 import Header from '../components/Header'
 import RegionHeader from '../components/region/RegionHeader.js'
 import RegionMeta from '../components/region/RegionMeta.js'
@@ -10,19 +11,21 @@ export default ({ data }) => {
   const credits = site.siteMetadata.dataCredits
 
   return (
-    <div className="region">
-      <Header />
-      {region && <RegionHeader region={region} />}
-      {region && (
-        <RegionMeta
-          region={region}
-          meta={meta}
-          credits={credits}
-          comparison={comparison}
-        />
-      )}
-      <Footer />
-    </div>
+    <Layout>
+      <div className="region">
+        <Header />
+        {region && <RegionHeader region={region} />}
+        {region && (
+          <RegionMeta
+            region={region}
+            meta={meta}
+            credits={credits}
+            comparison={comparison}
+          />
+        )}
+        <Footer />
+      </div>
+    </Layout>
   )
 }
 

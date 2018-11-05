@@ -1,12 +1,13 @@
 import React from 'react'
 import { Grid, GridCell } from 'rmwc/Grid'
 
+import Layout from '../components/Layout'
 import Header from '../components/Header'
 import Footer from '../components/Footer'
 
 export default () => {
   return (
-    <div>
+    <Layout>
       <Header />
 
       <Grid>
@@ -17,6 +18,6 @@ export default () => {
       </Grid>
 
       <Footer />
-    </div>
+    </Layout>
   )
 }
