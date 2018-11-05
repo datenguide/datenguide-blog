@@ -1,5 +1,6 @@
 import React from 'react'
 import { Grid, GridCell } from 'rmwc/Grid'
+import { graphql } from 'gatsby'
 
 import Layout from '../components/Layout'
 import Header from '../components/Header'

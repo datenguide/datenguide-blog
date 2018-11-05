@@ -1,6 +1,6 @@
 import React from 'react'
 import Autosuggest from 'react-autosuggest'
-import { navigate } from 'gatsby'
+import { navigate, graphql } from 'gatsby'
 
 import '../scss/components/_search.scss'
 
