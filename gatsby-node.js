@@ -117,3 +117,12 @@ exports.onPreExtractQueries = () => {
 
   fs.writeFileSync(fragmentPath, queryFragments)
 }
+
+exports.onCreateWebpackConfig = ({ actions }) => {
+  // Mark MapboxGL as an external dependency (loaded via CDN)
+  actions.setWebpackConfig({
+    externals: {
+      mapboxgl: 'mapboxgl'
+    }
+  })
+}
