@@ -1,6 +1,6 @@
 import React from 'react'
 import { Grid, GridCell } from 'rmwc/Grid'
-import mapboxgl from 'mapboxgl'
+import mapboxgl from 'mapbox-gl'
 
 import Tooltip from './Tooltip.js'
 import '../../scss/components/region-header.scss'
