@@ -1,6 +1,6 @@
 import React from 'react'
 import Autosuggest from 'react-autosuggest'
-import { navigateTo } from 'gatsby-link'
+import { navigate, graphql } from 'gatsby'
 
 import '../scss/components/_search.scss'
 
@@ -28,7 +28,7 @@ const renderSuggestion = suggestion => {
 }
 
 const onSuggestionSelected = (event, { suggestion, suggestionValue }) => {
-  navigateTo(`/${suggestion.slug}`)
+  navigate(`/${suggestion.slug}`)
 }
 
 export default class Search extends React.Component {

@@ -1,6 +1,5 @@
+const browserslist = require('browserslist')
 const autoprefixer = require('autoprefixer')
-const path = require('path')
-const glob = require('glob')
 
 module.exports = {
   siteMetadata: {
@@ -18,6 +17,13 @@ module.exports = {
       options: {
         name: 'src',
         path: `${__dirname}/src/`
+      }
+    },
+    {
+      resolve: 'gatsby-plugin-sass',
+      options: {
+        includePaths: ['./node_modules'],
+        postCssPlugins: [autoprefixer({ browsers: browserslist() })]
       }
     },
     {

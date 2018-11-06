@@ -1,5 +1,7 @@
 import React from 'react'
+import { graphql } from 'gatsby'
 
+import Layout from '../components/Layout'
 import Header from '../components/Header'
 import Hero from '../components/Hero'
 import Footer from '../components/Footer'
@@ -22,7 +24,7 @@ const prepareData = ({ regions, stateNames }) => {
 }
 
 export default ({ data }) => (
-  <div>
+  <Layout>
     <Header />
 
     <Hero
@@ -30,10 +32,12 @@ export default ({ data }) => (
       intro={data.page.frontmatter.intro}
     />
 
-    {prepareData(data).map(state => <StateList state={state} />)}
+    {prepareData(data).map(state => (
+      <StateList state={state} />
+    ))}
 
     <Footer />
-  </div>
+  </Layout>
 )
 
 export const query = graphql`

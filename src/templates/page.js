@@ -1,6 +1,8 @@
 import React from 'react'
 import { Grid, GridCell } from 'rmwc/Grid'
+import { graphql } from 'gatsby'
 
+import Layout from '../components/Layout'
 import Header from '../components/Header'
 import Newsletter from '../components/Newsletter'
 import Funders from '../components/Funders'
@@ -9,7 +11,7 @@ import Footer from '../components/Footer'
 export default ({ data }) => {
   const page = data.markdownRemark
   return (
-    <div>
+    <Layout>
       <Header />
 
       <Grid>
@@ -28,7 +30,7 @@ export default ({ data }) => {
       <Newsletter />
 
       <Footer />
-    </div>
+    </Layout>
   )
 }
 

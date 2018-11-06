@@ -1,5 +1,5 @@
 import React from 'react'
-import GatsbyLink from 'gatsby-link'
+import { Link } from 'gatsby'
 import { TopAppBar, TopAppBarRow, TopAppBarSection } from 'rmwc/TopAppBar'
 
 import Logo from './Logo'
@@ -13,9 +13,9 @@ export default function AppHeader(props) {
           <Logo />
         </TopAppBarSection>
         <TopAppBarSection alignEnd>
-          <GatsbyLink className="header__nav-item" to="/regions">
+          <Link className="header__nav-item" to="/regions">
             Alle Regionen
-          </GatsbyLink>
+          </Link>
         </TopAppBarSection>
       </TopAppBarRow>
     </TopAppBar>

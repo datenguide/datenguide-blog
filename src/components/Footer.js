@@ -1,5 +1,5 @@
 import React from 'react'
-import GatsbyLink from 'gatsby-link'
+import { Link } from 'gatsby'
 import { Grid, GridCell } from 'rmwc/Grid'
 import GithubCircleIcon from 'mdi-react/GithubCircleIcon'
 
@@ -19,18 +19,12 @@ export default function AppFooter(props) {
           </a>
         </GridCell>
         <GridCell span="5">
-          <GatsbyLink
-            className="footer__link footer__link--contact"
-            to="/contact"
-          >
+          <Link className="footer__link footer__link--contact" to="/contact">
             Kontakt und Impressum
-          </GatsbyLink>
-          <GatsbyLink
-            className="footer__link footer__link--privacy"
-            to="/privacy"
-          >
+          </Link>
+          <Link className="footer__link footer__link--privacy" to="/privacy">
             Datenschutz
-          </GatsbyLink>
+          </Link>
         </GridCell>
       </Grid>
     </footer>

@@ -1,47 +1,27 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-const BUILD_TIME = new Date().getTime() // eslint-disable-line no-unused-vars
-
 export default class HTML extends React.Component {
-  static propTypes = {
-    body: PropTypes.string,
-    headComponents: PropTypes.node,
-    postBodyComponents: PropTypes.node
-  }
-
-  /* eslint-disable global-require, import/no-webpack-loader-syntax, react/no-danger */
   render() {
-    let css
-    if (process.env.NODE_ENV === 'production') {
-      css = (
-        <style
-          dangerouslySetInnerHTML={{
-            __html: require('!raw!../public/styles.css')
-          }}
-        />
-      )
-    }
-
     return (
-      <html lang="en">
+      <html {...this.props.htmlAttributes}>
         <head>
           <meta charSet="utf-8" />
-          <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
+          <meta httpEquiv="x-ua-compatible" content="ie=edge" />
           <meta
             name="viewport"
-            content="width=device-width, initial-scale=1.0"
+            content="width=device-width, initial-scale=1, shrink-to-fit=no"
           />
-          <script src="https://api.tiles.mapbox.com/mapbox-gl-js/v0.44.1/mapbox-gl.js" />
           <link
-            href="https://api.tiles.mapbox.com/mapbox-gl-js/v0.44.1/mapbox-gl.css"
+            href="https://api.tiles.mapbox.com/mapbox-gl-js/v0.50.0/mapbox-gl.css"
             rel="stylesheet"
           />
           {this.props.headComponents}
-          {css}
         </head>
-        <body>
+        <body {...this.props.bodyAttributes}>
+          {this.props.preBodyComponents}
           <div
+            key={`body`}
             id="___gatsby"
             dangerouslySetInnerHTML={{ __html: this.props.body }}
           />
@@ -50,4 +30,13 @@ export default class HTML extends React.Component {
       </html>
     )
   }
+}
+
+HTML.propTypes = {
+  htmlAttributes: PropTypes.object,
+  headComponents: PropTypes.array,
+  bodyAttributes: PropTypes.object,
+  preBodyComponents: PropTypes.array,
+  body: PropTypes.string,
+  postBodyComponents: PropTypes.array
 }
