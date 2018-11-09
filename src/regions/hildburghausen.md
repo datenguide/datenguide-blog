@@ -1,8 +1,8 @@
 ---
-id: 16069
+id: '16069'
 slug: hildburghausen
 source_url: https://de.wikipedia.org/wiki/Hildburghausen
-comparison: muenchen-landeshauptstadt
+comparison: '09162'
 ---
 
 Hildburghausen ist Kreisstadt des gleichnamigen Landkreises. Sie ist eine ehemalige Residenzstadt im fränkischen Süden des Freistaates Thüringen.

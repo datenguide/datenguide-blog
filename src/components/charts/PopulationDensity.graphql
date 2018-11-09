@@ -1,4 +1,4 @@
-fragment PopulationOverTime on Region {
+fragment PopulationOverTime on Datenguide_Region {
   name
   FLC006
   BEVSTD {
