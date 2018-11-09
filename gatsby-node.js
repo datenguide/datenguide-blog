@@ -119,6 +119,8 @@ exports.onPreExtractQueries = () => {
 }
 
 exports.onCreateWebpackConfig = ({ actions, stage }) => {
+  // Exclude MapboxGL during `build-html` stage
+  // (MapboxGL expects a window object so it can't be pre-rendered)
   if (stage === 'build-html') {
     actions.setWebpackConfig({
       module: {
