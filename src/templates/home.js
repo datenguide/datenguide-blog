@@ -11,8 +11,8 @@ import Footer from '../components/Footer'
 import RegionTeaser from '../components/region/RegionTeaser.js'
 
 export default ({ data }) => {
-  const page = data.markdownRemark
-  const regions = data.allRegion
+  const { page } = data
+  const { regions } = data.datenguide
 
   return (
     <Layout>
@@ -43,15 +43,17 @@ export default ({ data }) => {
 
 export const query = graphql`
   query HomeQuery($slug: String!) {
-    markdownRemark(fields: { slug: { eq: $slug } }) {
+    page: markdownRemark(fields: { slug: { eq: $slug } }) {
       html
       frontmatter {
         title
         intro
       }
     }
-    allRegion {
-      ...RegionsFragment
+    datenguide {
+      regions {
+        ...RegionsFragment
+      }
     }
   }
 `

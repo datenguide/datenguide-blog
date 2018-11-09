@@ -38,8 +38,7 @@ export default class Search extends React.Component {
     this.state = {
       value: '',
       suggestions: [],
-      regions: regions.edges
-        .map(edge => edge.node)
+      regions: regions
         .filter(region => region.name)
         .sort((a, b) => a.name.localeCompare(b.name))
     }
@@ -86,14 +85,10 @@ export default class Search extends React.Component {
 }
 
 export const query = graphql`
-  fragment RegionsFragment on RegionConnection {
-    edges {
-      node {
-        id
-        slug
-        name
-        name_ext
-      }
-    }
+  fragment RegionsFragment on Datenguide_Region {
+    id
+    slug
+    name
+    name_ext
   }
 `
