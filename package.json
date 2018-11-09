@@ -25,7 +25,6 @@
     "gatsby-1-config-css-modules": "^1.0.10",
     "gatsby-link": "^2.0.6",
     "gatsby-plugin-sass": "^2.0.3",
-    "gatsby-source-datenguide": "^1.0.4",
     "gatsby-source-filesystem": "^2.0.7",
     "gatsby-source-graphql": "^2.0.6",
     "gatsby-transformer-remark": "^2.1.12",
