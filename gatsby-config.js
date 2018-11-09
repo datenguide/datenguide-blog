@@ -20,6 +20,14 @@ module.exports = {
       }
     },
     {
+      resolve: 'gatsby-source-graphql',
+      options: {
+        typeName: 'Datenguide',
+        fieldName: 'datenguide',
+        url: 'https://api.datengui.de'
+      }
+    },
+    {
       resolve: 'gatsby-plugin-sass',
       options: {
         includePaths: ['./node_modules'],
