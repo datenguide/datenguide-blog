@@ -8,7 +8,7 @@ import RegionMeta from '../components/region/RegionMeta.js'
 import Footer from '../components/Footer'
 
 export default ({ data }) => {
-  const { meta, datenguide, site } = data
+  const { meta, datenguide, site, regionHeader } = data
   const { region, comparison } = datenguide
   const credits = site.siteMetadata.dataCredits
 
@@ -16,7 +16,7 @@ export default ({ data }) => {
     <Layout>
       <div className="region">
         <Header />
-        {region && <RegionHeader region={region} />}
+        {region && <RegionHeader region={region} regionHeader={regionHeader} />}
         {region && (
           <RegionMeta
             region={region}
@@ -77,5 +77,6 @@ export const query = graphql`
         ...PopulationOverTime
       }
     }
+    ...RegionHeader
   }
 `

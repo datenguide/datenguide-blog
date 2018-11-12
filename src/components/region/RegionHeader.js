@@ -1,8 +1,11 @@
 import React from 'react'
 import { Grid, GridCell } from 'rmwc/Grid'
 import mapboxgl from 'mapbox-gl'
+import { graphql } from 'gatsby'
+import { find } from 'lodash'
 
 import Tooltip from './Tooltip.js'
+
 import '../../scss/components/region-header.scss'
 
 class RegionHeader extends React.Component {
@@ -48,7 +51,6 @@ class RegionHeader extends React.Component {
       })
 
       map.addLayer({
-        // https://www.mapbox.com/mapbox-gl-js/example/data-driven-circle-colors/
         id: 'districts-layer',
         source: 'districts-data',
         'source-layer': 'landkreise_sim20-97ng3s',
@@ -60,7 +62,6 @@ class RegionHeader extends React.Component {
       })
 
       map.addLayer({
-        // https://www.mapbox.com/mapbox-gl-js/example/data-driven-circle-colors/
         id: 'districts-border-layer',
         source: 'districts-data',
         'source-layer': 'landkreise_sim20-97ng3s',
@@ -78,12 +79,12 @@ class RegionHeader extends React.Component {
 
       const triggerMouseMove = ({ point, features }) => {
         const feature = features[0]
-        feature && console.log(feature.properties.id)
-        this.setState({
-          showTooltip: true,
-          hoverPosition: point,
-          hoverName: feature.properties.GEN
-        })
+        feature &&
+          this.setState({
+            showTooltip: true,
+            hoverPosition: point,
+            hoverId: feature.properties.id
+          })
       }
 
       const triggerMouseClick = ({ features }) => {
@@ -92,19 +93,22 @@ class RegionHeader extends React.Component {
         feature && console.log(feature.properties.id)
       }
 
-      // map.on('mousemove', 'districts-layer', e => triggerMouseMove(e))
-      // map.on('click', 'districts-layer', e => triggerMouseClick(e)) // FIXME
-      // map.on('mouseleave', 'districts-laver', () =>
-      //   this.setState({ showTooltip: false })
-      // )
+      map.on('mousemove', 'districts-layer', e => triggerMouseMove(e))
+      map.on('click', 'districts-layer', e => triggerMouseClick(e)) // FIXME
+      map.on('mouseleave', 'districts-laver', () =>
+        this.setState({ showTooltip: false })
+      )
     })
   }
 
   render() {
-    const { hoverPosition, hoverName, showTooltip } = this.state
+    const { hoverPosition, hoverId, showTooltip } = this.state
     const {
+      regionHeader,
       region: { state, name }
     } = this.props
+    const { regions } = regionHeader
+    const tooltipRegion = find(regions, { id: hoverId })
 
     return (
       <header className="region-header">
@@ -120,14 +124,29 @@ class RegionHeader extends React.Component {
             </GridCell>
           </Grid>
         </div>
-        <Tooltip
-          position={hoverPosition}
-          name={hoverName}
-          visible={showTooltip}
-        />
+        {tooltipRegion && (
+          <Tooltip
+            position={hoverPosition}
+            name={tooltipRegion.name}
+            visible={showTooltip}
+          />
+        )}
       </header>
     )
   }
 }
+
+export const query = graphql`
+  fragment RegionHeader on Query {
+    regionHeader: datenguide {
+      regions {
+        id
+        slug
+        name
+        name_ext
+      }
+    }
+  }
+`
 
 export default RegionHeader
