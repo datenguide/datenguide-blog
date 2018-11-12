@@ -1,15 +1,7 @@
 import React from 'react'
 import { Link } from 'gatsby'
-import {
-  Card,
-  CardAction,
-  CardActions,
-  CardActionButtons,
-  CardActionIcons
-} from 'rmwc/Card'
+import { Card } from 'rmwc/Card'
 import { Typography } from 'rmwc/Typography'
-
-import theme from '../../components/theme'
 
 export default function RegionTeaserCard({ region }) {
   return (
