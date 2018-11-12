@@ -7,38 +7,51 @@ import Hero from '../components/Hero'
 import Footer from '../components/Footer'
 import StateList from '../components/StateList'
 
-const prepareData = ({ regions, stateNames }) => {
-  const districts = regions.edges
-    .filter(({ node }) => node.slug !== node.state.slug)
-    .map(({ node }) => node)
+const STATE_NAMES = [
+  'baden-wuerttemberg',
+  'bayern',
+  'brandenburg',
+  'bremen-bundesland',
+  'hessen',
+  'mecklenburg-vorpommern',
+  'niedersachsen',
+  'nordrhein-westfalen',
+  'rheinland-pfalz',
+  'saarland',
+  'sachsen',
+  'sachsen-anhalt',
+  'schleswig-holstein',
+  'thueringen'
+]
 
-  const states = regions.edges
-    .filter(({ node }) => node.slug === node.state.slug)
-    .map(({ node }) => node)
-    .reduce((map, state) => ((map[state.slug] = state), map), {})
+const prepareData = ({ datenguide: { regions } }) => {
+  const districts = regions
+    .filter(({ state }) => state)
+    .sort((a, b) => a.name > b.name)
 
-  return stateNames.distinct.map(stateSlug => ({
-    ...states[stateSlug],
+  return STATE_NAMES.map(stateSlug => ({
     districts: districts.filter(({ state }) => stateSlug === state.slug)
   }))
 }
 
-export default ({ data }) => (
-  <Layout>
-    <Header />
+export default ({ data }) => {
+  return (
+    <Layout>
+      <Header />
 
-    <Hero
-      title={data.page.frontmatter.title}
-      intro={data.page.frontmatter.intro}
-    />
+      <Hero
+        title={data.page.frontmatter.title}
+        intro={data.page.frontmatter.intro}
+      />
 
-    {prepareData(data).map(state => (
-      <StateList state={state} />
-    ))}
+      {prepareData(data).map(state => (
+        <StateList state={state} />
+      ))}
 
-    <Footer />
-  </Layout>
-)
+      <Footer />
+    </Layout>
+  )
+}
 
 export const query = graphql`
   query regionsOverview($slug: String!) {
@@ -49,24 +62,17 @@ export const query = graphql`
         intro
       }
     }
-    stateNames: allRegion {
-      distinct(field: state___slug)
-    }
-    regions: allRegion(
-      filter: { slug: { ne: null } }
-      sort: { fields: [name], order: ASC }
-    ) {
-      edges {
-        node {
+
+    datenguide {
+      regions {
+        id
+        slug
+        name
+        name_ext
+        state {
           id
-          slug
           name
-          name_ext
-          state {
-            id
-            name
-            slug
-          }
+          slug
         }
       }
     }

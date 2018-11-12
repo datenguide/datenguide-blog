@@ -8,7 +8,8 @@ import RegionMeta from '../components/region/RegionMeta.js'
 import Footer from '../components/Footer'
 
 export default ({ data }) => {
-  const { meta, region, site, comparison } = data
+  const { meta, datenguide, site } = data
+  const { region, comparison } = datenguide
   const credits = site.siteMetadata.dataCredits
 
   return (
@@ -31,7 +32,7 @@ export default ({ data }) => {
 }
 
 export const query = graphql`
-  query RegionQuery($slug: String!, $comparison: String!) {
+  query RegionQuery($slug: String!, $id: String!, $comparison: String!) {
     meta: markdownRemark(frontmatter: { slug: { eq: $slug } }) {
       html
       frontmatter {
@@ -50,30 +51,31 @@ export const query = graphql`
       }
     }
 
-    region(slug: { eq: $slug }) {
-      id
-      name
-      name_ext
-      slug
-      state {
+    datenguide {
+      region(id: $id) {
         id
         name
+        name_ext
         slug
+        state {
+          id
+          name
+          slug
+        }
+        geo {
+          bbox
+        }
+        BEVSTD {
+          GESM
+          GESW
+          GEST
+        }
+        ...PopulationOverTime
+        ...PopulationDistribution
       }
-      geo {
-        bbox
+      comparison: region(id: $comparison) {
+        ...PopulationOverTime
       }
-      BEVSTD {
-        GESM
-        GESW
-        GEST
-      }
-      ...PopulationOverTime
-      ...PopulationDistribution
-    }
-
-    comparison: region(slug: { eq: $comparison }) {
-      ...PopulationOverTime
     }
   }
 `

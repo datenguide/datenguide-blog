@@ -1,8 +1,8 @@
 ---
-id: 09677
+id: '09677'
 slug: main-spessart
 source_url: https://de.wikipedia.org/wiki/Main-Spessart
-comparison: muenchen-landeshauptstadt
+comparison: '09162'
 ---
 
 Der Landkreis Main-Spessart liegt in der westlichen Mitte des bayerischen Regierungsbezirks Unterfranken.

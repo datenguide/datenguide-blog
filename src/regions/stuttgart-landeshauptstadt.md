@@ -1,8 +1,8 @@
 ---
-id: 08111
+id: '08111'
 slug: stuttgart-landeshauptstadt
 source_url: https://de.wikipedia.org/wiki/Stuttgart
-comparison: muenchen-landeshauptstadt
+comparison: '09162'
 ---
 
 Stuttgart ist die Landeshauptstadt von Baden-Württemberg und mit rund 630.000 Einwohnern dessen größte Stadt. Die sechstgrößte Stadt Deutschlands bildet das Zentrum der rund 2,7 Millionen Einwohner zählenden Region Stuttgart, eines der größten Ballungsräume Deutschlands. Stuttgart hat den Status eines Stadtkreises.

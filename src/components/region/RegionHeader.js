@@ -102,6 +102,10 @@ class RegionHeader extends React.Component {
 
   render() {
     const { hoverPosition, hoverName, showTooltip } = this.state
+    const {
+      region: { state, name }
+    } = this.props
+
     return (
       <header className="region-header">
         <div
@@ -111,8 +115,8 @@ class RegionHeader extends React.Component {
         <div className="region-header__hgroup">
           <Grid>
             <GridCell span="7">
-              <h1>{this.props.region.name}</h1>
-              <p>{this.props.region.state.name}</p>
+              <h1>{name}</h1>
+              <p>{state && state.name}</p>
             </GridCell>
           </Grid>
         </div>
