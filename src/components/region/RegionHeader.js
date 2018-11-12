@@ -104,10 +104,9 @@ class RegionHeader extends React.Component {
   render() {
     const { hoverPosition, hoverId, showTooltip } = this.state
     const {
-      regionHeader,
-      region: { state, name }
-    } = this.props
-    const { regions } = regionHeader
+      region: { state, name },
+      regions
+    } = this.props.regionHeader
     const tooltipRegion = find(regions, { id: hoverId })
 
     return (
@@ -139,6 +138,12 @@ class RegionHeader extends React.Component {
 export const query = graphql`
   fragment RegionHeader on Query {
     regionHeader: datenguide {
+      region(id: $id) {
+        name
+        state {
+          name
+        }
+      }
       regions {
         id
         slug
