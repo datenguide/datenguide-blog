@@ -85,10 +85,14 @@ export default class Search extends React.Component {
 }
 
 export const query = graphql`
-  fragment RegionsFragment on Datenguide_Region {
-    id
-    slug
-    name
-    name_ext
+  fragment Search on Query {
+    datenguide {
+      regions {
+        id
+        slug
+        name
+        name_ext
+      }
+    }
   }
 `

@@ -50,10 +50,6 @@ export const query = graphql`
         intro
       }
     }
-    datenguide {
-      regions {
-        ...RegionsFragment
-      }
-    }
+    ...Search
   }
 `
