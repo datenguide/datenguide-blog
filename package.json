@@ -16,7 +16,6 @@
     "precommit": "pretty-quick --staged"
   },
   "dependencies": {
-    "@ibm/type": "^0.5.4",
     "alphabet": "^1.0.0",
     "autoprefixer": "^9.3.1",
     "browserslist": "^4.0.0",
@@ -40,6 +39,7 @@
     "react-dom": "^16.6.0",
     "rmwc": "^3.0.0",
     "sass-mq": "^4.0.2",
+    "typeface-ibm-plex-sans": "^0.0.61",
     "victory": "^0.27.0",
     "webpack": "^4.0.0"
   },
