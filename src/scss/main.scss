@@ -43,12 +43,7 @@
 @import '~@material/typography/mdc-typography';
 
 /**
- * Fonts
- */
-$font-prefix: '~@ibm/type';
-@import '~@ibm/type/scss/sans/index';
-
-/**
  * Baseline styling
  */
+@import 'fonts';
 @import 'baseline';
