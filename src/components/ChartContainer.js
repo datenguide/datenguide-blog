@@ -14,11 +14,14 @@ const findFragmentName = (queryFragment, keyword) => {
   return segments[segments.indexOf('fragment') + 1]
 }
 
+const translateToNativeQuery = query =>
+  query.replace('Datenguide_Region', 'Region')
+
 const composeFullQuery = (id, fragmentName, query) => `{
   region(id: "${id}") {
     ...${fragmentName}
   }
-}\n\n${query}`
+}\n\n${translateToNativeQuery(query)}`
 
 const TabSelector = ({ activeTabIndex, chartComponent, fullQuery, props }) => {
   switch (activeTabIndex) {
