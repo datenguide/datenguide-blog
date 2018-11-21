@@ -12,21 +12,22 @@ module.exports = {
   },
   plugins: [
     {
-      resolve: `gatsby-transformer-remark`,
+      resolve: 'gatsby-transformer-remark',
       options: {
         plugins: [
+          'gatsby-remark-copy-linked-files',
+          `gatsby-remark-prismjs`,
           {
-            resolve: `gatsby-remark-images`,
+            resolve: 'gatsby-remark-images',
             options: {
               maxWidth: 590
             }
-          },
-          'gatsby-remark-copy-linked-files'
+          }
         ]
       }
     },
-    `gatsby-transformer-sharp`,
-    `gatsby-plugin-sharp`,
+    'gatsby-transformer-sharp',
+    'gatsby-plugin-sharp',
     {
       resolve: 'gatsby-source-filesystem',
       options: {
