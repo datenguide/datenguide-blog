@@ -4,6 +4,7 @@ description: This is my first post on my new fake blog! How exciting!
 author: Simon Jockers
 date: '2015-05-01T22:12:03.284Z'
 template: 'article'
+lang: 'de'
 ---
 
 This is my first post on my new fake blog! How exciting!

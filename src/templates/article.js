@@ -1,27 +1,32 @@
 import React from 'react'
-import Helmet from 'react-helmet'
 import { Grid, GridCell } from 'rmwc/Grid'
 import { graphql } from 'gatsby'
 
+import PageMeta from '../components/PageMeta'
 import Layout from '../components/Layout'
 import Header from '../components/Header'
 import Newsletter from '../components/Newsletter'
 import Footer from '../components/Footer'
 
-export default ({ data }) => {
-  const { frontmatter, html } = data.markdownRemark
+export default ({ data, location }) => {
+  const {
+    frontmatter: { title, description, author, lang },
+    html
+  } = data.markdownRemark
+
   return (
     <Layout>
       <Header />
-      <Helmet
-        htmlAttributes={{ lang: 'de' }}
-        meta={[{ name: 'description', content: frontmatter.description }]}
-        title={frontmatter.title}
+      <PageMeta
+        lang={lang}
+        pathname={location.pathname}
+        title={title}
+        description={description}
       />
       <Grid>
         <GridCell span="8">
-          <h1>{frontmatter.title}</h1>
-          <p>{frontmatter.author}</p>
+          <h1>{title}</h1>
+          <p>{author}</p>
           <div dangerouslySetInnerHTML={{ __html: html }} />
         </GridCell>
       </Grid>
@@ -41,6 +46,7 @@ export const query = graphql`
         title
         author
         description
+        lang
       }
     }
   }
