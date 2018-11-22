@@ -1,4 +1,5 @@
 import React from 'react'
+import Helmet from 'react-helmet'
 import { Grid, GridCell } from 'rmwc/Grid'
 import { graphql } from 'gatsby'
 
@@ -12,7 +13,11 @@ export default ({ data }) => {
   return (
     <Layout>
       <Header />
-
+      <Helmet
+        htmlAttributes={{ lang: 'de' }}
+        meta={[{ name: 'description', content: frontmatter.description }]}
+        title={frontmatter.title}
+      />
       <Grid>
         <GridCell span="8">
           <h1>{frontmatter.title}</h1>
@@ -35,6 +40,7 @@ export const query = graphql`
       frontmatter {
         title
         author
+        description
       }
     }
   }
