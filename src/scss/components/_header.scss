@@ -1,4 +1,5 @@
 @import '~@material/layout-grid/_mixins.scss';
+@import '~sass-mq/mq';
 @import '../../scss/_variables.scss';
 
 .header {
@@ -17,4 +18,30 @@
     }
   }
   margin: 0 auto;
+}
+
+.header__link {
+  display: inline-block;
+  position: relative;
+  color: $color-black;
+  padding-left: 30px;
+
+  width: 30px;
+  height: 30px;
+  overflow: hidden;
+
+  @include mq(tablet) {
+    width: auto;
+    height: auto;
+  }
+}
+
+.header__link--github {
+  color: $color-black;
+
+  svg {
+    position: absolute;
+    left: 0;
+    top: 0;
+  }
 }

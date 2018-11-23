@@ -12,7 +12,7 @@ export default function AppFooter(props) {
         <GridCell span="7">
           <a
             className="footer__link footer__link--github"
-            href="http://github.com/datenguide"
+            href="https://github.com/datenguide/datenguide"
           >
             <GithubCircleIcon />
             Datenguide ist open source

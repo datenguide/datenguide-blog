@@ -11,6 +11,15 @@ export default function AppHeader(props) {
       <TopAppBarRow className="header__row">
         <TopAppBarSection alignStart>
           <Logo />
+          <TopAppBarSection alignEnd>
+            <a
+              className="header__link header__link--github"
+              href="http://github.com/datenguide/datenguide"
+            >
+              <GithubCircleIcon />
+              Datenguide ist open source
+            </a>
+          </TopAppBarSection>
         </TopAppBarSection>
         <TopAppBarSection alignEnd>
           {props.children || (
