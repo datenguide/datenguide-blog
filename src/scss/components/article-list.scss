@@ -1,0 +1,47 @@
+@import '~sass-mq/mq';
+@import '../../scss/_variables.scss';
+
+.article-list {
+  display: block;
+  padding: 0;
+  margin: 0;
+
+  ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  li {
+    margin: 0 0 1rem 0;
+    padding: 0;
+  }
+}
+
+.article-list__date {
+  display: block;
+  color: $color-gray-dark;
+}
+
+.article-list__description {
+  margin: 0;
+  padding: 0;
+}
+
+.article-list__title {
+  display: block;
+  font-size: $font-size-title;
+  padding: 0;
+  margin: 0;
+}
+
+.article-list__link {
+  display: block;
+  text-decoration: none;
+
+  &:hover .article-list__title,
+  &:active .article-list__title,
+  &:focus .article-list__title {
+    text-decoration: underline;
+  }
+}

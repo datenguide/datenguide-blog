@@ -5,13 +5,14 @@ import { graphql } from 'gatsby'
 import Layout from '../components/Layout'
 import Header from '../components/Header'
 import HeroSearch from '../components/HeroSearch'
+import ArticleList from '../components/ArticleList.js'
 import Newsletter from '../components/Newsletter'
 import Funders from '../components/Funders'
 import Footer from '../components/Footer'
 import RegionTeaser from '../components/region/RegionTeaser.js'
 
 export default ({ data }) => {
-  const { page } = data
+  const { page, articleList } = data
   const { regions } = data.datenguide
 
   return (
@@ -25,6 +26,9 @@ export default ({ data }) => {
       <Grid>
         <GridCell span="8">
           <div dangerouslySetInnerHTML={{ __html: page.html }} />
+        </GridCell>
+        <GridCell span="4">
+          <ArticleList articles={articleList} />
         </GridCell>
       </Grid>
 
@@ -51,5 +55,6 @@ export const query = graphql`
       }
     }
     ...Search
+    ...ArticleList
   }
 `
