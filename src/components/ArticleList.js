@@ -8,17 +8,20 @@ export default function ArticleList({ articles }) {
     <section className="article-list">
       <h2>Aktuelles</h2>
       <ul>
-        {articles.edges.map(({ node: { fields, frontmatter } }) => (
-          <li className="article-list__item" key={fields.slug}>
-            <Link className="article-list__link" to={`/${fields.slug}`}>
-              <time className="article-list__date">{frontmatter.date}</time>
-              <h3 className="article-list__title">{frontmatter.title}</h3>
-              <p className="article-list__description">
-                {frontmatter.description}
-              </p>
-            </Link>
-          </li>
-        ))}
+        {articles.edges.map(
+          ({ node: { fields, frontmatter } }) =>
+            !frontmatter.hidden && (
+              <li className="article-list__item" key={fields.slug}>
+                <Link className="article-list__link" to={`/${fields.slug}`}>
+                  <time className="article-list__date">{frontmatter.date}</time>
+                  <h3 className="article-list__title">{frontmatter.title}</h3>
+                  <p className="article-list__description">
+                    {frontmatter.description}
+                  </p>
+                </Link>
+              </li>
+            )
+        )}
       </ul>
     </section>
   )
@@ -39,6 +42,7 @@ export const query = graphql`
             date(formatString: "YYYY-MM-DD")
             title
             description
+            hidden
           }
         }
       }
