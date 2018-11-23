@@ -24,16 +24,16 @@ export default ({ data }) => {
       <RegionTeaser />
 
       <Grid>
-        <GridCell span="8">
+        <GridCell tablet="12" desktop="8">
           <div dangerouslySetInnerHTML={{ __html: page.html }} />
         </GridCell>
-        <GridCell span="4">
+        <GridCell tablet="12" desktop="4">
           <ArticleList articles={articleList} />
         </GridCell>
       </Grid>
 
       <Grid>
-        <GridCell span="6">
+        <GridCell tablet="12" desktop="6">
           <Funders />
         </GridCell>
       </Grid>
