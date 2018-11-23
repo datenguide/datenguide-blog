@@ -7,26 +7,34 @@ import Layout from '../components/Layout'
 import Header from '../components/Header'
 import Newsletter from '../components/Newsletter'
 import Footer from '../components/Footer'
+import ArticleHeader from '../components/ArticleHeader'
 
 export default ({ data, location }) => {
   const {
-    frontmatter: { title, description, author, lang },
+    frontmatter: { title, description, author, lang, date },
     html
   } = data.markdownRemark
 
   return (
     <Layout>
       <Header />
+
       <PageMeta
         lang={lang}
         pathname={location.pathname}
         title={title}
         description={description}
       />
+
+      <ArticleHeader
+        title={title}
+        description={description}
+        date={date}
+        author={author}
+      />
+
       <Grid>
         <GridCell span="8">
-          <h1>{title}</h1>
-          <p>{author}</p>
           <div dangerouslySetInnerHTML={{ __html: html }} />
         </GridCell>
       </Grid>
@@ -47,6 +55,7 @@ export const query = graphql`
         author
         description
         lang
+        date(formatString: "YYYY-MM-DD")
       }
     }
   }
