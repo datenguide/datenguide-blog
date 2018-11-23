@@ -6,7 +6,7 @@ import '../scss/main.scss'
 
 export default class IndexLayout extends React.Component {
   static propTypes = {
-    children: PropTypes.func
+    children: PropTypes.array
   }
 
   render() {

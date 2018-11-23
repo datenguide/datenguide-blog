@@ -4,6 +4,11 @@ const autoprefixer = require('autoprefixer')
 module.exports = {
   siteMetadata: {
     title: 'Datenguide',
+    siteUrl: 'https://datengui.de',
+    defaultImage: '/images/social_meta.png',
+    twitterAccount: '@datenguide',
+    description:
+      'Der Datenguide hilft dir dabei, dich im Dschungel der Statistiken zurecht zu finden.',
     dataCredits: {
       publisher: 'Quelle: Statistische Ämter des Bundes und der Länder',
       licenseTitle: 'Datenlizenz Deutschland Namensnennung 2.0',
@@ -11,7 +16,24 @@ module.exports = {
     }
   },
   plugins: [
-    'gatsby-transformer-remark',
+    {
+      resolve: 'gatsby-transformer-remark',
+      options: {
+        plugins: [
+          'gatsby-remark-copy-linked-files',
+          `gatsby-remark-prismjs`,
+          {
+            resolve: 'gatsby-remark-images',
+            options: {
+              maxWidth: 590
+            }
+          }
+        ]
+      }
+    },
+    'gatsby-transformer-sharp',
+    'gatsby-plugin-sharp',
+    'gatsby-plugin-react-helmet',
     {
       resolve: 'gatsby-source-filesystem',
       options: {
