@@ -13,6 +13,6 @@ es gibt heute gleich 2 News vom Datenguide:
 1. Wir haben jetzt einen Blog.
 2. Wir möchten die Regionalstatistik besser nutzbar machen und deshalb haben wir ein paar Fragen, Dauer ca. 5 Min.
 
-<small>Für diese Umfrage verwenden wir Google Forms. Die Daten werden via [Google](https://policies.google.com/privacy?hl=de) übertragen und gespeichert. Wer Google Forms nicht nutzen möchte, kann uns die Antworten auch gerne per Email schicken. [Mehr zum Datenschutz bei Datenguide](/privacy)</small>
+<a href="https://docs.google.com/forms/d/e/1FAIpQLSfINpcx6F7n1VjdqJcc3LV-DlkzxGSg3IneXQx8WjiIqv-eug/viewform" class="mdc-button mdc-button--outlined mdc-ripple-upgraded mdc-ripple-upgraded--foreground-activation">Zur Umfrage</a>
 
-<iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfINpcx6F7n1VjdqJcc3LV-DlkzxGSg3IneXQx8WjiIqv-eug/viewform?embedded=true" width="100%" height="3413" frameborder="0" marginheight="0" marginwidth="0">Loading...</iframe>
+<small>Für diese Umfrage verwenden wir Google Forms. Die Daten werden an [Google](https://policies.google.com/privacy?hl=de) übertragen und dort gespeichert. Wer Google Forms nicht nutzen möchte, kann uns die Antworten auch gerne per Email schicken.</small>
