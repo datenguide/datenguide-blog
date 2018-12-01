@@ -119,9 +119,9 @@ An overview of the files and directories you'll work with when contributing to t
 
 13. **`/src/regions`**: This directory contains a markdown file for each district and city covered by Datenguide. The markdown files can be used to add specific information to be rendered in the regions pages on datengui.de.
 
-14. **`/src/scss`**: This directory contains the styling information used in the Datenguide web application.
+14. **`/src/scss`**: This directory contains the styling information used in the Datenguide web application. It uses [SCSS](https://sass-lang.com/guide).
 
-15. **`/src/scss/_baseline.scss`**: This directory contains the styling information used in the Datenguide web application. It uses [SCSS](https://sass-lang.com/guide).
+15. **`/src/scss/_baseline.scss`**: This file has the basic styling information used across the Datenguide web application.
 
 16. **`/src/scss/_fonts.scss`**: This file imports the web fonts used in the Datenguide web application.
 
