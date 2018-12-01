@@ -6,6 +6,10 @@
   "bugs": {
     "url": "https://github.com/sjockers/datenguide-frontend/issues"
   },
+  "engines": {
+    "yarn": "^1.2.1",
+    "node": "^10.14.1"
+  },
   "scripts": {
     "dev": "gatsby develop",
     "develop": "gatsby develop",
