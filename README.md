@@ -29,6 +29,8 @@ This web application is built upon [React](https://reactjs.org/) and [Gatsby](ht
 1. Install the [Node.js runtime](https://nodejs.org/en/)
 2. Install the [Yarn package manager](https://yarnpkg.com/lang/en/docs/install/#mac-stable)
 
+*Note:* This web application uses [sharp](http://sharp.pixelplumbing.com) for image optimization. This requires `libvips`, which should come pre-installed on most UNIX-based systems. If not, look in your package manager for a package called `libvips-dev` and install it before installing the node dependencies in the next step.
+
 ### Install dependencies
 
 `yarn install`
