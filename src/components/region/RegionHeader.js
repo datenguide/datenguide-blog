@@ -22,7 +22,7 @@ class RegionHeader extends React.Component {
     mapboxgl.accessToken =
       'pk.eyJ1IjoiZGF0ZW5ndWlkZSIsImEiOiJjamRmcjdmeGUwYXBrMnhwZ2V3ZnUyZGJpIn0.0S5TQa_lEc9PmWihbA4VBw'
 
-    const { bbox } = this.props.region.geo
+    const { bbox } = [12.458, 50.397, 13.502, 50.807]
     const id = this.props.region.id
 
     const map = new mapboxgl.Map({
@@ -106,7 +106,7 @@ class RegionHeader extends React.Component {
     const {
       region: { state, name },
       regions
-    } = this.props.regionHeader
+    } = this.props.regionHeader.frontmatter
     const tooltipRegion = find(regions, { id: hoverId })
 
     return (
@@ -136,19 +136,13 @@ class RegionHeader extends React.Component {
 }
 
 export const query = graphql`
-  fragment RegionHeader on Query {
-    regionHeader: datenguide {
-      region(id: $id) {
+  fragment regionHeader on Query {
+    regionHeader: markdownRemark(frontmatter: { id: { eq: $id } }) {
+      frontmatter {
         name
         state {
           name
         }
-      }
-      regions {
-        id
-        slug
-        name
-        name_ext
       }
     }
   }

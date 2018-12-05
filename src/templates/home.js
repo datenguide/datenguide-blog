@@ -12,14 +12,13 @@ import Footer from '../components/Footer'
 import RegionTeaser from '../components/region/RegionTeaser.js'
 
 export default ({ data }) => {
-  const { page, articleList } = data
-  const { regions } = data.datenguide
+  const { page, articleList, search } = data
 
   return (
     <Layout>
       <Header />
 
-      <HeroSearch regions={regions} title={page.frontmatter.intro} />
+      <HeroSearch search={search} title={page.frontmatter.intro} />
 
       <RegionTeaser />
 
@@ -54,7 +53,7 @@ export const query = graphql`
         intro
       }
     }
-    ...Search
+    ...search
     ...ArticleList
   }
 `
