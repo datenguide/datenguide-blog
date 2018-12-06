@@ -8,23 +8,19 @@ import RegionMeta from '../components/region/RegionMeta.js'
 import Footer from '../components/Footer'
 
 export default ({ data }) => {
-  const { meta, datenguide, site, regionHeader } = data
-  const { region, comparison } = datenguide
+  const { site, regionHeader, regionMeta, regionData, regions } = data
   const credits = site.siteMetadata.dataCredits
 
   return (
     <Layout>
       <div className="region">
         <Header />
-        {region && <RegionHeader region={region} regionHeader={regionHeader} />}
-        {region && (
-          <RegionMeta
-            region={region}
-            meta={meta}
-            credits={credits}
-            comparison={comparison}
-          />
-        )}
+        <RegionHeader regions={regions} regionHeader={regionHeader} />
+        <RegionMeta
+          regionMeta={regionMeta}
+          regionData={regionData}
+          credits={credits}
+        />
         <Footer />
       </div>
     </Layout>
@@ -32,12 +28,12 @@ export default ({ data }) => {
 }
 
 export const query = graphql`
-  query RegionQuery($slug: String!, $id: String!, $comparison: String!) {
-    meta: markdownRemark(frontmatter: { slug: { eq: $slug } }) {
+  query RegionQuery($id: String!) {
+    page: markdownRemark(frontmatter: { id: { eq: $id } }) {
       html
       frontmatter {
-        slug
-        source_url
+        title
+        intro
       }
     }
 
@@ -50,33 +46,7 @@ export const query = graphql`
         }
       }
     }
-
-    datenguide {
-      region(id: $id) {
-        id
-        name
-        name_ext
-        slug
-        state {
-          id
-          name
-          slug
-        }
-        geo {
-          bbox
-        }
-        BEVSTD {
-          GESM
-          GESW
-          GEST
-        }
-        ...PopulationOverTime
-        ...PopulationDistribution
-      }
-      comparison: region(id: $comparison) {
-        ...PopulationOverTime
-      }
-    }
-    ...RegionHeader
+    ...regionHeader
+    ...regionMeta
   }
 `

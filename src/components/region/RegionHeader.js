@@ -22,8 +22,7 @@ class RegionHeader extends React.Component {
     mapboxgl.accessToken =
       'pk.eyJ1IjoiZGF0ZW5ndWlkZSIsImEiOiJjamRmcjdmeGUwYXBrMnhwZ2V3ZnUyZGJpIn0.0S5TQa_lEc9PmWihbA4VBw'
 
-    const { bbox } = [12.458, 50.397, 13.502, 50.807]
-    const id = this.props.region.id
+    const { geo, id } = this.props.regionHeader.frontmatter
 
     const map = new mapboxgl.Map({
       container: this.mapContainer,
@@ -37,8 +36,8 @@ class RegionHeader extends React.Component {
     map.on('load', () => {
       const width = this.mapContainer.clientWidth
 
-      if (bbox) {
-        map.fitBounds(bbox, {
+      if (geo.bbox) {
+        map.fitBounds(geo.bbox, {
           padding: 40,
           duration: 0,
           offset: [width / 4, 0] // offset to make space for title
@@ -103,11 +102,10 @@ class RegionHeader extends React.Component {
 
   render() {
     const { hoverPosition, hoverId, showTooltip } = this.state
-    const {
-      region: { state, name },
-      regions
-    } = this.props.regionHeader.frontmatter
-    const tooltipRegion = find(regions, { id: hoverId })
+    const { state, name } = this.props.regionHeader.frontmatter
+    const tooltipRegion = this.props.regions.edges.find(
+      ({ node }) => node.frontmatter.id == hoverId
+    )
 
     return (
       <header className="region-header">
@@ -139,9 +137,28 @@ export const query = graphql`
   fragment regionHeader on Query {
     regionHeader: markdownRemark(frontmatter: { id: { eq: $id } }) {
       frontmatter {
+        id
         name
         state {
           name
+        }
+        geo {
+          bbox
+        }
+      }
+    }
+    regions: allMarkdownRemark(
+      filter: { fields: { slug: { regex: "//regions/..*$/" } } }
+      sort: { fields: [frontmatter___slug], order: DESC }
+    ) {
+      edges {
+        node {
+          frontmatter {
+            id
+            slug
+            name
+            name_ext
+          }
         }
       }
     }
