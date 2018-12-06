@@ -24,10 +24,10 @@ const STATE_NAMES = [
   'thueringen'
 ]
 
-const prepareData = ({ datenguide: { regions } }) => {
-  const districts = regions
-    .filter(({ state }) => state)
-    .sort((a, b) => a.name > b.name)
+const prepareData = ({ regions }) => {
+  const districts = regions.edges
+    .map(({ node: { region } }) => region)
+    .filter(region => region.state)
 
   return STATE_NAMES.map(stateSlug => ({
     districts: districts.filter(({ state }) => stateSlug === state.slug)
@@ -62,17 +62,22 @@ export const query = graphql`
         intro
       }
     }
-
-    datenguide {
-      regions {
-        id
-        slug
-        name
-        name_ext
-        state {
-          id
-          name
-          slug
+    regions: allMarkdownRemark(
+      filter: { fields: { slug: { regex: "//regions/..*$/" } } }
+      sort: { fields: [frontmatter___name], order: ASC }
+    ) {
+      edges {
+        node {
+          region: frontmatter {
+            slug
+            name
+            name_ext
+            state {
+              id
+              name
+              slug
+            }
+          }
         }
       }
     }
