@@ -5,7 +5,7 @@ description:
 author: Anna Behrend
 date: '2018-12-06'
 template: 'article'
-hidden: true
+hidden: false
 lang: 'de'
 ---
 
@@ -13,7 +13,10 @@ Das Projekt _Regio Reports_ ist beim [#DataDeepDive-Hackathon](https://www.dpa.c
 
 ![Die Gewinner des dpa-Hackathons in der Kategorie „Best of API“](./dpa-hackathon.jpg)
 
-<small>Das Team _Regio Reports_: Anna Behrend, Robert Höfig, Richard Meinsen und Barbara Maas. (Foto: obs/dpa Deutsche Presse-Agentur GmbH/Wolfram Kastl).</small>
+<small>
+  Das Team von Regio Reports: (v.l.n.r.) Anna Behrend, Richard Meinsen, Robert Höfig, Barbara Maas.<br/> 
+  (Foto: obs/dpa Deutsche Presse-Agentur GmbH/Wolfram Kastl).
+</small>
 
 ---
 
