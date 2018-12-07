@@ -16,3 +16,18 @@ body {
 a {
   color: $color-blue-dark;
 }
+
+small {
+  color: $color-gray-dark;
+}
+
+blockquote {
+  font-style: italic;
+}
+
+hr {
+  border: none;
+  height: 0.3rem;
+  margin-top: 1rem;
+  background: $color-gray-light;
+}
