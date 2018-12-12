@@ -8,16 +8,19 @@ import '../../scss/components/region-meta.scss'
 
 const numberFormat = Intl.NumberFormat('de').format
 
-export default function RegionMeta({ regionMeta, regionData }) {
-  const { geo, name, name_ext, source_url } = regionMeta.frontmatter
-  const bevst6 = regionData.region.BEVST6[0].value
-  const flc006 = regionData.region.FLC006[0].value
+export default function RegionMeta({
+  regionMeta: { frontmatter, html },
+  regionData: { region }
+}) {
+  const { geo, name, name_ext, source_url } = frontmatter
+  const bevst6 = region.BEVST6[0] && region.BEVST6[0].value
+  const flc006 = region.FLC006[0] && region.FLC006[0].value
 
   return (
     <div className="region-meta">
       <Grid>
         <GridCell span="8">
-          <div dangerouslySetInnerHTML={{ __html: regionMeta.html }} />
+          <div dangerouslySetInnerHTML={{ __html: html }} />
           <small className="region-meta__source">
             Einleitung adaptiert von{' '}
             <a href={source_url}>Wikipedia, der freien Enzyklopädie</a>.
