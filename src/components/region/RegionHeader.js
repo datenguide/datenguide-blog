@@ -2,7 +2,6 @@ import React from 'react'
 import { Grid, GridCell } from 'rmwc/Grid'
 import mapboxgl from 'mapbox-gl'
 import { graphql } from 'gatsby'
-import { find } from 'lodash'
 
 import Tooltip from './Tooltip.js'
 
@@ -104,7 +103,7 @@ class RegionHeader extends React.Component {
     const { hoverPosition, hoverId, showTooltip } = this.state
     const { state, name } = this.props.regionHeader.frontmatter
     const tooltipRegion = this.props.regions.edges.find(
-      ({ node }) => node.frontmatter.id == hoverId
+      ({ node }) => node.frontmatter.id === hoverId
     )
 
     return (
