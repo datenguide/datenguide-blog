@@ -4,6 +4,8 @@ import VectorSquareIcon from 'mdi-react/VectorSquareIcon'
 import MapMarkerMultipleIcon from 'mdi-react/MapMarkerMultipleIcon'
 import AccountMultipleIcon from 'mdi-react/AccountMultipleIcon'
 
+import PopulationDensity from '../charts/PopulationDensity'
+import PopulationDistribution from '../charts/PopulationDistribution'
 import EuropeanElections from '../charts/EuropeanElections'
 
 import '../../scss/components/region-meta.scss'
@@ -13,6 +15,7 @@ const numberFormat = Intl.NumberFormat('de').format
 export default function RegionMeta({
   regionMeta: { frontmatter, html },
   regionData: { region },
+  regionDataLegacy,
   credits
 }) {
   const { geo, name, name_ext, source_url } = frontmatter
@@ -33,7 +36,6 @@ export default function RegionMeta({
             </a>
             .
           </small>
-          <EuropeanElections data={region} credits={credits} />
         </GridCell>
 
         <GridCell span="4">
@@ -58,6 +60,20 @@ export default function RegionMeta({
             teilt. In dieser Grafik vergleichen wir {name} mit München, der
             Stadt mit der höchsten Bevölkerungsdichte in Deutschland.
           </p>
+          <PopulationDensity
+            region={regionDataLegacy.region}
+            credits={credits}
+            comparison={regionDataLegacy.comparison}
+          />
+
+          <h3>Bevölkerungsverteilung nach Altersgruppe</h3>
+          <PopulationDistribution
+            data={regionDataLegacy.region}
+            credits={credits}
+          />
+
+          <h3>Ergebnisse Europawahl (Zweitstimmen)</h3>
+          <EuropeanElections data={region} credits={credits} />
         </GridCell>
 
         <GridCell span="4">
@@ -98,6 +114,7 @@ export const query = graphql`
         }
       }
     }
+
     regionData: datenguide {
       # TODO: Update queries once v2 API is finalized.
       # (These may currently not return what you think they do)

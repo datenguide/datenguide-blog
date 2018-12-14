@@ -50,6 +50,14 @@ module.exports = {
       }
     },
     {
+      resolve: 'gatsby-source-graphql',
+      options: {
+        typeName: 'DatenguideLegacy',
+        fieldName: 'datenguideLegacy',
+        url: 'https://api.datengui.de/'
+      }
+    },
+    {
       resolve: 'gatsby-plugin-sass',
       options: {
         includePaths: ['./node_modules'],
