@@ -30,12 +30,12 @@ const labels = [
   },
   {
     id: 'AI0604',
-    label: 'GRÜNE',
+    label: 'Grüne',
     color: '#87BA33'
   },
   {
     id: 'AI0605',
-    label: 'LINKE',
+    label: 'Linke',
     color: '#E2137D'
   }
 ]
@@ -47,11 +47,10 @@ const prepareData = (data, labels) =>
   }))
 
 const EuropeanElections = ({ data, credits }) => {
-  const tip = d => `${d.desc}:\n${numFormat(d[d.childName])} (${d.childName})`
-
   const numFormat = Intl.NumberFormat('de').format
   const series = prepareData(data, labels)
   const voterTurnout = _.sortBy(data.AI0606, 'year')
+  const tip = d => `${d.childName}:\n${numFormat(d.value)}%`
 
   return (
     <ChartContainer
