@@ -4,13 +4,16 @@ import VectorSquareIcon from 'mdi-react/VectorSquareIcon'
 import MapMarkerMultipleIcon from 'mdi-react/MapMarkerMultipleIcon'
 import AccountMultipleIcon from 'mdi-react/AccountMultipleIcon'
 
+import EuropeanElections from '../charts/EuropeanElections'
+
 import '../../scss/components/region-meta.scss'
 
 const numberFormat = Intl.NumberFormat('de').format
 
 export default function RegionMeta({
   regionMeta: { frontmatter, html },
-  regionData: { region }
+  regionData: { region },
+  credits
 }) {
   const { geo, name, name_ext, source_url } = frontmatter
   const bevst6 = region.BEVST6[0] && region.BEVST6[0].value
@@ -30,6 +33,7 @@ export default function RegionMeta({
             </a>
             .
           </small>
+          <EuropeanElections data={region} credits={credits} />
         </GridCell>
 
         <GridCell span="4">
@@ -103,6 +107,32 @@ export const query = graphql`
         }
         FLC006(year: "2016") {
           value
+        }
+
+        # TODO: Move these into a ...EuropeanElections fragment:
+        AI0601 {
+          value
+          year
+        }
+        AI0602 {
+          value
+          year
+        }
+        AI0603 {
+          value
+          year
+        }
+        AI0604 {
+          value
+          year
+        }
+        AI0605 {
+          value
+          year
+        }
+        AI0606 {
+          value
+          year
         }
       }
     }
