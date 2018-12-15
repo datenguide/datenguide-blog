@@ -47,7 +47,15 @@ module.exports = {
       options: {
         typeName: 'Datenguide',
         fieldName: 'datenguide',
-        url: 'https://api.datengui.de'
+        url: 'https://api.genesapi.org/'
+      }
+    },
+    {
+      resolve: 'gatsby-source-graphql',
+      options: {
+        typeName: 'DatenguideLegacy',
+        fieldName: 'datenguideLegacy',
+        url: 'https://api.datengui.de/'
       }
     },
     {

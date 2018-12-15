@@ -2,42 +2,50 @@ import React from 'react'
 import { Grid, GridCell } from 'rmwc/Grid'
 import VectorSquareIcon from 'mdi-react/VectorSquareIcon'
 import MapMarkerMultipleIcon from 'mdi-react/MapMarkerMultipleIcon'
-import GenderMaleFemaleIcon from 'mdi-react/GenderMaleFemaleIcon'
 import AccountMultipleIcon from 'mdi-react/AccountMultipleIcon'
 
 import PopulationDensity from '../charts/PopulationDensity'
 import PopulationDistribution from '../charts/PopulationDistribution'
+import EuropeanElections from '../charts/EuropeanElections'
 
 import '../../scss/components/region-meta.scss'
 
 const numberFormat = Intl.NumberFormat('de').format
 
-export default function RegionMeta({ region, meta, credits, comparison }) {
+export default function RegionMeta({
+  regionMeta: { frontmatter, html },
+  regionData: { region },
+  regionDataLegacy,
+  credits
+}) {
+  const { geo, name, name_ext, source_url } = frontmatter
+  const bevst6 = region.BEVST6[0] && region.BEVST6[0].value
+  const flc006 = region.FLC006[0] && region.FLC006[0].value
+
   return (
     <div className="region-meta">
       <Grid>
         <GridCell span="8">
-          <div dangerouslySetInnerHTML={{ __html: meta.html }} />
+          <div dangerouslySetInnerHTML={{ __html: html }} />
           <small className="region-meta__source">
             Einleitung adaptiert von{' '}
-            <a href={meta.frontmatter.source_url}>
-              Wikipedia, der freien Enzyklopädie
-            </a>. Veröffentlicht unter einer{' '}
+            <a href={source_url}>Wikipedia, der freien Enzyklopädie</a>.
+            Veröffentlicht unter einer{' '}
             <a href="https://de.wikipedia.org/wiki/Wikipedia:Lizenzbestimmungen_Creative_Commons_Attribution-ShareAlike_3.0_Unported">
               CC BY-SA Lizenz
-            </a>.
+            </a>
+            .
           </small>
         </GridCell>
 
         <GridCell span="4">
           <h3>
-            {region.name_ext} {region.name}
+            {name_ext} {name}
           </h3>
           <div className="region-meta__listing">
             <ul>
               <li>
-                <MapMarkerMultipleIcon />
-                [{region.geo && region.geo.bbox.join(', ')}]
+                <MapMarkerMultipleIcon />[{geo && geo.bbox.join(', ')}]
               </li>
             </ul>
           </div>
@@ -49,48 +57,39 @@ export default function RegionMeta({ region, meta, credits, comparison }) {
             Die Bevölkerungsdichte ist mittlere Anzahl der Einwohner pro
             Quadratkilometer für ein bestimmtes Gebiet. Sie kann errechnet
             werden, indem man die Einwohnerzahl durch die Fläche des Gebietes
-            teilt. In dieser Grafik vergleichen wir {region.name} mit München,
-            der Stadt mit der höchsten Bevölkerungsdichte in Deutschland.
+            teilt. In dieser Grafik vergleichen wir {name} mit München, der
+            Stadt mit der höchsten Bevölkerungsdichte in Deutschland.
           </p>
           <PopulationDensity
-            region={region}
+            region={regionDataLegacy.region}
             credits={credits}
-            comparison={comparison}
+            comparison={regionDataLegacy.comparison}
           />
+
           <h3>Bevölkerungsverteilung nach Altersgruppe</h3>
-          <PopulationDistribution data={region} credits={credits} />
+          <PopulationDistribution
+            data={regionDataLegacy.region}
+            credits={credits}
+          />
+
+          <h3>Ergebnisse Europawahl (Zweitstimmen)</h3>
+          <EuropeanElections data={region} credits={credits} />
         </GridCell>
 
         <GridCell span="4">
           <div className="region-meta__listing">
             <div className="region-meta__highlight">
               <h2> Einwohnerzahl 2017</h2>
-
-              <b>{numberFormat(region.BEVSTD.GEST)}</b>
+              <b>{numberFormat(bevst6)}</b>
             </div>
             <ul>
               <li>
                 <VectorSquareIcon />
-                {region.FLC006} km² Fläche
+                {flc006} km² Fläche
               </li>
               <li>
                 <AccountMultipleIcon />
-                {numberFormat(
-                  Math.round(+region.BEVSTD.GEST / +region.FLC006)
-                )}{' '}
-                Einwohner pro km²
-              </li>
-              <li>
-                <GenderMaleFemaleIcon />
-                {numberFormat(
-                  Math.round((100 / region.BEVSTD.GEST) * region.BEVSTD.GESW)
-                )}
-                % weiblich
-                {' / '}
-                {numberFormat(
-                  Math.round((100 / region.BEVSTD.GEST) * region.BEVSTD.GESM)
-                )}
-                % männlich
+                {numberFormat(Math.round(+bevst6 / +flc006))} Einwohner pro km²
               </li>
             </ul>
           </div>
@@ -99,3 +98,60 @@ export default function RegionMeta({ region, meta, credits, comparison }) {
     </div>
   )
 }
+
+export const query = graphql`
+  fragment regionMeta on Query {
+    regionMeta: markdownRemark(frontmatter: { id: { eq: $id } }) {
+      html
+      frontmatter {
+        slug
+        source_url
+        id
+        name
+        name_ext
+        geo {
+          bbox
+        }
+      }
+    }
+
+    regionData: datenguide {
+      # TODO: Update queries once v2 API is finalized.
+      # (These may currently not return what you think they do)
+      region(id: $id) {
+        BEVST6(year: "2016") {
+          value
+        }
+        FLC006(year: "2016") {
+          value
+        }
+
+        # TODO: Move these into a ...EuropeanElections fragment:
+        AI0601 {
+          value
+          year
+        }
+        AI0602 {
+          value
+          year
+        }
+        AI0603 {
+          value
+          year
+        }
+        AI0604 {
+          value
+          year
+        }
+        AI0605 {
+          value
+          year
+        }
+        AI0606 {
+          value
+          year
+        }
+      }
+    }
+  }
+`

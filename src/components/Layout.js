@@ -6,7 +6,10 @@ import '../scss/main.scss'
 
 export default class IndexLayout extends React.Component {
   static propTypes = {
-    children: PropTypes.array
+    children: PropTypes.oneOfType([
+      PropTypes.arrayOf(PropTypes.node),
+      PropTypes.node
+    ]).isRequired
   }
 
   render() {

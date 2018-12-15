@@ -1,4 +1,4 @@
-fragment PopulationDistribution on Datenguide_Region {
+fragment PopulationDistribution on DatenguideLegacy_Region {
   BEVSTD {
     ALTX20 {
       ALT000B03 {

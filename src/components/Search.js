@@ -32,14 +32,15 @@ const onSuggestionSelected = (event, { suggestion, suggestionValue }) => {
 }
 
 export default class Search extends React.Component {
-  constructor({ regions }) {
+  constructor({ search: { regions } }) {
     super()
 
     this.state = {
       value: '',
       suggestions: [],
       regions: regions
-        .filter(region => region.name)
+        .map(({ node }) => node.region)
+        .filter(({ name }) => name)
         .sort((a, b) => a.name.localeCompare(b.name))
     }
   }
@@ -85,13 +86,20 @@ export default class Search extends React.Component {
 }
 
 export const query = graphql`
-  fragment Search on Query {
-    datenguide {
-      regions {
-        id
-        slug
-        name
-        name_ext
+  fragment search on Query {
+    search: allMarkdownRemark(
+      filter: { fields: { slug: { regex: "//regions/..*$/" } } }
+      sort: { fields: [frontmatter___slug], order: DESC }
+    ) {
+      regions: edges {
+        node {
+          region: frontmatter {
+            id
+            slug
+            name
+            name_ext
+          }
+        }
       }
     }
   }
