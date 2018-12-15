@@ -31,8 +31,16 @@ const regionsQuery = `
       node {
         frontmatter {
           id
-          comparison
           slug
+          source_url
+          comparison
+          name
+          name_ext
+          state {
+            slug
+            name
+            id
+          }
         }
       }
     }
@@ -96,6 +104,18 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
               comparison: node.frontmatter.comparison,
               slug: node.frontmatter.slug
             }
+          })
+          ;['wahlergebnisse', 'umwelt', 'soziales'].forEach(pageSlug => {
+            createPage({
+              path: `${node.frontmatter.slug}/${pageSlug}`,
+              component: getTemplate('region-topic'),
+              context: {
+                id: node.frontmatter.id,
+                comparison: node.frontmatter.comparison,
+                slug: node.frontmatter.slug,
+                regionMeta: node.frontmatter
+              }
+            })
           })
         }
       })
