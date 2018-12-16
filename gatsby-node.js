@@ -22,6 +22,19 @@ const staticPagesQuery = `
 }
 `
 
+const topicsQuery = `
+{
+  site {
+    siteMetadata {
+      topics {
+        slug
+        name
+      }
+    }
+  }
+}
+`
+
 const regionsQuery = `
 {
   allMarkdownRemark(
@@ -92,35 +105,42 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
     })
   })
 
-  const regionsGenerator = new Promise((resolve, reject) => {
-    graphql(regionsQuery).then(result => {
-      result.data.allMarkdownRemark.edges.map(({ node }) => {
-        if (node.frontmatter.slug) {
-          createPage({
-            path: node.frontmatter.slug,
-            component: getTemplate('region'),
-            context: {
-              id: node.frontmatter.id,
-              comparison: node.frontmatter.comparison,
-              slug: node.frontmatter.slug
-            }
-          })
-          ;['wahlergebnisse', 'umwelt', 'soziales'].forEach(pageSlug => {
+  const regionsGenerator = new Promise(resolve => {
+    Promise.all([graphql(topicsQuery), graphql(regionsQuery)]).then(
+      ([topicsData, RegionsData]) => {
+        const topics = topicsData.data.site.siteMetadata.topics
+        const regions = RegionsData.data.allMarkdownRemark.edges
+
+        regions.map(({ node }) => {
+          if (node.frontmatter.slug) {
             createPage({
-              path: `${node.frontmatter.slug}/${pageSlug}`,
-              component: getTemplate('region-topic'),
+              path: node.frontmatter.slug,
+              component: getTemplate('region'),
               context: {
                 id: node.frontmatter.id,
                 comparison: node.frontmatter.comparison,
-                slug: node.frontmatter.slug,
-                regionMeta: node.frontmatter
+                slug: node.frontmatter.slug
               }
             })
-          })
-        }
-      })
-      resolve()
-    })
+
+            topics.forEach(({ name, slug }) => {
+              createPage({
+                path: `${node.frontmatter.slug}/${slug}`,
+                component: getTemplate(`regional-topics/${slug}`),
+                context: {
+                  slug,
+                  name,
+                  id: node.frontmatter.id,
+                  comparison: node.frontmatter.comparison,
+                  regionMeta: node.frontmatter
+                }
+              })
+            })
+          }
+        })
+        resolve()
+      }
+    )
   })
 
   return Promise.all([regionsGenerator, staticPagesGenerator])

@@ -13,7 +13,21 @@ module.exports = {
       publisher: 'Quelle: Statistische Ämter des Bundes und der Länder',
       licenseTitle: 'Datenlizenz Deutschland Namensnennung 2.0',
       licenseUrl: 'https://www.govdata.de/dl-de/by-2-0'
-    }
+    },
+    topics: [
+      {
+        slug: 'wahlen',
+        name: 'Wahlergebnisse'
+      },
+      {
+        slug: 'umwelt',
+        name: 'Umwelt'
+      },
+      {
+        slug: 'soziales',
+        name: 'Soziales'
+      }
+    ]
   },
   plugins: [
     {

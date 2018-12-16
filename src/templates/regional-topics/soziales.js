@@ -1,21 +1,21 @@
 import React from 'react'
 import { graphql } from 'gatsby'
 
-import Layout from '../components/Layout'
-import Header from '../components/Header'
-import Hero from '../components/Hero.js'
-import Footer from '../components/Footer'
+import Layout from '../../components/Layout'
+import Header from '../../components/Header'
+import Hero from '../../components/Hero.js'
+import Footer from '../../components/Footer'
 
 export default ({ data, pageContext }) => {
-  const { site, page } = data
-  const { regionMeta } = pageContext
+  const { site } = data
+  const { regionMeta, name, slug } = pageContext
   const credits = site.siteMetadata.dataCredits
 
   return (
     <Layout>
       <div className="region">
         <Header />
-        <Hero title={regionMeta.name} intro={regionMeta.state.name} />
+        <Hero title={name} intro={regionMeta.name} />
         <Footer />
       </div>
     </Layout>
@@ -23,15 +23,7 @@ export default ({ data, pageContext }) => {
 }
 
 export const query = graphql`
-  query RegionTopicQuery($id: String!, $comparison: String!, $slug: String!) {
-    page: markdownRemark(fields: { slug: { eq: $slug } }) {
-      html
-      frontmatter {
-        title
-        intro
-      }
-    }
-
+  query($id: String!, $comparison: String!) {
     site {
       siteMetadata {
         dataCredits {
