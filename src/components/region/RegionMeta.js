@@ -4,6 +4,7 @@ import VectorSquareIcon from 'mdi-react/VectorSquareIcon'
 import MapMarkerMultipleIcon from 'mdi-react/MapMarkerMultipleIcon'
 import AccountMultipleIcon from 'mdi-react/AccountMultipleIcon'
 
+import PageNavigation from '../PageNavigation'
 import PopulationDensity from '../charts/PopulationDensity'
 import PopulationDistribution from '../charts/PopulationDistribution'
 
@@ -12,12 +13,18 @@ import '../../scss/components/region-meta.scss'
 const numberFormat = Intl.NumberFormat('de').format
 
 export default function RegionMeta({
+  site: { siteMetadata },
   regionMeta: { frontmatter, html },
   regionData: { region },
   regionDataLegacy,
   credits
 }) {
   const { geo, name, name_ext, source_url } = frontmatter
+  const navItems = siteMetadata.topics.map(({ name, slug }) => ({
+    path: `/${frontmatter.slug}/${slug}`,
+    title: name
+  }))
+
   const bevst6 = region.BEVST6[0] && region.BEVST6[0].value
   const flc006 = region.FLC006[0] && region.FLC006[0].value
 
@@ -89,6 +96,7 @@ export default function RegionMeta({
               </li>
             </ul>
           </div>
+          <PageNavigation items={navItems} />
         </GridCell>
       </Grid>
     </div>
@@ -97,6 +105,15 @@ export default function RegionMeta({
 
 export const query = graphql`
   fragment regionMeta on Query {
+    site {
+      siteMetadata {
+        topics {
+          slug
+          name
+        }
+      }
+    }
+
     regionMeta: markdownRemark(frontmatter: { id: { eq: $id } }) {
       html
       frontmatter {

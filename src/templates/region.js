@@ -24,6 +24,7 @@ export default ({ data }) => {
         <Header />
         <RegionHeader regions={regions} regionHeader={regionHeader} />
         <RegionMeta
+          site={site}
           regionMeta={regionMeta}
           regionData={regionData}
           regionDataLegacy={regionDataLegacy}
