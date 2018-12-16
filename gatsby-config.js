@@ -16,6 +16,10 @@ module.exports = {
     },
     topics: [
       {
+        slug: 'bevoelkerung',
+        name: 'Demografie'
+      },
+      {
         slug: 'wahlen',
         name: 'Wahlergebnisse'
       },
