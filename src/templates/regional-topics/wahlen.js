@@ -6,6 +6,7 @@ import Layout from '../../components/Layout'
 import Header from '../../components/Header'
 import Hero from '../../components/Hero.js'
 import Footer from '../../components/Footer'
+import PageNavigation from '../../components/PageNavigation'
 import EuropeanElections from '../../components/charts/EuropeanElections'
 
 export default ({
@@ -16,7 +17,12 @@ export default ({
   pageContext
 }) => {
   const { regionMeta, name } = pageContext
-  const { dataCredits } = siteMetadata
+  const { dataCredits, topics } = siteMetadata
+
+  const navItems = topics.map(({ name, slug }) => ({
+    path: `/${regionMeta.slug}/${slug}`,
+    title: name
+  }))
 
   return (
     <Layout>
@@ -29,8 +35,10 @@ export default ({
             <h3>Ergebnisse Europawahl (Zweitstimmen)</h3>
             <EuropeanElections data={region} credits={dataCredits} />
           </GridCell>
+          <GridCell span="3">
+            <PageNavigation items={navItems} />
+          </GridCell>
         </Grid>
-
         <Footer />
       </div>
     </Layout>
@@ -45,6 +53,10 @@ export const query = graphql`
           publisher
           licenseTitle
           licenseUrl
+        }
+        topics {
+          slug
+          name
         }
       }
     }
