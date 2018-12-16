@@ -1,21 +1,36 @@
 import React from 'react'
 import { graphql } from 'gatsby'
+import { Grid, GridCell } from 'rmwc/Grid'
 
 import Layout from '../../components/Layout'
 import Header from '../../components/Header'
 import Hero from '../../components/Hero.js'
 import Footer from '../../components/Footer'
+import EuropeanElections from '../../components/charts/EuropeanElections'
 
-export default ({ data, pageContext }) => {
-  const { site } = data
-  const { regionMeta, name, slug } = pageContext
-  const credits = site.siteMetadata.dataCredits
+export default ({
+  data: {
+    regionData: { region },
+    site: { siteMetadata }
+  },
+  pageContext
+}) => {
+  const { regionMeta, name } = pageContext
+  const { dataCredits } = siteMetadata
 
   return (
     <Layout>
       <div className="region">
         <Header />
         <Hero title={name} intro={regionMeta.name} />
+
+        <Grid>
+          <GridCell span="9">
+            <h3>Ergebnisse Europawahl (Zweitstimmen)</h3>
+            <EuropeanElections data={region} credits={dataCredits} />
+          </GridCell>
+        </Grid>
+
         <Footer />
       </div>
     </Layout>
@@ -23,7 +38,7 @@ export default ({ data, pageContext }) => {
 }
 
 export const query = graphql`
-  query($id: String!, $comparison: String!) {
+  query($id: String!) {
     site {
       siteMetadata {
         dataCredits {
@@ -34,13 +49,35 @@ export const query = graphql`
       }
     }
 
-    regionDataLegacy: datenguideLegacy {
+    regionData: datenguide {
+      # TODO: Update queries once v2 API is finalized.
+      # (These may currently not return what you think they do)
       region(id: $id) {
-        ...PopulationDensity
-        ...PopulationDistribution
-      }
-      comparison: region(id: $comparison) {
-        ...PopulationDensity
+        # TODO: Move these into a ...EuropeanElections fragment:
+        AI0601 {
+          value
+          year
+        }
+        AI0602 {
+          value
+          year
+        }
+        AI0603 {
+          value
+          year
+        }
+        AI0604 {
+          value
+          year
+        }
+        AI0605 {
+          value
+          year
+        }
+        AI0606 {
+          value
+          year
+        }
       }
     }
   }

@@ -6,7 +6,6 @@ import AccountMultipleIcon from 'mdi-react/AccountMultipleIcon'
 
 import PopulationDensity from '../charts/PopulationDensity'
 import PopulationDistribution from '../charts/PopulationDistribution'
-import EuropeanElections from '../charts/EuropeanElections'
 
 import '../../scss/components/region-meta.scss'
 
@@ -71,9 +70,6 @@ export default function RegionMeta({
             data={regionDataLegacy.region}
             credits={credits}
           />
-
-          <h3>Ergebnisse Europawahl (Zweitstimmen)</h3>
-          <EuropeanElections data={region} credits={credits} />
         </GridCell>
 
         <GridCell span="4">
@@ -124,32 +120,6 @@ export const query = graphql`
         }
         FLC006(year: "2016") {
           value
-        }
-
-        # TODO: Move these into a ...EuropeanElections fragment:
-        AI0601 {
-          value
-          year
-        }
-        AI0602 {
-          value
-          year
-        }
-        AI0603 {
-          value
-          year
-        }
-        AI0604 {
-          value
-          year
-        }
-        AI0605 {
-          value
-          year
-        }
-        AI0606 {
-          value
-          year
         }
       }
     }
