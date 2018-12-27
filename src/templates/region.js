@@ -8,14 +8,7 @@ import RegionMeta from '../components/region/RegionMeta.js'
 import Footer from '../components/Footer'
 
 export default ({ data }) => {
-  const {
-    site,
-    regionHeader,
-    regionMeta,
-    regionData,
-    regionDataLegacy,
-    regions
-  } = data
+  const { site, regionHeader, regionMeta, regionData, regions } = data
   const credits = site.siteMetadata.dataCredits
 
   return (
@@ -26,7 +19,6 @@ export default ({ data }) => {
         <RegionMeta
           regionMeta={regionMeta}
           regionData={regionData}
-          regionDataLegacy={regionDataLegacy}
           credits={credits}
         />
         <Footer />
@@ -36,7 +28,7 @@ export default ({ data }) => {
 }
 
 export const query = graphql`
-  query RegionQuery($id: String!, $comparison: String!) {
+  query RegionQuery($id: String!) {
     page: markdownRemark(frontmatter: { id: { eq: $id } }) {
       html
       frontmatter {
@@ -56,15 +48,5 @@ export const query = graphql`
     }
     ...regionHeader
     ...regionMeta
-
-    regionDataLegacy: datenguideLegacy {
-      region(id: $id) {
-        ...PopulationDensity
-        ...PopulationDistribution
-      }
-      comparison: region(id: $comparison) {
-        ...PopulationDensity
-      }
-    }
   }
 `
