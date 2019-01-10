@@ -5,6 +5,7 @@ import MapMarkerMultipleIcon from 'mdi-react/MapMarkerMultipleIcon'
 import AccountMultipleIcon from 'mdi-react/AccountMultipleIcon'
 
 import EuropeanElections from '../charts/EuropeanElections'
+import WaterConsumption from '../charts/WaterConsumption'
 
 import '../../scss/components/region-meta.scss'
 
@@ -34,6 +35,7 @@ export default function RegionMeta({
             .
           </small>
           <EuropeanElections data={region} credits={credits} />
+          <WaterConsumption data={region} credits={credits} />
         </GridCell>
 
         <GridCell span="4">
@@ -107,6 +109,12 @@ export const query = graphql`
         }
         FLC006(year: "2016") {
           value
+        }
+
+        # TODO: Move these into a ...WaterConsumption fragment:
+        WAS008 {
+          value
+          year
         }
 
         # TODO: Move these into a ...EuropeanElections fragment:
