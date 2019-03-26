@@ -7,6 +7,9 @@
 }
 
 .event__main {
+  padding-right: 2rem;
+  hyphens: auto;
+
   p:first-child {
     font-size: $font-size-title;
   }
@@ -22,7 +25,7 @@
     line-height: 1.8rem;
     left: 1.8rem;
     font-weight: bold;
-    color: $color-blue-dark;
+    color: $color-blue-darker;
   }
 
   svg {
@@ -34,7 +37,8 @@
 
 .event__meta__address {
   display: block;
+  color: $color-gray-darker;
   font-weight: normal;
   font-size: $font-size-accent;
-  line-height: 1.5rem;
+  line-height: 1.2rem;
 }

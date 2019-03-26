@@ -1,6 +1,10 @@
 @import '~sass-mq/mq';
 @import '../_variables.scss';
 
+.schedule__day {
+  margin-bottom: 3rem;
+}
+
 .schedule__date {
   font-weight: 600;
   margin: 1.66rem 0 0 0;

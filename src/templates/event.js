@@ -21,12 +21,13 @@ export default ({ data, location }) => {
     title,
     tagline,
     meta,
-    date,
+    longDate,
     venue,
     teasers,
     schedule,
     lang,
-    metaImage
+    metaImage,
+    description
   } = frontmatter
 
   return (
@@ -35,7 +36,7 @@ export default ({ data, location }) => {
         lang={lang}
         pathname={location.pathname}
         title={title}
-        description={tagline}
+        description={description}
         image={metaImage}
       />
 
@@ -52,7 +53,7 @@ export default ({ data, location }) => {
           <ul className="event__meta">
             <li className="event__meta__date">
               <DateRangeIcon aria-hidden="true" />
-              {date}
+              {longDate}
             </li>
             <li className="event__meta__venue">
               <MapMarkerIcon aria-hidden="true" />
@@ -70,7 +71,7 @@ export default ({ data, location }) => {
             scrolling="no"
             frameborder="0"
             style={{ width: 0, 'min-width': '100%' }}
-            height="300"
+            height="270"
           />
         </GridCell>
       </Grid>
@@ -106,7 +107,10 @@ export const query = graphql`
         title
         tagline
         meta
-        date
+        longDate
+        lang
+        description
+        metaImage
         venue {
           name
           address

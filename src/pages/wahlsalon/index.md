@@ -2,12 +2,13 @@
 title: 'Wahlsalon 2019'
 template: 'event'
 lang: de
+description: Der Wahlsalon ist ein zweitägiges Event, der die Civic-Tech-Community mit Menschen aus Journalismus, Politik und Zivilgesellschaft zusammenbringt. Gemeinsam arbeiten wir mit regionalen Statistiken und anderen offenen Daten. Wir entwickeln digitale Werkzeuge und Inhalte, die Wählerinnen und Wähler besser informieren und zur Beteiligung motivieren.
 metaImage: '/images/wahlsalon_social_de.png'
 tagline: |-
   Mit Open Data, Code und Design 
   gegen Desinformation 
   und Politikverdrossenheit
-date: 6. und 7. April 2019
+longDate: 6. und 7. April 2019
 meta: 6. und 7. April 2019 — Berlin
 venue:
   name: Berlin, Wikimedia Deutschland e.V.

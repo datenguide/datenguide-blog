@@ -17,6 +17,7 @@
   padding: 0 1rem;
   display: block;
   color: $color-black;
+  hyphens: auto;
 
   @include mq(tablet) {
     min-height: 15rem;
