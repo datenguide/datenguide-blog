@@ -2,6 +2,7 @@ import React from 'react'
 import { Grid, GridCell } from 'rmwc/Grid'
 import { graphql } from 'gatsby'
 
+import PageMeta from '../components/PageMeta'
 import Layout from '../components/Layout'
 import Header from '../components/Header'
 import HeroEvent from '../components/HeroEvent'
@@ -30,6 +31,14 @@ export default ({ data, location }) => {
 
   return (
     <Layout className="event">
+      <PageMeta
+        lang={lang}
+        pathname={location.pathname}
+        title={title}
+        description={tagline}
+        image={metaImage}
+      />
+
       <Header />
 
       <HeroEvent title={title} tagline={tagline} meta={meta} />

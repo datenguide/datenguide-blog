@@ -1,6 +1,8 @@
 ---
 title: 'Wahlsalon 2019'
 template: 'event'
+lang: de
+metaImage: '/images/wahlsalon_social_de.png'
 tagline: |-
   Mit Open Data, Code und Design 
   gegen Desinformation 
