@@ -42,14 +42,14 @@ module.exports = {
         path: `${__dirname}/src/`
       }
     },
-    {
-      resolve: 'gatsby-source-graphql',
-      options: {
-        typeName: 'Datenguide',
-        fieldName: 'datenguide',
-        url: 'https://api.genesapi.org/'
-      }
-    },
+    // {
+    //   resolve: 'gatsby-source-graphql',
+    //   options: {
+    //     typeName: 'Datenguide',
+    //     fieldName: 'datenguide',
+    //     url: 'https://api.genesapi.org/'
+    //   }
+    // },
     {
       resolve: 'gatsby-plugin-sass',
       options: {
