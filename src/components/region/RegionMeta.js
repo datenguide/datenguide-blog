@@ -83,58 +83,58 @@ export default function RegionMeta({
   )
 }
 
-export const query = graphql`
-  fragment regionMeta on Query {
-    regionMeta: markdownRemark(frontmatter: { id: { eq: $id } }) {
-      html
-      frontmatter {
-        slug
-        source_url
-        id
-        name
-        name_ext
-        geo {
-          bbox
-        }
-      }
-    }
-    regionData: datenguide {
-      # TODO: Update queries once v2 API is finalized.
-      # (These may currently not return what you think they do)
-      region(id: $id) {
-        BEVST6(year: "2016") {
-          value
-        }
-        FLC006(year: "2016") {
-          value
-        }
+// export const query = graphql`
+//   fragment regionMeta on Query {
+//     regionMeta: markdownRemark(frontmatter: { id: { eq: $id } }) {
+//       html
+//       frontmatter {
+//         slug
+//         source_url
+//         id
+//         name
+//         name_ext
+//         geo {
+//           bbox
+//         }
+//       }
+//     }
+//     regionData: datenguide {
+//       # TODO: Update queries once v2 API is finalized.
+//       # (These may currently not return what you think they do)
+//       region(id: $id) {
+//         BEVST6(year: "2016") {
+//           value
+//         }
+//         FLC006(year: "2016") {
+//           value
+//         }
 
-        # TODO: Move these into a ...EuropeanElections fragment:
-        AI0601 {
-          value
-          year
-        }
-        AI0602 {
-          value
-          year
-        }
-        AI0603 {
-          value
-          year
-        }
-        AI0604 {
-          value
-          year
-        }
-        AI0605 {
-          value
-          year
-        }
-        AI0606 {
-          value
-          year
-        }
-      }
-    }
-  }
-`
+//         # TODO: Move these into a ...EuropeanElections fragment:
+//         AI0601 {
+//           value
+//           year
+//         }
+//         AI0602 {
+//           value
+//           year
+//         }
+//         AI0603 {
+//           value
+//           year
+//         }
+//         AI0604 {
+//           value
+//           year
+//         }
+//         AI0605 {
+//           value
+//           year
+//         }
+//         AI0606 {
+//           value
+//           year
+//         }
+//       }
+//     }
+//   }
+// `

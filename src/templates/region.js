@@ -27,26 +27,26 @@ export default ({ data }) => {
   )
 }
 
-export const query = graphql`
-  query RegionQuery($id: String!) {
-    page: markdownRemark(frontmatter: { id: { eq: $id } }) {
-      html
-      frontmatter {
-        title
-        intro
-      }
-    }
+// export const query = graphql`
+//   query RegionQuery($id: String!) {
+//     page: markdownRemark(frontmatter: { id: { eq: $id } }) {
+//       html
+//       frontmatter {
+//         title
+//         intro
+//       }
+//     }
 
-    site {
-      siteMetadata {
-        dataCredits {
-          publisher
-          licenseTitle
-          licenseUrl
-        }
-      }
-    }
-    ...regionHeader
-    ...regionMeta
-  }
-`
+//     site {
+//       siteMetadata {
+//         dataCredits {
+//           publisher
+//           licenseTitle
+//           licenseUrl
+//         }
+//       }
+//     }
+//     ...regionHeader
+//     ...regionMeta
+//   }
+// `

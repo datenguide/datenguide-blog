@@ -53,33 +53,33 @@ export default ({ data }) => {
   )
 }
 
-export const query = graphql`
-  query regionsOverview($slug: String!) {
-    page: markdownRemark(fields: { slug: { eq: $slug } }) {
-      html
-      frontmatter {
-        title
-        intro
-      }
-    }
-    regions: allMarkdownRemark(
-      filter: { fields: { slug: { regex: "//regions/..*$/" } } }
-      sort: { fields: [frontmatter___name], order: ASC }
-    ) {
-      edges {
-        node {
-          region: frontmatter {
-            slug
-            name
-            name_ext
-            state {
-              id
-              name
-              slug
-            }
-          }
-        }
-      }
-    }
-  }
-`
+// export const query = graphql`
+//   query regionsOverview($slug: String!) {
+//     page: markdownRemark(fields: { slug: { eq: $slug } }) {
+//       html
+//       frontmatter {
+//         title
+//         intro
+//       }
+//     }
+//     regions: allMarkdownRemark(
+//       filter: { fields: { slug: { regex: "//regions/..*$/" } } }
+//       sort: { fields: [frontmatter___name], order: ASC }
+//     ) {
+//       edges {
+//         node {
+//           region: frontmatter {
+//             slug
+//             name
+//             name_ext
+//             state {
+//               id
+//               name
+//               slug
+//             }
+//           }
+//         }
+//       }
+//     }
+//   }
+// `
