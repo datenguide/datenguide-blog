@@ -27,7 +27,8 @@ export default ({ data, location }) => {
     schedule,
     lang,
     metaImage,
-    description
+    description,
+    signup
   } = frontmatter
 
   return (
@@ -54,11 +55,24 @@ export default ({ data, location }) => {
             <li className="event__meta__date">
               <DateRangeIcon aria-hidden="true" />
               {longDate}
+              <a
+                className="event__meta__link"
+                href={signup.url}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                {signup.name}
+              </a>
             </li>
             <li className="event__meta__venue">
               <MapMarkerIcon aria-hidden="true" />
               {venue.name}
-              <a className="event__meta__address" href={venue.url}>
+              <a
+                className="event__meta__link"
+                href={venue.url}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 {venue.address}
               </a>
             </li>
@@ -111,6 +125,10 @@ export const query = graphql`
         lang
         description
         metaImage
+        signup {
+          url
+          name
+        }
         venue {
           name
           address

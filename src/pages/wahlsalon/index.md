@@ -10,9 +10,12 @@ tagline: |-
   und Politikverdrossenheit
 longDate: 6. und 7. April 2019
 meta: 6. und 7. April 2019 — Berlin
+signup:
+  name: Anmeldung über meetup.com
+  url: https://www.meetup.com/de-DE/OK-Lab-Berlin/events/259818253/
 venue:
   name: Berlin, Wikimedia Deutschland e.V.
-  address: Tempelhofer Ufer 23–24, Berlin-Kreuzberg
+  address: Tempelhofer Ufer 23-24, Berlin-Kreuzberg
   url: https://www.openstreetmap.org/node/2551527703
 teasers:
   title: 'Inspiration: Woran könntet Ihr beim Wahlsalon arbeiten?'
@@ -74,8 +77,8 @@ schedule:
 
 Der Wahlsalon ist ein zweitägiges Event, der die Civic-Tech-Community mit Menschen aus Journalismus, Politik und Zivilgesellschaft zusammenbringt. Gemeinsam arbeiten wir mit regionalen Statistiken und anderen offenen Daten. Wir entwickeln digitale Werkzeuge und Inhalte, die Wählerinnen und Wähler besser informieren und zur Beteiligung motivieren. Dafür suchen wir Designer\*innen und Programmier\*innen, Journalist\*innen und Statistiker\*innen, Politik-Nerds und Gesellschafts-Hacker. Eure Skills und Ideen können dabei helfen, demokratische Prozesse zugänglicher zu machen!
 
-Die Teilnahme ist kostenlos. Bitte meldet Euch an, damit wir wissen, mit wie vielen Teilnehmer\*innen wir planen sollen.
+Der Wahlsalon ist ein gemeinsames Projekt von [Code for Germany](https://codefor.de) und [Datenguide](https://datengui.de).
 
-<a href="https://meetup.com" class="mdc-button mdc-button--outlined mdc-ripple-upgraded mdc-ripple-upgraded--foreground-activation">Jetzt anmelden!</a>
+<a href="https://www.meetup.com/de-DE/OK-Lab-Berlin/events/259818253/" class="mdc-button mdc-button--outlined mdc-ripple-upgraded mdc-ripple-upgraded--foreground-activation">Jetzt anmelden!</a>
 
-Alternativ könnt ihr Euch per Email anmelden: [wahlsalon@datengui.de](mailto:wahlsalon@datengui.de)
+**Die Teilnahme ist kostenlos**. Bitte meldet Euch über [meetup.com](https://www.meetup.com/de-DE/OK-Lab-Berlin/events/259818253/) oder per [E-Mail](mailto:wahlsalon@datengui.de) an, damit wir wissen, mit wie vielen Teilnehmer\*innen wir planen sollen.
