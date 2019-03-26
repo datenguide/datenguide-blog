@@ -1,14 +1,38 @@
 ---
 title: 'Wahlsalon 2019'
 template: 'event'
-intro: |-
-  Mit Open Data, Code und Design gegen 
-  Desinformation und Politikverdrossenheit
-meta: 'Berlin, 6. und 7. April 2019'
+tagline: |-
+  Mit Open Data, Code und Design 
+  gegen Desinformation 
+  und Politikverdrossenheit
+meta: 6. und 7. April 2019 — Berlin
 venue:
   name: Wikimedia
   address: Tempelhofer Ufer 23–24, Berlin
   url: https://www.openstreetmap.org/node/2551527703
+teasers:
+  title: 'Inspiration: Woran könntet Ihr beim Wahlsalon arbeiten?'
+  intro: |-
+    Beim Wahlsalon arbeiten wir an digitalen Tools,
+    Datenvisualisierungen und Analysen rund um die anstehenden Wahlen.
+    Diese Beispiele sollen zeigen, woran ihr beim Wahlsalon arbeiten
+    könntet. Ihr habt schon eigene Projektideen? Lasst es uns wissen!
+  items:
+    - name: 'Wahltraud: Der Wahl-Chatbot'
+      description: 'Dieser Chatbot beantwortet Fragen zu Kandidaten, Parteien und Wahlprogrammen auf Basis verschiedener Datenquellen. Er wurde beim WDR entwickelt und unter MIT-Lizenz veröffentlicht.'
+      link: 'https://github.com/wdr-data/wahltraud'
+      linkText: 'Wahltraud auf Github'
+      image: '/images/wahlsalon_wahltraud.png'
+    - name: 'Wie repräsentativ ist der Landtag?'
+      description: 'Auf Basis von Open Data untersuchten Oliver Schnuck und Thomas Becht vom BR, wie gut der Bayerische Landtag die Bevölkerung repräsentiert. Spoiler: Er ist kein Spiegel der Gesellschaft.'
+      link: 'http://web.br.de/interaktiv/landtag-demografie/'
+      linkText: 'Artikel auf br.de'
+      image: '/images/wahlsalon_landtagsdemographie.png'
+    - name: 'Twitter Dashboard zur Wahl'
+      description: 'Dieses Dashboard von Wido Wirsam visualisiert mit analogen Zeigern die Frequenz von Tweets, die über die Parteien abgesetzt werden. Der Sourcecode steht unter MIT-Lizenz.'
+      link: https://www.hackster.io/wirsam/twitter-dashboard-zur-bundestagswahl-2017-f27862
+      linkText: 'Projektseite auf hackster.io'
+      image: '/images/wahlsalon_twitterdashboard.jpg'
 schedule:
   - date: Samstag, 6. April 2019
     items:
@@ -19,8 +43,8 @@ schedule:
       - time: '13:30'
         name: Mittagessen
       - time: '14:30'
-        name: Hacken
-        content: Zeit für Teamarbeit und spontane Workshops
+        name: Hacken!
+        content: Zeit für gemeinsames Arbeiten und spontane Workshops
       - time: '18:00'
         name: Abendessen
       - time: 'bis 22:00'
@@ -31,7 +55,7 @@ schedule:
       - time: '10:00'
         name: Empfang
       - time: '10:30'
-        name: Hacken
+        name: Hacken!
         content: Zeit für Teamarbeit und spontane Workshops
       - time: '13:30'
         name: Mittagessen

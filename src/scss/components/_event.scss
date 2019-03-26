@@ -1,0 +1,13 @@
+@import '~sass-mq/mq';
+@import '../_variables.scss';
+
+.event__teaser {
+  background: $color-gray-light;
+  padding: 15px 0;
+}
+
+.event__main {
+  p:first-child {
+    font-size: $font-size-title;
+  }
+}
