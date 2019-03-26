@@ -8,14 +8,25 @@ import HeroEvent from '../components/HeroEvent'
 import Newsletter from '../components/Newsletter'
 import Schedule from '../components/Schedule'
 import TeaserGroup from '../components/TeaserGroup'
-import Funders from '../components/Funders'
 import Footer from '../components/Footer'
+import DateRangeIcon from 'mdi-react/DateRangeIcon'
+import MapMarkerIcon from 'mdi-react/MapMarkerIcon'
 
 import '../scss/components/_event.scss'
 
-export default ({ data }) => {
+export default ({ data, location }) => {
   const { html, frontmatter } = data.markdownRemark
-  const { title, tagline, meta, venue, teasers, schedule } = frontmatter
+  const {
+    title,
+    tagline,
+    meta,
+    date,
+    venue,
+    teasers,
+    schedule,
+    lang,
+    metaImage
+  } = frontmatter
 
   return (
     <Layout className="event">
@@ -29,8 +40,29 @@ export default ({ data }) => {
         </GridCell>
 
         <GridCell span="4">
-          <h4>{venue.name}</h4>
-          <a href={venue.url}>{venue.address}</a>
+          <ul className="event__meta">
+            <li className="event__meta__date">
+              <DateRangeIcon aria-hidden="true" />
+              {date}
+            </li>
+            <li className="event__meta__venue">
+              <MapMarkerIcon aria-hidden="true" />
+              {venue.name}
+              <a className="event__meta__address" href={venue.url}>
+                {venue.address}
+              </a>
+            </li>
+          </ul>
+          <iframe
+            title=""
+            aria-label="Locator Maps"
+            id="datawrapper-chart-GohdQ"
+            src="//datawrapper.dwcdn.net/GohdQ/3/"
+            scrolling="no"
+            frameborder="0"
+            style={{ width: 0, 'min-width': '100%' }}
+            height="300"
+          />
         </GridCell>
       </Grid>
 
@@ -65,6 +97,7 @@ export const query = graphql`
         title
         tagline
         meta
+        date
         venue {
           name
           address

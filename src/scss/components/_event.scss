@@ -11,3 +11,30 @@
     font-size: $font-size-title;
   }
 }
+
+.event__meta {
+  list-style: none;
+  padding: 0;
+  margin: 1.5rem 0 1rem 0;
+
+  li {
+    position: relative;
+    line-height: 1.8rem;
+    left: 1.8rem;
+    font-weight: bold;
+    color: $color-blue-dark;
+  }
+
+  svg {
+    position: absolute;
+    top: 0.1rem;
+    left: -1.8rem;
+  }
+}
+
+.event__meta__address {
+  display: block;
+  font-weight: normal;
+  font-size: $font-size-accent;
+  line-height: 1.5rem;
+}

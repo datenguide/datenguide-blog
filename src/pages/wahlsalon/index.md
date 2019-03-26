@@ -5,10 +5,11 @@ tagline: |-
   Mit Open Data, Code und Design 
   gegen Desinformation 
   und Politikverdrossenheit
+date: 6. und 7. April 2019
 meta: 6. und 7. April 2019 — Berlin
 venue:
-  name: Wikimedia
-  address: Tempelhofer Ufer 23–24, Berlin
+  name: Berlin, Wikimedia Deutschland e.V.
+  address: Tempelhofer Ufer 23–24, Berlin-Kreuzberg
   url: https://www.openstreetmap.org/node/2551527703
 teasers:
   title: 'Inspiration: Woran könntet Ihr beim Wahlsalon arbeiten?'
