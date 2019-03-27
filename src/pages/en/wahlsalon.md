@@ -6,7 +6,7 @@ langSwitch:
   name: 'Deutsche Version'
   link: '/wahlsalon'
 description: We are calling all designers, programmers, journalists, statisticians, creators, and policy nerds! Join the Wahlsalon election hackathon and use your skills and ideas to make democracy more accessible for everyone.
-metaImage: '/images/wahlsalon_social_de.png'
+metaImage: '/images/wahlsalon_social_en.png'
 tagline: |-
   With Open Data, Code and 
   Design Against Disinformation 
