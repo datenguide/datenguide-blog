@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link } from 'gatsby'
+import GithubCircleIcon from 'mdi-react/GithubCircleIcon'
 import { TopAppBar, TopAppBarRow, TopAppBarSection } from 'rmwc/TopAppBar'
 
 import Logo from './Logo'
@@ -14,9 +14,13 @@ export default function AppHeader(props) {
         </TopAppBarSection>
         <TopAppBarSection alignEnd>
           {props.children || (
-            <Link className="header__nav-item" to="/regions">
-              Alle Regionen
-            </Link>
+            <a
+              className="header__link header__link--github"
+              href="http://github.com/datenguide/datenguide"
+            >
+              <GithubCircleIcon />
+              Datenguide ist open source
+            </a>
           )}
         </TopAppBarSection>
       </TopAppBarRow>

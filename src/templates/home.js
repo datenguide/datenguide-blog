@@ -20,8 +20,6 @@ export default ({ data }) => {
 
       <HeroSearch search={search} title={page.frontmatter.intro} />
 
-      <RegionTeaser />
-
       <Grid>
         <GridCell tablet="12" desktop="8">
           <div dangerouslySetInnerHTML={{ __html: page.html }} />

@@ -9,9 +9,6 @@ export default ({ search, title }) => (
     <Grid>
       <GridCell span="12">
         <h1 className="hero__title">{title}</h1>
-        <div className="hero__search">
-          <Search search={search} />
-        </div>
       </GridCell>
     </Grid>
   </div>
