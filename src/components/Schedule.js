@@ -4,18 +4,16 @@ import '../scss/components/schedule.scss'
 
 export default function Schedule({ dates }) {
   return dates.map(({ date, items }) => (
-    <div className="schedule__day">
-      <div class="section__sidebar">
-        <h3 class="schedule__date">{date}</h3>
-      </div>
+    <div className="schedule__day" key={date}>
+      <h3 className="schedule__date">{date}</h3>
 
-      <div class="section__main--column">
-        <dl class="schedule__list">
+      <div className="section__main--column">
+        <dl className="schedule__list">
           {items.map(({ time, name, content }) => (
-            <React.Fragment>
+            <React.Fragment key={name}>
               <dt>{time}</dt>
               <dd>
-                <h4 class="schedule__title">{name}</h4>
+                <h4 className="schedule__title">{name}</h4>
                 {content}
               </dd>
             </React.Fragment>

@@ -1,14 +1,5 @@
 import React from 'react'
-import {
-  Card,
-  CardMedia,
-  CardPrimaryAction,
-  CardActions,
-  CardActionButtons,
-  CardActionButton,
-  CardActionIcons,
-  CardActionIcon
-} from 'rmwc/Card'
+import { Card, CardPrimaryAction, CardActions } from 'rmwc/Card'
 import { Grid, GridCell } from 'rmwc/Grid'
 import { Button } from 'rmwc/Button'
 
@@ -21,7 +12,7 @@ function TeaserCard({ name, description, link, linkText, image }) {
         <Card>
           <CardPrimaryAction>
             <a href={link} className="teaser-group__card__link" alt="">
-              <img className="teaser-group__card__image" src={image} />
+              <img className="teaser-group__card__image" src={image} alt="" />
               <div className="teaser-group__card__wrapper">
                 <h2 className="teaser-group__card__title">{name}</h2>
                 <p>{description}</p>

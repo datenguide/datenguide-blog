@@ -83,13 +83,13 @@ export default ({ data, location }) => {
             </li>
           </ul>
           <iframe
-            title=""
+            title={venue.name}
             aria-label="Locator Maps"
             id="datawrapper-chart-GohdQ"
             src="//datawrapper.dwcdn.net/GohdQ/3/"
             scrolling="no"
-            frameborder="0"
-            style={{ width: 0, 'min-width': '100%' }}
+            frameBorder="0"
+            style={{ width: 0, minWidth: '100%' }}
             height="260"
           />
         </GridCell>
