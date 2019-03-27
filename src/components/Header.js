@@ -13,9 +13,11 @@ export default function AppHeader(props) {
           <Logo />
         </TopAppBarSection>
         <TopAppBarSection alignEnd>
-          <Link className="header__nav-item" to="/regions">
-            Alle Regionen
-          </Link>
+          {props.children || (
+            <Link className="header__nav-item" to="/regions">
+              Alle Regionen
+            </Link>
+          )}
         </TopAppBarSection>
       </TopAppBarRow>
     </TopAppBar>

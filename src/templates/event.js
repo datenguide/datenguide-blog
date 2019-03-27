@@ -1,6 +1,6 @@
 import React from 'react'
 import { Grid, GridCell } from 'rmwc/Grid'
-import { graphql } from 'gatsby'
+import { graphql, Link } from 'gatsby'
 
 import PageMeta from '../components/PageMeta'
 import Layout from '../components/Layout'
@@ -26,6 +26,7 @@ export default ({ data, location }) => {
     teasers,
     schedule,
     lang,
+    langSwitch,
     metaImage,
     description,
     signup
@@ -41,7 +42,11 @@ export default ({ data, location }) => {
         image={metaImage}
       />
 
-      <Header />
+      <Header>
+        <Link className="header__nav-item" to={langSwitch.link}>
+          {langSwitch.name}
+        </Link>
+      </Header>
 
       <HeroEvent title={title} tagline={tagline} meta={meta} />
 
@@ -85,7 +90,7 @@ export default ({ data, location }) => {
             scrolling="no"
             frameborder="0"
             style={{ width: 0, 'min-width': '100%' }}
-            height="270"
+            height="260"
           />
         </GridCell>
       </Grid>
@@ -125,6 +130,10 @@ export const query = graphql`
         lang
         description
         metaImage
+        langSwitch {
+          link
+          name
+        }
         signup {
           url
           name
