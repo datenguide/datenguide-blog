@@ -8,8 +8,8 @@ langSwitch:
 description: We are calling all designers, programmers, journalists, statisticians, creators, and policy nerds! Join the Wahlsalon election hackathon and use your skills and ideas to make democracy more accessible for everyone.
 metaImage: '/images/wahlsalon_social_de.png'
 tagline: |-
-  With Open Data, Code and Design 
-  Against Disinformation 
+  With Open Data, Code and 
+  Design Against Disinformation 
   and Political Apathy
 longDate: April 6-7, 2019
 meta: Berlin — April 6-7, 2019
@@ -73,12 +73,12 @@ schedule:
         name: Wrapping up
 ---
 
-2019 is packed with elections. In addition to the upcoming European election, there will be a range of other elections across Europe, including state and municipal elections in many parts of Germany. While everyone gets ready for the elections, we see a rise in populism, disinformation, and political apathy. Against this background, free access to data on the constituencies and knowledge about the background and functioning of the elections is essential for democracy.
+2019 is packed with elections. In addition to the upcoming European election, there will be a range of other elections across Europe, including state and municipal elections in many parts of Germany. With the elections approaching, we see a rise in populism, disinformation, but also in political apathy. Against this background, free access to data on the constituencies and knowledge about the background and functioning of the elections is essential for democracy.
 
 The Wahlsalon [vaːlˈsalɔn] is a two-day event that brings the civic tech community together with people from journalism, politics and civil society organisations. Together we work with open data and develop digital tools to better inform voters and motivate them to participate. We are calling all designers, programmers, journalists, statisticians, creators, and policy nerds! Join us and use your skills and ideas to make democracy more accessible for everyone.
 
-<a href="https://www.meetup.com/de-DE/OK-Lab-Berlin/events/259818253/" class="mdc-button mdc-button--outlined mdc-ripple-upgraded mdc-ripple-upgraded--foreground-activation">Join us!</a>
+Wahlsalon 2019 is a project by [Code for Germany](https://codefor.de) and [Datenguide](https://datengui.de).
+
+<a href="https://www.meetup.com/de-DE/OK-Lab-Berlin/events/259818253/" class="mdc-button mdc-button--outlined mdc-ripple-upgraded mdc-ripple-upgraded--foreground-activation">Sign-up now!</a>
 
 **Participation is free.** Please sing-up via [meetup.com](https://www.meetup.com/de-DE/OK-Lab-Berlin/events/259818253/) or let us know via [email](wahlsalon@datengui.de) so we thet know how many people to expect.
-
-Wahlsalon 2019 is a joint project by [Code for Germany](https://codefor.de) and [Datenguide](https://datengui.de).

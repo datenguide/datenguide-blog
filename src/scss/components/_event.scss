@@ -9,10 +9,7 @@
 .event__main {
   padding-right: 2rem;
   hyphens: auto;
-
-  p:first-child {
-    font-size: $font-size-title;
-  }
+  font-size: $font-size-title;
 }
 
 .event__meta {
