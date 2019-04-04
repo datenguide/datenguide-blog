@@ -48,7 +48,17 @@ schedule:
       - time: '10:00'
         name: Empfang
       - time: '10:30'
-        name: Beginn mit Vorträgen und Ideenfindung
+        name: Einführung und Vorträge
+        content: |-
+          Kurze Vorträge von:
+          <ul>
+            <li>Kira Schacht, <a href="https://journocode.com/">Journocode</a></li>
+            <li>Daniel Kraft, <a href="https://mamo.de">Mannheimer Morgen</a>, <a href="http://ddjbw.de/">DDJBW</a></li>
+            <li>Torsten Rink und Heidrun Stirner, <a href="https://www.destatis.de">Destatis</a></li>
+          </ul>
+      - time: '11:30'
+        name: Start mit Ideen-Pitches und Teambildung
+        content: <a href="https://hackmd.okfn.de/W7hPu9VNTyif6xPalc8SEg">Tragt Eure Ideen ein</a>
       - time: '13:30'
         name: Mittagessen
       - time: '14:30'
@@ -58,14 +68,14 @@ schedule:
         name: Abendessen
       - time: 'bis 22:00'
         name: Hacken und Socializing
-        content: mehr Zeit für gemeinsames Arbeiten und Pläne schmieden
+        content: Mehr Zeit für gemeinsames Arbeiten und Pläne schmieden
   - date: Sonntag, 7. April 2019
     items:
       - time: '10:00'
         name: Empfang
       - time: '10:30'
         name: Hacken!
-        content: Zeit für Teamarbeit und spontane Workshops
+        content: Zeit für gemeinsames Arbeiten und spontane Workshops
       - time: '13:30'
         name: Mittagessen
       - time: '14:30'

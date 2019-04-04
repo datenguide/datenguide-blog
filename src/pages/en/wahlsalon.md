@@ -46,29 +46,39 @@ schedule:
       - time: '10:00'
         name: Doors open
       - time: '10:30'
+        name: Intropduction and talks
+        content: |-
+          Short talks by:
+          <ul>
+            <li>Kira Schacht, <a href="https://journocode.com/">Journocode</a></li>
+            <li>Daniel Kraft, <a href="https://mamo.de">Mannheimer Morgen</a>, <a href="http://ddjbw.de/">DDJBW</a></li>
+            <li>Torsten Rink and Heidrun Stirner, <a href="https://www.destatis.de">Destatis</a></li>
+          </ul>
+      - time: '11:30'
         name: Sharing ideas and building teams
+        content: <a href="https://hackmd.okfn.de/W7hPu9VNTyif6xPalc8SEg">Submit your ideas</a>
       - time: '13:30'
         name: Lunch
       - time: '14:30'
         name: Hacking!
-        content: Hands-on workshops and working on projects
+        content: Time for hands-on workshops and working on projects
       - time: '18:00'
         name: Dinner
       - time: 'bis 22:00'
         name: Hacking and socializing
-        content: more time for making plans and working on projects
+        content: More time for making plans and working on projects
   - date: Sonntag, 7. April 2019
     items:
       - time: '10:00'
-        name: Empfang
+        name: Doors open
       - time: '10:30'
         name: Hacking!
-        content: Hands-on workshops and working on projects
+        content: Time for hands-on workshops and working on projects
       - time: '13:30'
         name: Lunch
       - time: '14:30'
         name: Final presentations
-        content: public, no registration required
+        content: Public, no registration required
       - time: '16:00'
         name: Wrapping up
 ---

@@ -14,7 +14,7 @@ export default function Schedule({ dates }) {
               <dt>{time}</dt>
               <dd>
                 <h4 className="schedule__title">{name}</h4>
-                {content}
+                <div dangerouslySetInnerHTML={{ __html: content }} />
               </dd>
             </React.Fragment>
           ))}
