@@ -6,6 +6,18 @@
   padding: 15px 0;
 }
 
+.event__teaser__intro {
+  @include mq(tablet) {
+    column-count: 2;
+    column-gap: 30px;
+    hyphens: auto;
+  }
+
+  a {
+    display: inline-block;
+  }
+}
+
 .event__main {
   padding-right: 2rem;
   hyphens: auto;

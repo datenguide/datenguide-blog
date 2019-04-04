@@ -97,9 +97,12 @@ export default ({ data, location }) => {
 
       <div className="event__teaser">
         <Grid>
-          <GridCell span="12" className="event__main">
+          <GridCell span="12">
             <h2>{teasers.title}</h2>
-            <p>{teasers.intro}</p>
+            <div
+              className="event__teaser__intro"
+              dangerouslySetInnerHTML={{ __html: teasers.intro }}
+            />
           </GridCell>
         </Grid>
         <TeaserGroup items={teasers.items} />

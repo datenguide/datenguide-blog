@@ -24,10 +24,8 @@ venue:
 teasers:
   title: 'Inspiration: Woran könntet Ihr beim Wahlsalon arbeiten?'
   intro: |-
-    Beim Wahlsalon arbeiten wir an digitalen Tools,
-    Datenvisualisierungen und Analysen rund um die anstehenden Wahlen.
-    Diese Beispiele sollen zeigen, woran ihr beim Wahlsalon arbeiten
-    könntet. Ihr habt schon eigene Projektideen? Lasst es uns wissen!
+    Beim Wahlsalon arbeiten wir an digitalen Tools, Visualisierungen und Analysen rund um die anstehenden Wahlen. Diese Beispiele zeigen, woran wir beim Wahlsalon arbeiten könnten. Ihr habt schon eigene Projektideen? Wir haben begonnen, Ideen, Datensätze und inspirierende Projekte zu sammeln. 
+    <a href="https://hackmd.okfn.de/W7hPu9VNTyif6xPalc8SEg">Tragt Eure Ideen hier ein!</a>
   items:
     - name: 'Wahltraud: Der Wahl-Chatbot'
       description: 'Dieser Chatbot beantwortet Fragen zu Kandidaten, Parteien und Wahlprogrammen auf Basis verschiedener Datenquellen. Er wurde beim WDR entwickelt und unter MIT-Lizenz veröffentlicht.'

@@ -23,7 +23,7 @@ venue:
 teasers:
   title: 'Inspiration: What to do at the Wahlsalon?'
   intro: |-
-    At the Wahlsalon, we are working on digital tools, data visualizations and analyses around open data and the upcoming elections. These examples are intended to show what you could be working on at the Wahlsalon. Do you already have your own project ideas? Let us know!
+    At the Wahlsalon, we work on digital tools, data visualizations and analyses around open data and the upcoming elections. These examples are intended to show what you could be working on at the Wahlsalon. Do you already have your own project ideas ready? We have started to collect ideas, data sets, and inspirational projects. <a href="https://hackmd.okfn.de/W7hPu9VNTyif6xPalc8SEg">Add your ideas here!</a>
   items:
     - name: 'Wahltraud chatbot'
       description: 'This chatbot answers questions about candidates, parties and election programs based on various data sources. It was developed at broadcaster WDR and published under MIT license.'
