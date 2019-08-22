@@ -1,8 +1,7 @@
 ---
 title: 'Datenguide'
 template: 'home'
-intro:
-  'Der Datenguide hilft dir dabei, dich im Dschungel der Statistiken zurecht zu finden.'
+intro: 'Der Datenguide hilft dir dabei, dich im Dschungel der Statistiken zurecht zu finden.'
 ---
 
 ## Über dieses Projekt
@@ -15,6 +14,6 @@ Wir wollen alle in die Lage versetzen, die Regionalstatistik zu verstehen und si
 
 ## Der Datenguide ist in Arbeit
 
-Momentan arbeiten wir an einem Prototyp für den Datenguide. Eine erste Version wurde bei der [re:publica 2018](https://18.re-publica.com/session/statistik-alle-wir-hacken-statistische-bundesamt) präsentiert. Bis Ende 2018 öffnen wir den Datenguide Schritt für Schritt für Nutzer\*innen. Um auf dem Laufenden zu bleiben, abonniert den [Datenguide Newsletter](#newsletter) oder folgt uns auf [Twitter](https://twitter.com/datenguide).
+Wir arbeiten momentan an der ersten Version des Datenguides, die für die breite Öffentlichkeit bestimmt ist. Prototypen wurden bei der [re:publica 2018](https://18.re-publica.com/session/statistik-alle-wir-hacken-statistische-bundesamt) und dem [35. Chaos Communication Congress](https://media.ccc.de/v/35c3-32-datenguide-projektvorstellung-workshop) präsentiert. In den nächsten Wochen öffnen wir den Datenguide Schritt für Schritt für Nutzer\*innen. Um auf dem Laufenden zu bleiben, abonniert den [Datenguide Newsletter](#newsletter) oder folgt uns auf [Twitter](https://twitter.com/datenguide).
 
-Der Datenguide wird durch das [MIZ Babelsberg](https://www.miz-babelsberg.de/) gefördert und ist Empfänger des [Grow-Stipendiums](https://netzwerkrecherche.org/ziele/gemeinnuetziger-journalismus/grow-stipendien/) von Netzwerk Recherche e.V. und der Schöpflin Stiftung. Von September 2017 bis Februar 2018 wurde das Projekt im Rahmen des [Prototype Fund](https://prototypefund.de/) von der Open Knowledge Foundation Deutschland und dem Bundesministerium für Bildung und Forschung gefördert.
+Der Datenguide wird derzeit durch das [MIZ Babelsberg](https://www.miz-babelsberg.de/) gefördert. Davor war das Projekt Empfänger eines [Grow-Stipendiums](https://netzwerkrecherche.org/ziele/gemeinnuetziger-journalismus/grow-stipendien/) von Netzwerk Recherche e.V. und der Schöpflin Stiftung. Außerdem wurde es im Rahmen des [Prototype Fund](https://prototypefund.de/) von der Open Knowledge Foundation Deutschland und dem Bundesministerium für Bildung und Forschung unterstützt.
