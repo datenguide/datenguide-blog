@@ -30,7 +30,7 @@ export default function ArticleList({ articles }) {
 export const query = graphql`
   fragment ArticleList on Query {
     articleList: allMarkdownRemark(
-      filter: { fields: { slug: { regex: "//blog/..*$/" } } }
+      filter: { fields: { slug: { regex: "//posts/..*$/" } } }
       sort: { fields: [frontmatter___date], order: DESC }
     ) {
       edges {

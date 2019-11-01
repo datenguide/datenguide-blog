@@ -1,6 +1,6 @@
 # Datenguide
 
-This repository contains the source code for the [datengui.de blog](http://datengui.de). For general information about the Datenguide project, see the main [Datenguide repository](http://github.com/datenguide/datenguide).
+This repository contains the source code for the [datengui.de blog](http://blog.datengui.de). For general information about the Datenguide project, see the main [Datenguide repository](http://github.com/datenguide/datenguide).
 
 This project uses a [JAMstack](https://jamstack.org/) approach:
 
@@ -109,7 +109,7 @@ An overview of the files and directories you'll work with when contributing to t
 
 9.  **`/src/assets`**: This directory contains any assets, such as images, etc. The content of this directory is processed through the [Webpack module bundler](https://webpack.js.org/).
 
-10. **`/src/blog`**: This directory contains blog posts, ordered by year. Each blog post has its own directory which includes a markdown file and all images used in the blog post. The blog post's slug is based on the directory's path name.
+10. **`/src/posts`**: This directory contains blog posts, ordered by year. Each blog post has its own directory which includes a markdown file and all images used in the blog post. The blog post's slug is based on the directory's path name.
 
 11. **`/src/components`**: This directory contains individual UI components used in the web application. Typically, a UI component consists of a [React component](https://reactjs.org/docs/react-component.html) and an optional [GraphQL query](https://www.gatsbyjs.org/tutorial/part-four/).
 

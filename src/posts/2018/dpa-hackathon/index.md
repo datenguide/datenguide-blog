@@ -1,7 +1,6 @@
 ---
 title: 'Projekt „Regio Reports“ gewinnt API-Preis beim dpa-Hackathon'
-description:
-  'Regio Reports nutzt die Technologie von Datenguide, um datengetriebenen Journalismus in Lokalredaktionen zu bringen'
+description: 'Regio Reports nutzt die Technologie von Datenguide, um datengetriebenen Journalismus in Lokalredaktionen zu bringen'
 author: Anna Behrend
 date: '2018-12-06'
 template: 'article'
