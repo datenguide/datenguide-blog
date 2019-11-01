@@ -1,0 +1,61 @@
+@import '~sass-mq/mq';
+@import '../_variables.scss';
+
+.schedule__day {
+  margin-bottom: 3rem;
+}
+
+.schedule__date {
+  font-weight: 600;
+  margin: 1.66rem 0 0 0;
+  color: $color-blue-dark;
+}
+
+.schedule__list {
+  overflow: hidden;
+  line-height: 1.5;
+  margin: 0.33rem 0 0 0;
+
+  ul {
+    margin: 0;
+  }
+
+  dt {
+    display: block;
+    margin: 0;
+  }
+
+  dd {
+    display: block;
+    color: $color-gray-dark;
+    margin: 0 0 0.66rem 0;
+  }
+
+  a {
+    color: $color-gray-dark;
+  }
+
+  @include mq(tablet) {
+    dt {
+      width: 15%;
+      display: block;
+      float: left;
+      clear: both;
+      margin: 0.33rem 0 0 0;
+    }
+
+    dd {
+      width: 85%;
+      display: block;
+      float: right;
+      margin: 0.33rem 0 0 0;
+      color: $color-gray-dark;
+    }
+  }
+}
+
+.schedule__title {
+  font-weight: 600;
+  margin: 0;
+  color: black;
+}

@@ -1,0 +1,54 @@
+@import '~sass-mq/mq';
+@import '../_variables.scss';
+
+.event__teaser {
+  background: $color-gray-light;
+  padding: 15px 0;
+}
+
+.event__teaser__intro {
+  @include mq(tablet) {
+    column-count: 2;
+    column-gap: 30px;
+    hyphens: auto;
+  }
+
+  a {
+    display: inline-block;
+  }
+}
+
+.event__main {
+  padding-right: 2rem;
+  hyphens: auto;
+  font-size: $font-size-title;
+}
+
+.event__meta {
+  list-style: none;
+  padding: 0;
+  margin: 1.5rem 0 1rem 0;
+
+  li {
+    position: relative;
+    line-height: 1.8rem;
+    left: 1.8rem;
+    font-weight: bold;
+    color: $color-blue-darker;
+  }
+
+  svg {
+    position: absolute;
+    top: 0.2rem;
+    left: -1.8rem;
+  }
+}
+
+.event__meta__link {
+  display: block;
+  position: relative;
+  top: -0.4rem;
+  color: $color-gray-darker;
+  font-weight: normal;
+  font-size: $font-size-accent;
+}

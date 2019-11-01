@@ -1,7 +1,6 @@
 ---
 title: 'Der Datenguide beim 35C3'
-description:
-  'Trefft uns beim 35. Chaos Communication Congress (35C3) in Leipzig'
+description: 'Trefft uns beim 35. Chaos Communication Congress (35C3) in Leipzig'
 author: Simon Jockers
 date: '2018-12-27'
 template: 'article'

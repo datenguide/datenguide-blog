@@ -4,13 +4,13 @@
 .hero {
   background-color: $color-blue-light;
   padding: 1rem 0;
+  border-bottom: 1px solid #44707f;
 
   @include mq(tablet) {
     background-image: url('../../assets/images/hero_village.svg');
     background-repeat: no-repeat, no-repeat;
     background-size: 470px auto;
     background-position: 105% bottom;
-    border-bottom: 1px solid #44707f;
   }
 
   @include mq(desktop) {
@@ -26,10 +26,11 @@
   margin: 0.65rem 0;
   font-weight: bold;
   line-height: 1.2;
-  font-size: 2.2rem;
+  font-size: 1.8rem;
 
   @include mq(tablet) {
-    width: 80%;
+    font-size: 2.2rem;
+    width: 580px;
   }
 }
 
@@ -55,7 +56,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  min-height: 420px;
+  min-height: 350px;
   background-image: url('../../assets/images/hero_village.svg'),
     url('../../assets/images/hero_city.svg');
   background-repeat: no-repeat, no-repeat;
@@ -78,5 +79,60 @@
   .hero__search {
     width: 60%;
     margin: 2rem auto 0 auto;
+  }
+}
+
+.hero--event {
+  padding: 2rem 0;
+
+  @include mq(mobile) {
+    background-image: url('../../assets/images/hero_event.svg');
+    background-repeat: no-repeat, no-repeat;
+    background-size: 600px auto;
+    background-position: 250px center;
+    border-bottom: 1px solid #44707f;
+  }
+
+  @include mq(tablet) {
+    background-position: 450px center;
+  }
+
+  @include mq(desktop) {
+    background-position: calc(50% + 300px) center;
+  }
+
+  .hero__title {
+    margin-bottom: 1.3rem;
+  }
+
+  .hero__tagline {
+    line-height: 1.4;
+    font-size: 2.2rem;
+    font-weight: bold;
+    position: relative;
+    margin-left: -0.65rem;
+
+    @include mq(tablet) {
+      white-space: pre-wrap;
+    }
+
+    span {
+      background-color: $color-yellow;
+      color: $color-black;
+      display: inline;
+      padding: 0.3rem 0.65rem;
+
+      /* Needs prefixing */
+      box-decoration-break: clone;
+      -webkit-box-decoration-break: clone;
+    }
+  }
+
+  .hero__meta {
+    display: block;
+    margin: 1.3rem 0;
+    line-height: 1.4;
+    font-size: $font-size-title;
+    color: $color-black;
   }
 }

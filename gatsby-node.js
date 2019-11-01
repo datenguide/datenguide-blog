@@ -84,41 +84,42 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
     })
   })
 
-  const regionsGenerator = new Promise((resolve, reject) => {
-    graphql(regionsQuery).then(result => {
-      result.data.allMarkdownRemark.edges.map(({ node }) => {
-        if (node.frontmatter.slug) {
-          createPage({
-            path: node.frontmatter.slug,
-            component: getTemplate('region'),
-            context: {
-              id: node.frontmatter.id,
-              comparison: node.frontmatter.comparison,
-              slug: node.frontmatter.slug
-            }
-          })
-        }
-      })
-      resolve()
-    })
-  })
+  // const regionsGenerator = new Promise((resolve, reject) => {
+  //   graphql(regionsQuery).then(result => {
+  //     result.data.allMarkdownRemark.edges.map(({ node }) => {
+  //       if (node.frontmatter.slug) {
+  //         createPage({
+  //           path: node.frontmatter.slug,
+  //           component: getTemplate('region'),
+  //           context: {
+  //             id: node.frontmatter.id,
+  //             comparison: node.frontmatter.comparison,
+  //             slug: node.frontmatter.slug
+  //           }
+  //         })
+  //       }
+  //     })
+  //     resolve()
+  //   })
+  // })
 
-  return Promise.all([regionsGenerator, staticPagesGenerator])
+  // return Promise.all([regionsGenerator, staticPagesGenerator])
+  return staticPagesGenerator
 }
 
-exports.onPreExtractQueries = () => {
-  // Write fragments from *.graphql files to cache so they can be processed by relay
-  const fragmentPath = `${__dirname}/.cache/fragments/external-component-fragments.js`
-  const queryFragments = glob
-    .sync('./src/components/**/*.graphql')
-    .map(filename => ({
-      name: path.basename(filename, '.graphql'),
-      body: fs.readFileSync(filename, 'utf8')
-    }))
-    .reduce(fragmentTemplate, '/* generated from gatsby-node.js */')
+// exports.onPreExtractQueries = () => {
+//   // Write fragments from *.graphql files to cache so they can be processed by relay
+//   const fragmentPath = `${__dirname}/.cache/fragments/external-component-fragments.js`
+//   const queryFragments = glob
+//     .sync('./src/components/**/*.graphql')
+//     .map(filename => ({
+//       name: path.basename(filename, '.graphql'),
+//       body: fs.readFileSync(filename, 'utf8')
+//     }))
+//     .reduce(fragmentTemplate, '/* generated from gatsby-node.js */')
 
-  fs.writeFileSync(fragmentPath, queryFragments)
-}
+//   fs.writeFileSync(fragmentPath, queryFragments)
+// }
 
 exports.onCreateWebpackConfig = ({ actions, stage }) => {
   // Exclude MapboxGL during `build-html` stage

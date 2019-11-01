@@ -1,0 +1,29 @@
+@import '~sass-mq/mq';
+@import '../_variables.scss';
+
+.teaser-group__card__title {
+  font-size: $font-size-title;
+}
+
+.teaser-group__card__image {
+  width: 100%;
+}
+
+.teaser-group__card__link {
+  text-decoration: none;
+}
+
+.teaser-group__card__wrapper {
+  padding: 0 1rem;
+  display: block;
+  color: $color-black;
+  hyphens: auto;
+
+  @include mq(tablet) {
+    min-height: 15rem;
+  }
+
+  @include mq(desktop) {
+    min-height: 13rem;
+  }
+}

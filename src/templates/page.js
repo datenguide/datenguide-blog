@@ -5,7 +5,6 @@ import { graphql } from 'gatsby'
 import Layout from '../components/Layout'
 import Header from '../components/Header'
 import Newsletter from '../components/Newsletter'
-import Funders from '../components/Funders'
 import Footer from '../components/Footer'
 
 export default ({ data }) => {
@@ -18,12 +17,6 @@ export default ({ data }) => {
         <GridCell span="8">
           <h3>{page.frontmatter.title}</h3>
           <div dangerouslySetInnerHTML={{ __html: page.html }} />
-        </GridCell>
-      </Grid>
-
-      <Grid>
-        <GridCell span="6">
-          <Funders />
         </GridCell>
       </Grid>
 
