@@ -1,5 +1,4 @@
 import React from 'react'
-import { Link } from 'gatsby'
 import { Grid, GridCell } from 'rmwc/Grid'
 import GithubCircleIcon from 'mdi-react/GithubCircleIcon'
 
@@ -19,12 +18,18 @@ export default function AppFooter(props) {
           </a>
         </GridCell>
         <GridCell span="5">
-          <Link className="footer__link footer__link--contact" to="/contact">
+          <a
+            className="footer__link footer__link--contact"
+            href="https://datengui.de/info/kontakt"
+          >
             Kontakt und Impressum
-          </Link>
-          <Link className="footer__link footer__link--privacy" to="/privacy">
+          </a>
+          <a
+            className="footer__link footer__link--privacy"
+            href="https://datengui.de/info/datenschutz"
+          >
             Datenschutz
-          </Link>
+          </a>
         </GridCell>
       </Grid>
     </footer>
