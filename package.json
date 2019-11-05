@@ -57,7 +57,7 @@
   },
   "devDependencies": {
     "gh-pages": "^1.1.0",
-    "husky": "^0.14.3",
+    "husky": "^3.0.9",
     "prettier": "^1.16.4",
     "pretty-quick": "^1.4.1"
   },
