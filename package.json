@@ -51,7 +51,7 @@
     "react-helmet": "^5.2.0",
     "rmwc": "^3.0.0",
     "sass-mq": "^4.0.2",
-    "typeface-ibm-plex-sans": "^0.0.61",
+    "typeface-ibm-plex-sans": "^0.0.75",
     "victory": "^0.27.0",
     "webpack": "^4.0.0"
   },
