@@ -50,7 +50,7 @@
     "react-dom": "^16.6.0",
     "react-helmet": "^5.2.0",
     "rmwc": "^3.0.0",
-    "sass-mq": "^4.0.2",
+    "sass-mq": "^5.0.1",
     "typeface-ibm-plex-sans": "^0.0.61",
     "victory": "^0.27.0",
     "webpack": "^4.0.0"
