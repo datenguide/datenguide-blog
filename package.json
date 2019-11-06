@@ -59,7 +59,7 @@
     "gh-pages": "^1.1.0",
     "husky": "^3.0.9",
     "prettier": "^1.16.4",
-    "pretty-quick": "^1.4.1"
+    "pretty-quick": "^2.0.1"
   },
   "homepage": "https://datengui.de",
   "license": "MIT",
