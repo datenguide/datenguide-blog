@@ -1,4 +1,6 @@
-# Datenguide
+# Datenguide Blog
+
+[![Build Status](https://travis-ci.com/datenguide/datenguide-blog.svg?branch=master)](https://travis-ci.com/datenguide/datenguide-blog)
 
 This repository contains the source code for the [datengui.de blog](http://blog.datengui.de). For general information about the Datenguide project, see the main [Datenguide repository](http://github.com/datenguide/datenguide).
 
