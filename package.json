@@ -52,7 +52,7 @@
     "rmwc": "^3.0.0",
     "sass-mq": "^4.0.2",
     "typeface-ibm-plex-sans": "^0.0.61",
-    "victory": "^0.27.0",
+    "victory": "^33.1.3",
     "webpack": "^4.0.0"
   },
   "devDependencies": {
