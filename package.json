@@ -37,6 +37,7 @@
     "gatsby-source-graphql": "^2.0.6",
     "gatsby-transformer-remark": "^2.1.12",
     "gatsby-transformer-sharp": "^2.1.8",
+    "gitmoji-cli": "^3.0.0",
     "lodash": "^4.17.5",
     "mapbox-gl": "^0.51.0-beta.2",
     "mdi-react": "^5.3.0",
@@ -52,6 +53,7 @@
     "rmwc": "^3.0.0",
     "sass-mq": "^4.0.2",
     "typeface-ibm-plex-sans": "^0.0.61",
+    "update": "^0.7.4",
     "victory": "^0.27.0",
     "webpack": "^4.0.0"
   },
