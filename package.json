@@ -38,7 +38,7 @@
     "gatsby-transformer-remark": "^2.1.12",
     "gatsby-transformer-sharp": "^2.1.8",
     "lodash": "^4.17.5",
-    "mapbox-gl": "^0.51.0-beta.2",
+    "mapbox-gl": "^1.5.1",
     "mdi-react": "^5.3.0",
     "node-sass": "^4.10.0",
     "normalize.css": "^8.0.0",
