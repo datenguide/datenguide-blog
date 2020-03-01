@@ -34,7 +34,7 @@
     "gatsby-remark-images": "^2.0.6",
     "gatsby-remark-prismjs": "^3.0.3",
     "gatsby-source-filesystem": "^2.0.7",
-    "gatsby-source-graphql": "^2.0.6",
+    "gatsby-source-graphql": "^2.1.33",
     "gatsby-transformer-remark": "^2.1.12",
     "gatsby-transformer-sharp": "^2.1.8",
     "gitmoji-cli": "^3.0.0",
