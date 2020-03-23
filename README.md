@@ -1,6 +1,6 @@
 # Datenguide Blog
 
-This repository is deprecated, the Datenguide Blog is now part of our main website, see github.com/datenguide/datenguide
+This repository is deprecated, the Datenguide Blog is now part of our main website, see [github.com/datenguide/datenguide]
 
 
 [![Build Status](https://travis-ci.com/datenguide/datenguide-blog.svg?branch=master)](https://travis-ci.com/datenguide/datenguide-blog)
