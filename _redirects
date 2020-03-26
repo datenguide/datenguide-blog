@@ -1,8 +1,13 @@
-# Redirect blog root to home
-https://blog.datengui.de/posts https://blog.datengui.de/ 301!
-
-# Redirect domain aliases to primary domain
-https://alpha.datengui.de/* https://blog.datengui.de/:splat 301!
+# Redirect legacy domain alias to datengui.de home page
+https://alpha.datengui.de/* https://datengui.de/
 
 # Redirect default Netlify subdomain to primary domain
 https://competent-wright-710e1e.netlify.com/* https://blog.datengui.de/:splat 301!
+
+# Redirect legacy blog root to datengui.de blog root
+https://blog.datengui.de/ https://datengui.de/blog 301!
+https://blog.datengui.de/posts https://datengui.de/blog 301!
+
+# Redirect legacy blog posts to blog posts in new datengui.de blog
+https://blog.datengui.de/posts/* https://datengui.de/blog/:splat 301!
+
