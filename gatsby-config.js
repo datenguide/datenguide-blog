@@ -20,6 +20,7 @@ module.exports = {
       resolve: 'gatsby-transformer-remark',
       options: {
         plugins: [
+          'gatsby-plugin-netlify',
           'gatsby-remark-copy-linked-files',
           `gatsby-remark-prismjs`,
           {
