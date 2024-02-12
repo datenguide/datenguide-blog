@@ -25,16 +25,12 @@ Alle diese Daten liegen in Regionalstatistik.de als normierte Werte (zum Beispie
 
 ### Schätzfragen zur Regionalstatistik
 
-[![Schätzfrage: Screenshot aus dem Revierderby](./screenshot_quiz.png)](https://revierderby.hacking.studio)
-
 **[Revierderby spielen](https://revierderby.hacking.studio)**
 
 ### Automatisch generierte Karten als Antwort
 
 Als Auflösung bekommen die Nutzer:innen im Revierderby automatisch generierte Karten für ganz Deutschland (Datenjournalismus) und potentielle News-Partner haben die Chance, ihren Content zu verlinken. Zum Beispiel, wenn die Lokalredaktion gerade über Arbeitslose vor Ort berichtet hat.
 Ziel ist es, dass Redaktionen das Gemeinschaftsgefühl in ihren Community stärken können (Köln gegen Bamberg) und anhand der Klicks im Game auch etwas über die Interessen und das Vorwissen ihrer Nutzer:innen erfahren.
-
-[![Karten als Ergebnis: Screenshot aus dem Revierderby](./screenshot_map.png)](https://revierderby.hacking.studio)
 
 ### Erfahrungen mit Newsgames sammeln
 
